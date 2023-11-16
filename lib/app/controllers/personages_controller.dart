@@ -6,24 +6,18 @@ import '../exceptions/api_exceptions.dart';
 import '../repositories/swapi_repository.dart';
 
 class PersonagesController with ChangeNotifier {
-  final Client _client;
+  final Client _client = Client();
 
-  PersonagesController(this._client);
-
-  late final SwapiRepository _repository;
+  late final _repository = SwapiRepository();
   List<Personages>? _list;
-  List<Personages>? _result;
+  List<Personages>? _resultSearch;
 
   List<Personages>? get list => _list;
-  List<Personages>? get result => _result;
-
-  void initializeRepository() {
-    _repository = SwapiRepository(_client);
-  }
+  List<Personages>? get resultSearch => _resultSearch;
 
   Future<void> getAllPersonages() async {
     try {
-      _list = await _repository.getAllPersonages();
+      _list = await _repository.getAllPersonages(_client);
       notifyListeners();
     } catch (e) {
       throw ApiException(
@@ -33,7 +27,7 @@ class PersonagesController with ChangeNotifier {
 
   Future<void> searchPersonages({required String value}) async {
     try {
-      _result = await _repository.searchPersonages(value: value);
+      _resultSearch = await _repository.searchPersonages(_client, value: value);
       notifyListeners();
     } catch (e) {
       throw ApiException(
@@ -42,7 +36,7 @@ class PersonagesController with ChangeNotifier {
   }
 
   void clearSearch() {
-    _result = [];
+    _resultSearch = [];
     notifyListeners();
   }
 
