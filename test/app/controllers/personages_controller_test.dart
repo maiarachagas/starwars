@@ -14,6 +14,7 @@ void main() {
   late MockSwapiRepository mockRepository;
   List<Personages> allPersonages = [];
   List<Personages> personages = [];
+  AllPersonages allInfoPersonages = AllPersonages();
 
   group('Personagens Controller', () {
     setUpAll(() {
@@ -30,15 +31,18 @@ void main() {
       personages = [
         Personages(name: 'Leia Organa'),
       ];
+
+      allInfoPersonages = AllPersonages(
+          count: 80, next: '2', previous: '0', personages: personages);
     });
 
     test('Obter todos os personagens', () async {
-      when(() => mockRepository.getAllPersonages(any()))
+      when(() => mockRepository.getPersonages(any()))
           .thenAnswer((_) async => allPersonages);
 
-      await personagesController.getAllPersonages();
+      await personagesController.getPersonages();
 
-      expect(personagesController.list!.isNotEmpty, equals(true));
+      expect(personagesController.personages!.isNotEmpty, equals(true));
     });
 
     test('Trazer um personagem específico', () async {
@@ -57,10 +61,29 @@ void main() {
       expect(personagesController.resultSearch!.isNotEmpty, equals(false));
     });
 
+    test('Listar Personagens por página', () async {
+      when(() => mockRepository.getPersonagesByPage(any(),
+          page: any(named: 'page'))).thenAnswer((_) async => allInfoPersonages);
+
+      await personagesController.getPersonagesByPage(page: '1');
+      expect(personagesController.allPersonages!.personages!.isNotEmpty,
+          equals(true));
+    });
+
+    test('Exibir personagens trazidos por página', () async {
+      when(() => mockRepository.getPersonagesByPage(any(),
+          page: any(named: 'page'))).thenAnswer((_) async => allInfoPersonages);
+
+      await personagesController.getPersonagesByPage(page: '1');
+
+      await personagesController.fetchPersonages();
+      expect(personagesController.personages!.isNotEmpty, equals(true));
+    });
+
     test('Limpar lista de todos personagens', () {
       personagesController.clearList();
 
-      expect(personagesController.list!.isEmpty, equals(true));
+      expect(personagesController.personages!.isEmpty, equals(true));
     });
 
     test('Limpar resultado de buscar personagens', () {

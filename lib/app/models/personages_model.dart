@@ -1,5 +1,45 @@
 import 'dart:convert';
 
+class AllPersonages {
+  int? count;
+  String? next;
+  String? previous;
+  List<Personages>? personages;
+
+  AllPersonages({this.count, this.next, this.previous, this.personages});
+
+  Map<String, dynamic> toMap() {
+    return {
+      'count': count,
+      'next': next,
+      'previous': previous,
+      'personages': personages?.map((x) => x.toMap()).toList(),
+    };
+  }
+
+  factory AllPersonages.fromMap(Map<String, dynamic> map) {
+    return AllPersonages(
+      count: map['count']?.toInt(),
+      next: map['next'],
+      previous: map['previous'],
+      personages: map['results'] != null
+          ? List<Personages>.from(
+              map['results']?.map((x) => Personages.fromMap(x)))
+          : null,
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory AllPersonages.fromJson(String source) =>
+      AllPersonages.fromMap(json.decode(source));
+
+  @override
+  String toString() {
+    return 'AllPersonages(count: $count, next: $next, previous: $previous, personages: $personages)';
+  }
+}
+
 class Personages {
   String? name;
   String? birthYear;
