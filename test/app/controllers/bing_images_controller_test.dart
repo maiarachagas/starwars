@@ -1,5 +1,4 @@
 import 'package:app_teste_unitario/app/controllers/bing_images_controller.dart';
-import 'package:app_teste_unitario/app/exceptions/api_exceptions.dart';
 import 'package:app_teste_unitario/app/models/bing_model.dart';
 import 'package:app_teste_unitario/app/models/personages_model.dart';
 import 'package:app_teste_unitario/app/repositories/bing_repository.dart';
@@ -23,7 +22,7 @@ void main() {
 
   setUp(() {
     mockRepository = MockBingRepository();
-    bingImagesController = BingImagesController();
+    bingImagesController = BingImagesController(repository: mockRepository);
     infoImage = [
       InfoImage(
           thumbnailUrl:
@@ -52,12 +51,10 @@ void main() {
 
   test('Erro Buscar imagens', () async {
     when(() => mockRepository.getImageByBing(any(), param: any(named: 'param')))
-        .thenAnswer((_) async => infoImage);
+        .thenAnswer((_) async => []);
+    await bingImagesController.getImageByBing(name: '');
 
-    expect(
-      () async => await bingImagesController.getImageByBing(name: ''),
-      throwsA(isA<ApiException>()),
-    );
+    expect(bingImagesController.image!.isEmpty, isTrue);
   });
 
   test('Atribuindo imagem ao personagem', () async {

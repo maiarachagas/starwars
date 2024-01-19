@@ -6,9 +6,12 @@ import '../models/bing_model.dart';
 import '../models/personages_model.dart';
 
 class BingImagesController with ChangeNotifier {
+  final BingRepository _repository;
+
+  BingImagesController({required BingRepository repository})
+      : _repository = repository;
   final Client _client = Client();
 
-  late final _repository = BingRepository();
   List<InfoImage>? _image;
   List imagePerson = [];
 

@@ -59,17 +59,15 @@ class SwapiRepository {
   }
 
   Future<AllPersonages> getPersonagesByPage(Client client,
-      {String? page}) async {
-    const endpoint = 'people';
-    var parameters = 'page=$page';
-    final url = Uri.parse('$_baseUrl/$endpoint?$parameters');
+      {String? param}) async {
+    final url = Uri.parse('$_baseUrl/people/?$param');
 
     try {
       var response = await client.get(url, headers: _headers);
 
       if (response.statusCode == 200) {
         var body = jsonDecode(response.body);
-        var list = AllPersonages.fromMap(body);
+        var list = AllPersonages.fromMap(body, url.toString());
 
         return list;
       } else {

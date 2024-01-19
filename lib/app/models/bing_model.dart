@@ -104,4 +104,9 @@ class InfoImage {
 
   factory InfoImage.fromJson(String source) =>
       InfoImage.fromMap(json.decode(source));
+
+  @override
+  String toString() {
+    return 'InfoImage(webSearchUrl: $webSearchUrl, name: $name, thumbnailUrl: $thumbnailUrl, datePublished: $datePublished, isFamilyFriendly: $isFamilyFriendly, contentUrl: $contentUrl, hostPageUrl: $hostPageUrl, contentSize: $contentSize, encodingFormat: $encodingFormat, hostPageDisplayUrl: $hostPageDisplayUrl, hostPageFavIconUrl: $hostPageFavIconUrl, hostPageDiscoveredDate: $hostPageDiscoveredDate, imageInsightsToken: $imageInsightsToken, imageId: $imageId, accentColor: $accentColor)';
+  }
 }

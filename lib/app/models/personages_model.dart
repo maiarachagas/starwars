@@ -3,10 +3,12 @@ import 'dart:convert';
 class AllPersonages {
   int? count;
   String? next;
+  String? current;
   String? previous;
   List<Personages>? personages;
 
-  AllPersonages({this.count, this.next, this.previous, this.personages});
+  AllPersonages(
+      {this.count, this.next, this.previous, this.current, this.personages});
 
   Map<String, dynamic> toMap() {
     return {
@@ -17,11 +19,12 @@ class AllPersonages {
     };
   }
 
-  factory AllPersonages.fromMap(Map<String, dynamic> map) {
+  factory AllPersonages.fromMap(Map<String, dynamic> map, String url) {
     return AllPersonages(
       count: map['count']?.toInt(),
+      current: url,
       next: map['next'],
-      previous: map['previous'],
+      previous: map['previous'] ?? 'page=0',
       personages: map['results'] != null
           ? List<Personages>.from(
               map['results']?.map((x) => Personages.fromMap(x)))
@@ -31,8 +34,8 @@ class AllPersonages {
 
   String toJson() => json.encode(toMap());
 
-  factory AllPersonages.fromJson(String source) =>
-      AllPersonages.fromMap(json.decode(source));
+  factory AllPersonages.fromJson(String source, String url) =>
+      AllPersonages.fromMap(json.decode(source), url);
 
   @override
   String toString() {
@@ -57,6 +60,7 @@ class Personages {
   String? url;
   String? created;
   String? edited;
+  String? thumbnailUrl;
 
   Personages({
     this.name,
@@ -75,6 +79,7 @@ class Personages {
     this.url,
     this.created,
     this.edited,
+    this.thumbnailUrl,
   });
 
   Map<String, dynamic> toMap() {
@@ -95,6 +100,7 @@ class Personages {
       'url': url,
       'created': created,
       'edited': edited,
+      'thumbnailUrl': thumbnailUrl,
     };
   }
 
@@ -116,6 +122,7 @@ class Personages {
       url: map['url'],
       created: map['created'],
       edited: map['edited'],
+      thumbnailUrl: map['thumbnailUrl'],
     );
   }
 
@@ -126,6 +133,6 @@ class Personages {
 
   @override
   String toString() {
-    return 'Personages(name: $name, birthYear: $birthYear, eyeColor: $eyeColor, gender: $gender, hairColor: $hairColor, height: $height, mass: $mass, skinColor: $skinColor, homeworld: $homeworld, films: $films, species: $species, starships: $starships, vehicles: $vehicles, url: $url, created: $created, edited: $edited)';
+    return 'Personages(name: $name, birthYear: $birthYear, eyeColor: $eyeColor, gender: $gender, hairColor: $hairColor, height: $height, mass: $mass, skinColor: $skinColor, homeworld: $homeworld, films: $films, species: $species, starships: $starships, vehicles: $vehicles, url: $url, created: $created, edited: $edited, image: $thumbnailUrl)';
   }
 }
