@@ -23,7 +23,7 @@ class BingImagesController with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> attributeImageToPerson(List<Personages> personages) async {
+  Future<void> attributeImageToPerson(List<Personage> personages) async {
     for (var person in personages) {
       await getImageByBing(name: person.name);
       imagePerson

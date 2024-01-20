@@ -18,9 +18,8 @@ void main() {
   late MockSwapiRepository mockRepository;
   late MockBingRepository mockBingRepository;
 
-  List<Personages> allPersonages = [];
-  List<Personages> personages = [];
-  AllPersonages allInfoPersonages = AllPersonages();
+  List<Personage> personage = [];
+  Personages personages = Personages();
   List<InfoImage> infoImage = [];
 
   group('Personagens Controller', () {
@@ -33,17 +32,14 @@ void main() {
       mockBingRepository = MockBingRepository();
       personagesController = PersonagesController(
           repository: mockRepository, bingRepository: mockBingRepository);
-      allPersonages = [
-        Personages(name: 'Luke Skywalker'),
-        Personages(name: 'Darth Vader'),
-        Personages(name: 'Leia Organa'),
-      ];
-      personages = [
-        Personages(name: 'Leia Organa'),
+      personage = [
+        Personage(name: 'Luke Skywalker'),
+        Personage(name: 'Darth Vader'),
+        Personage(name: 'Leia Organa'),
       ];
 
-      allInfoPersonages = AllPersonages(
-          count: 80, next: '2', previous: '0', personages: personages);
+      personages =
+          Personages(count: 80, next: '2', previous: '0', personage: personage);
 
       infoImage = [
         InfoImage(
@@ -60,19 +56,19 @@ void main() {
 
     test('Obter todos os personagens', () async {
       when(() => mockRepository.getPersonages(any()))
-          .thenAnswer((_) async => allPersonages);
+          .thenAnswer((_) async => personage);
 
       await personagesController.getPersonages();
 
-      expect(personagesController.personages!.isNotEmpty, equals(true));
+      expect(personagesController.personage!.isNotEmpty, equals(true));
     });
 
     test('Trazer um personagem específico', () async {
       when(() => mockRepository.searchPersonages(any(),
-          value: any(named: 'value'))).thenAnswer((_) async => personages);
+          value: any(named: 'value'))).thenAnswer((_) async => personage);
 
       await personagesController.searchPersonages(value: 'Leia');
-      expect(personagesController.resultSearch!.isNotEmpty, equals(true));
+      expect(personagesController.personage!.isNotEmpty, equals(true));
     });
 
     test('Personagem não encontrado', () async {
@@ -80,48 +76,41 @@ void main() {
           value: any(named: 'value'))).thenAnswer((_) async => []);
 
       await personagesController.searchPersonages(value: 'Lucas');
-      expect(personagesController.resultSearch!.isNotEmpty, equals(false));
+      expect(personagesController.personage!.isNotEmpty, equals(false));
     });
 
     test('Listar Personagens por página', () async {
       when(() => mockRepository.getPersonagesByPage(any(),
-              param: any(named: 'param')))
-          .thenAnswer((_) async => allInfoPersonages);
+          param: any(named: 'param'))).thenAnswer((_) async => personages);
 
       await personagesController.getPersonagesByPage(page: 'page=1');
-      expect(personagesController.allPersonages!.personages!.isNotEmpty,
-          equals(true));
+      expect(
+          personagesController.personages!.personage!.isNotEmpty, equals(true));
     });
 
     test('Exibir personagens trazidos por página', () async {
       when(() => mockRepository.getPersonagesByPage(any(),
-              param: any(named: 'param')))
-          .thenAnswer((_) async => allInfoPersonages);
+          param: any(named: 'param'))).thenAnswer((_) async => personages);
 
       await personagesController.getPersonagesByPage(page: 'page=1');
 
       await personagesController.fetchPersonages();
-      expect(personagesController.personages!.isNotEmpty, equals(true));
+      expect(personagesController.personage!.isNotEmpty, equals(true));
     });
 
     test('Limpar lista de todos personagens', () {
       personagesController.clearList();
 
-      expect(personagesController.personages!.isEmpty, equals(true));
-    });
-
-    test('Limpar resultado de buscar personagens', () {
-      personagesController.clearSearch();
-      expect(personagesController.resultSearch!.isEmpty, equals(true));
+      expect(personagesController.personage!.isEmpty, equals(true));
     });
 
     test('Atribuindo imagem ao personagem', () async {
       when(() => mockBingRepository.getImageByBing(any(),
           param: any(named: 'param'))).thenAnswer((_) async => infoImage);
-      await personagesController.attributeImageToPerson(allPersonages);
+      await personagesController.attributeImageToPerson(personage);
 
       expect(
-          personagesController.personages!
+          personagesController.personage!
               .any((element) => element.thumbnailUrl.toString().isNotEmpty),
           isTrue);
     });

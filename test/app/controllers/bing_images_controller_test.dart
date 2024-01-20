@@ -14,7 +14,7 @@ void main() {
   late BingImagesController bingImagesController;
   late MockBingRepository mockRepository;
   List<InfoImage> infoImage = [];
-  List<Personages> allPersonages = [];
+  List<Personage> allPersonages = [];
 
   setUpAll(() {
     registerFallbackValue(FakeClient());
@@ -35,9 +35,9 @@ void main() {
               'https://tse1.mm.bing.net/th?id=OIP.w25ZoCwIb9HMq9xZSNUWmgHaH4&pid=Api')
     ];
     allPersonages = [
-      Personages(name: 'Luke Skywalker'),
-      Personages(name: 'Darth Vader'),
-      Personages(name: 'R2D2'),
+      Personage(name: 'Luke Skywalker'),
+      Personage(name: 'Darth Vader'),
+      Personage(name: 'R2D2'),
     ];
   });
 
