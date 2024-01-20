@@ -9,7 +9,7 @@ class SwapiRepository {
   final String _baseUrl = 'https://swapi.dev/api';
   final Map<String, String> _headers = {'Content-type': 'application/json'};
 
-  Future<List<Personages>> getPersonages(Client client) async {
+  Future<List<Personage>> getPersonages(Client client) async {
     const endpoint = 'people';
     final url = Uri.parse('$_baseUrl/$endpoint');
 
@@ -20,7 +20,7 @@ class SwapiRepository {
         var body = jsonDecode(response.body);
         var list = body['results'] as List<dynamic>;
 
-        return list.map((value) => Personages.fromMap(value)).toList();
+        return list.map((value) => Personage.fromMap(value)).toList();
       } else {
         throw ApiException(
             message: 'Erro na requisição',
@@ -33,7 +33,7 @@ class SwapiRepository {
     }
   }
 
-  Future<List<Personages>> searchPersonages(Client client,
+  Future<List<Personage>> searchPersonages(Client client,
       {required String value}) async {
     const endpoint = 'people';
     final params = '?search=$value';
@@ -45,7 +45,7 @@ class SwapiRepository {
       if (response.statusCode == 200) {
         var body = jsonDecode(response.body);
         var list = body['results'] as List<dynamic>;
-        return list.map((value) => Personages.fromMap(value)).toList();
+        return list.map((value) => Personage.fromMap(value)).toList();
       } else {
         throw ApiException(
             message: 'Erro na requisição',
@@ -58,18 +58,15 @@ class SwapiRepository {
     }
   }
 
-  Future<AllPersonages> getPersonagesByPage(Client client,
-      {String? page}) async {
-    const endpoint = 'people';
-    var parameters = 'page=$page';
-    final url = Uri.parse('$_baseUrl/$endpoint?$parameters');
+  Future<Personages> getPersonagesByPage(Client client, {String? param}) async {
+    final url = Uri.parse('$_baseUrl/people/?$param');
 
     try {
       var response = await client.get(url, headers: _headers);
 
       if (response.statusCode == 200) {
         var body = jsonDecode(response.body);
-        var list = AllPersonages.fromMap(body);
+        var list = Personages.fromMap(body, url.toString());
 
         return list;
       } else {

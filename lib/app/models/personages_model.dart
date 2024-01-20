@@ -1,46 +1,49 @@
 import 'dart:convert';
 
-class AllPersonages {
+class Personages {
   int? count;
   String? next;
+  String? current;
   String? previous;
-  List<Personages>? personages;
+  List<Personage>? personage;
 
-  AllPersonages({this.count, this.next, this.previous, this.personages});
+  Personages(
+      {this.count, this.next, this.previous, this.current, this.personage});
 
   Map<String, dynamic> toMap() {
     return {
       'count': count,
       'next': next,
       'previous': previous,
-      'personages': personages?.map((x) => x.toMap()).toList(),
+      'personages': personage?.map((x) => x.toMap()).toList(),
     };
   }
 
-  factory AllPersonages.fromMap(Map<String, dynamic> map) {
-    return AllPersonages(
+  factory Personages.fromMap(Map<String, dynamic> map, String url) {
+    return Personages(
       count: map['count']?.toInt(),
+      current: url,
       next: map['next'],
-      previous: map['previous'],
-      personages: map['results'] != null
-          ? List<Personages>.from(
-              map['results']?.map((x) => Personages.fromMap(x)))
+      previous: map['previous'] ?? 'page=0',
+      personage: map['results'] != null
+          ? List<Personage>.from(
+              map['results']?.map((x) => Personage.fromMap(x)))
           : null,
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory AllPersonages.fromJson(String source) =>
-      AllPersonages.fromMap(json.decode(source));
+  factory Personages.fromJson(String source, String url) =>
+      Personages.fromMap(json.decode(source), url);
 
   @override
   String toString() {
-    return 'AllPersonages(count: $count, next: $next, previous: $previous, personages: $personages)';
+    return 'AllPersonages(count: $count, next: $next, previous: $previous, personages: $personage)';
   }
 }
 
-class Personages {
+class Personage {
   String? name;
   String? birthYear;
   String? eyeColor;
@@ -57,8 +60,9 @@ class Personages {
   String? url;
   String? created;
   String? edited;
+  String? thumbnailUrl;
 
-  Personages({
+  Personage({
     this.name,
     this.birthYear,
     this.eyeColor,
@@ -75,6 +79,7 @@ class Personages {
     this.url,
     this.created,
     this.edited,
+    this.thumbnailUrl,
   });
 
   Map<String, dynamic> toMap() {
@@ -95,11 +100,12 @@ class Personages {
       'url': url,
       'created': created,
       'edited': edited,
+      'thumbnailUrl': thumbnailUrl,
     };
   }
 
-  factory Personages.fromMap(Map<String, dynamic> map) {
-    return Personages(
+  factory Personage.fromMap(Map<String, dynamic> map) {
+    return Personage(
       name: map['name'],
       birthYear: map['birthYear'],
       eyeColor: map['eyeColor'],
@@ -116,16 +122,17 @@ class Personages {
       url: map['url'],
       created: map['created'],
       edited: map['edited'],
+      thumbnailUrl: map['thumbnailUrl'],
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory Personages.fromJson(String source) =>
-      Personages.fromMap(json.decode(source));
+  factory Personage.fromJson(String source) =>
+      Personage.fromMap(json.decode(source));
 
   @override
   String toString() {
-    return 'Personages(name: $name, birthYear: $birthYear, eyeColor: $eyeColor, gender: $gender, hairColor: $hairColor, height: $height, mass: $mass, skinColor: $skinColor, homeworld: $homeworld, films: $films, species: $species, starships: $starships, vehicles: $vehicles, url: $url, created: $created, edited: $edited)';
+    return 'Personages(name: $name, birthYear: $birthYear, eyeColor: $eyeColor, gender: $gender, hairColor: $hairColor, height: $height, mass: $mass, skinColor: $skinColor, homeworld: $homeworld, films: $films, species: $species, starships: $starships, vehicles: $vehicles, url: $url, created: $created, edited: $edited, image: $thumbnailUrl)';
   }
 }
