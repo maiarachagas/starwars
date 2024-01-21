@@ -1,6 +1,7 @@
 import 'package:app_teste_unitario/app/models/bing_model.dart';
 import 'package:app_teste_unitario/app/models/films_model.dart';
 import 'package:app_teste_unitario/app/models/planets_model.dart';
+import 'package:app_teste_unitario/app/models/species_model.dart';
 
 List<InfoImage> get infoImage => [
       InfoImage(
@@ -27,3 +28,12 @@ List<Planet> get planet => [
 
 Planets get planets =>
     Planets(count: 80, next: '2', previous: '0', planet: planet);
+
+List<Specie> get specie => [
+      Specie(name: 'Human'),
+      Specie(name: 'Droid'),
+      Specie(name: 'Wookie'),
+    ];
+
+Species get species =>
+    Species(count: 80, next: '2', previous: '0', specie: specie);
