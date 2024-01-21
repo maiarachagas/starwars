@@ -25,7 +25,7 @@ void main() {
     when(() => httpClient.get(any(), headers: any(named: 'headers')))
         .thenAnswer((_) async => Response('{"name": "Luke Skywalker"}', 200));
 
-    var response = await api.get(httpClient, 'people/1');
+    var response = await api.callGet(httpClient, 'people/1');
 
     expect(response.statusCode, 200);
     expect(response.body, '{"name": "Luke Skywalker"}');

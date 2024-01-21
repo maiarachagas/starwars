@@ -7,7 +7,7 @@ class SwapiApi {
 
   final Map<String, String> _headers = {'Content-type': 'application/json'};
 
-  Future<Response> get(Client client, String path) async {
+  Future<Response> callGet(Client client, String path) async {
     final url = Uri.parse(_baseUrl + path);
     final response = await client.get(url, headers: _headers);
     return response;

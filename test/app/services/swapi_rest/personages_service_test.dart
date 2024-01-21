@@ -1,5 +1,4 @@
 import 'package:app_teste_unitario/app/services/swapi_rest/personages_service.dart';
-import 'package:app_teste_unitario/app/services/swapi_rest/swapi_api.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:http/http.dart' as http;
@@ -20,8 +19,7 @@ void main() {
 
     setUp(() {
       httpClient = MockClient();
-      SwapiApi swapiApi = SwapiApi();
-      repository = PersonagesService(swapiApi: swapiApi);
+      repository = PersonagesService();
     });
 
     test('Trazer uma lista de personagens', () async {

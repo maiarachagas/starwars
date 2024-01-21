@@ -6,16 +6,12 @@ import 'package:http/http.dart';
 import '../../exceptions/api_exceptions.dart';
 import 'swapi_api.dart';
 
-class PersonagesService {
-  final SwapiApi swapiApi;
-
-  PersonagesService({required this.swapiApi});
-
+class PersonagesService extends SwapiApi {
   Future<List<Personage>> getPersonages(Client client) async {
     const endpoint = 'people';
 
     try {
-      var response = await swapiApi.get(client, endpoint);
+      var response = await callGet(client, endpoint);
 
       if (response.statusCode == 200) {
         var body = jsonDecode(response.body);
@@ -40,7 +36,7 @@ class PersonagesService {
     final params = '?search=$value';
 
     try {
-      var response = await swapiApi.get(client, endpoint + params);
+      var response = await callGet(client, endpoint + params);
 
       if (response.statusCode == 200) {
         var body = jsonDecode(response.body);
@@ -61,14 +57,14 @@ class PersonagesService {
   Future<Personages> getPersonagesByPage(Client client, {String? param}) async {
     const endpoint = 'people';
     final params = '?$param';
-    final url = swapiApi.baseUrl + endpoint + params;
+    final url = baseUrl + endpoint + params;
 
     try {
-      var response = await swapiApi.get(client, endpoint + params);
+      var response = await callGet(client, endpoint + params);
 
       if (response.statusCode == 200) {
         var body = jsonDecode(response.body);
-        var list = Personages.fromMap(body, url.toString());
+        var list = Personages.fromMap(body, url);
 
         return list;
       } else {
