@@ -1,5 +1,5 @@
 import 'package:app_teste_unitario/app/exceptions/api_exceptions.dart';
-import 'package:app_teste_unitario/app/repositories/bing_repository.dart';
+import 'package:app_teste_unitario/app/services/bing_rest/bing_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:http/http.dart' as http;

@@ -1,9 +1,9 @@
-import 'package:app_teste_unitario/app/repositories/bing_repository.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart';
 
 import '../models/bing_model.dart';
 import '../models/personages_model.dart';
+import '../services/bing_rest/bing_service.dart';
 
 class BingImagesController with ChangeNotifier {
   final BingRepository _repository;

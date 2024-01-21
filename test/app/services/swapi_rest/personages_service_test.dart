@@ -1,4 +1,5 @@
-import 'package:app_teste_unitario/app/repositories/swapi_repository.dart';
+import 'package:app_teste_unitario/app/services/swapi_rest/personages_service.dart';
+import 'package:app_teste_unitario/app/services/swapi_rest/swapi_api.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:http/http.dart' as http;
@@ -10,7 +11,7 @@ class FakeUri extends Fake implements Uri {}
 
 void main() {
   late http.Client httpClient;
-  late SwapiRepository repository;
+  late PersonagesService repository;
 
   group('Personagens Repository: ', () {
     setUpAll(() {
@@ -19,7 +20,8 @@ void main() {
 
     setUp(() {
       httpClient = MockClient();
-      repository = SwapiRepository();
+      SwapiApi swapiApi = SwapiApi();
+      repository = PersonagesService(swapiApi: swapiApi);
     });
 
     test('Trazer uma lista de personagens', () async {

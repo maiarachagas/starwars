@@ -3,18 +3,19 @@ import 'dart:convert';
 import 'package:app_teste_unitario/app/models/personages_model.dart';
 import 'package:http/http.dart';
 
-import '../exceptions/api_exceptions.dart';
+import '../../exceptions/api_exceptions.dart';
+import 'swapi_api.dart';
 
-class SwapiRepository {
-  final String _baseUrl = 'https://swapi.dev/api';
-  final Map<String, String> _headers = {'Content-type': 'application/json'};
+class PersonagesService {
+  final SwapiApi swapiApi;
+
+  PersonagesService({required this.swapiApi});
 
   Future<List<Personage>> getPersonages(Client client) async {
     const endpoint = 'people';
-    final url = Uri.parse('$_baseUrl/$endpoint');
 
     try {
-      var response = await client.get(url, headers: _headers);
+      var response = await swapiApi.get(client, endpoint);
 
       if (response.statusCode == 200) {
         var body = jsonDecode(response.body);
@@ -37,10 +38,9 @@ class SwapiRepository {
       {required String value}) async {
     const endpoint = 'people';
     final params = '?search=$value';
-    final url = Uri.parse('$_baseUrl/$endpoint/$params');
 
     try {
-      var response = await client.get(url, headers: _headers);
+      var response = await swapiApi.get(client, endpoint + params);
 
       if (response.statusCode == 200) {
         var body = jsonDecode(response.body);
@@ -59,10 +59,12 @@ class SwapiRepository {
   }
 
   Future<Personages> getPersonagesByPage(Client client, {String? param}) async {
-    final url = Uri.parse('$_baseUrl/people/?$param');
+    const endpoint = 'people';
+    final params = '?$param';
+    final url = swapiApi.baseUrl + endpoint + params;
 
     try {
-      var response = await client.get(url, headers: _headers);
+      var response = await swapiApi.get(client, endpoint + params);
 
       if (response.statusCode == 200) {
         var body = jsonDecode(response.body);

@@ -1,13 +1,13 @@
 import 'package:app_teste_unitario/app/controllers/personages_controller.dart';
 import 'package:app_teste_unitario/app/models/bing_model.dart';
 import 'package:app_teste_unitario/app/models/personages_model.dart';
-import 'package:app_teste_unitario/app/repositories/bing_repository.dart';
-import 'package:app_teste_unitario/app/repositories/swapi_repository.dart';
+import 'package:app_teste_unitario/app/services/bing_rest/bing_service.dart';
+import 'package:app_teste_unitario/app/services/swapi_rest/personages_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
 import 'package:mocktail/mocktail.dart';
 
-class MockSwapiRepository extends Mock implements SwapiRepository {}
+class MockSwapiRepository extends Mock implements PersonagesService {}
 
 class MockBingRepository extends Mock implements BingRepository {}
 

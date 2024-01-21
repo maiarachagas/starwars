@@ -1,7 +1,7 @@
 import 'package:app_teste_unitario/app/controllers/bing_images_controller.dart';
 import 'package:app_teste_unitario/app/models/bing_model.dart';
 import 'package:app_teste_unitario/app/models/personages_model.dart';
-import 'package:app_teste_unitario/app/repositories/bing_repository.dart';
+import 'package:app_teste_unitario/app/services/bing_rest/bing_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
 import 'package:mocktail/mocktail.dart';
