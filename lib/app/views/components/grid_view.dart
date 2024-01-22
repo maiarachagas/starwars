@@ -24,7 +24,7 @@ class _GridViewWidgetState extends State<GridViewWidget> {
         if (value.personages == null) {
           return const Center(child: CircularProgressIndicator());
         } else {
-          if (value.personages!.isEmpty) {
+          if (value.personage!.isEmpty) {
             return Center(
               child: Text('Nenhum ${widget.category} encontrado'),
             );
@@ -34,7 +34,7 @@ class _GridViewWidgetState extends State<GridViewWidget> {
               crossAxisSpacing: 20.0,
               mainAxisSpacing: 20.0,
               childAspectRatio: 200 / 300,
-              children: value.personages!
+              children: value.personage!
                   .map((person) => Card(
                         child: Column(
                           children: [

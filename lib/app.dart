@@ -1,12 +1,22 @@
 import 'package:app_teste_unitario/app/controllers/bing_images_controller.dart';
+import 'package:app_teste_unitario/app/controllers/films_controller.dart';
 import 'package:app_teste_unitario/app/controllers/personages_controller.dart';
+import 'package:app_teste_unitario/app/controllers/planets_controller.dart';
+import 'package:app_teste_unitario/app/controllers/species_controller.dart';
+import 'package:app_teste_unitario/app/controllers/starships_controller.dart';
+import 'package:app_teste_unitario/app/controllers/vehicles_controller.dart';
 import 'package:app_teste_unitario/app/services/dependency_injection.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'app/commons/custom_color.dart';
-import 'app/repositories/bing_repository.dart';
-import 'app/repositories/swapi_repository.dart';
+import 'app/services/bing_rest/bing_service.dart';
+import 'app/services/swapi_rest/films_service.dart';
+import 'app/services/swapi_rest/personages_service.dart';
+import 'app/services/swapi_rest/planets_service.dart';
+import 'app/services/swapi_rest/species_service.dart';
+import 'app/services/swapi_rest/starships_service.dart';
+import 'app/services/swapi_rest/vehicles_service.dart';
 import 'app/views/home_page.dart';
 
 class MyApp extends StatelessWidget {
@@ -18,7 +28,37 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (_) => PersonagesController(
-            repository: injector<SwapiRepository>(),
+            repository: injector<PersonagesService>(),
+            bingRepository: injector<BingRepository>(),
+          ),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => FilmsController(
+            service: injector<FilmsService>(),
+            bingRepository: injector<BingRepository>(),
+          ),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => PlanetsController(
+            service: injector<PlanetsService>(),
+            bingRepository: injector<BingRepository>(),
+          ),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => SpeciesController(
+            service: injector<SpeciesService>(),
+            bingRepository: injector<BingRepository>(),
+          ),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => StarshipsController(
+            service: injector<StarshipsService>(),
+            bingRepository: injector<BingRepository>(),
+          ),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => VehiclesController(
+            service: injector<VehiclesService>(),
             bingRepository: injector<BingRepository>(),
           ),
         ),

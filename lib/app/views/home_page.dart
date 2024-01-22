@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
               categoryNotifier.value = value;
               _fetchData(personagesController, '1');
             }),
-            personagesController.allPersonages == null
+            personagesController.personages == null
                 ? Container()
                 : Padding(
                     padding: const EdgeInsets.fromLTRB(5, 0, 5, 15),
@@ -57,8 +57,7 @@ class _HomePageState extends State<HomePage> {
                                 _fetchData(
                                     personagesController, value.toString());
                               },
-                              allPersonages:
-                                  personagesController.allPersonages))
+                              allPersonages: personagesController.personages))
                     ]),
                   ),
             Expanded(
@@ -85,7 +84,7 @@ class _HomePageState extends State<HomePage> {
         {
           await _fetchPersonages(personagesController, numPage);
           await personagesController
-              .attributeImageToPerson(personagesController.personages!);
+              .attributeImageToPerson(personagesController.personage!);
         }
         break;
       /* case 'Espécies':

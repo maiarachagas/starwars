@@ -6,7 +6,7 @@ import '../../models/personages_model.dart';
 
 class PaginationWidget extends StatefulWidget {
   final Function(int value) onTap;
-  final AllPersonages? allPersonages;
+  final Personages? allPersonages;
 
   const PaginationWidget({Key? key, required this.onTap, this.allPersonages})
       : super(key: key);
