@@ -2,6 +2,7 @@ import 'package:app_teste_unitario/app/models/bing_model.dart';
 import 'package:app_teste_unitario/app/models/films_model.dart';
 import 'package:app_teste_unitario/app/models/planets_model.dart';
 import 'package:app_teste_unitario/app/models/species_model.dart';
+import 'package:app_teste_unitario/app/models/vehicles_model.dart';
 
 List<InfoImage> get infoImage => [
       InfoImage(
@@ -37,3 +38,12 @@ List<Specie> get specie => [
 
 Species get species =>
     Species(count: 80, next: '2', previous: '0', specie: specie);
+
+List<Vehicle> get vehicle => [
+      Vehicle(name: 'Sand Crawler'),
+      Vehicle(name: 'T-16 skyhopper'),
+      Vehicle(name: 'X-34 landspeeder'),
+    ];
+
+Vehicles get vehicles =>
+    Vehicles(count: 80, next: '2', previous: '0', vehicle: vehicle);
