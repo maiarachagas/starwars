@@ -1,13 +1,13 @@
-import 'package:app_teste_unitario/app/models/personages_model.dart';
-import 'package:app_teste_unitario/app/repositories/bing_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
 import '../exceptions/api_exceptions.dart';
-import '../repositories/swapi_repository.dart';
+import '../models/personages_model.dart';
+import '../services/bing_rest/bing_service.dart';
+import '../services/swapi_rest/personages_service.dart';
 
 class PersonagesController with ChangeNotifier {
-  final SwapiRepository repository;
+  final PersonagesService repository;
   final BingRepository bingRepository;
 
   PersonagesController(
