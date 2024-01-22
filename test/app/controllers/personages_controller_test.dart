@@ -1,11 +1,11 @@
 import 'package:app_teste_unitario/app/controllers/personages_controller.dart';
-import 'package:app_teste_unitario/app/models/bing_model.dart';
-import 'package:app_teste_unitario/app/models/personages_model.dart';
 import 'package:app_teste_unitario/app/services/bing_rest/bing_service.dart';
 import 'package:app_teste_unitario/app/services/swapi_rest/personages_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
 import 'package:mocktail/mocktail.dart';
+
+import 'mock_data.dart';
 
 class MockSwapiRepository extends Mock implements PersonagesService {}
 
@@ -18,10 +18,6 @@ void main() {
   late MockSwapiRepository mockRepository;
   late MockBingRepository mockBingRepository;
 
-  List<Personage> personage = [];
-  Personages personages = Personages();
-  List<InfoImage> infoImage = [];
-
   group('Personagens Controller', () {
     setUpAll(() {
       registerFallbackValue(FakeClient());
@@ -32,26 +28,6 @@ void main() {
       mockBingRepository = MockBingRepository();
       personagesController = PersonagesController(
           repository: mockRepository, bingRepository: mockBingRepository);
-      personage = [
-        Personage(name: 'Luke Skywalker'),
-        Personage(name: 'Darth Vader'),
-        Personage(name: 'Leia Organa'),
-      ];
-
-      personages =
-          Personages(count: 80, next: '2', previous: '0', personage: personage);
-
-      infoImage = [
-        InfoImage(
-            thumbnailUrl:
-                'https://tse4.mm.bing.net/th?id=OIP.FKsBijrcaeAWzHQbO81nGQHaLI&pid=Api'),
-        InfoImage(
-            thumbnailUrl:
-                'https://tse4.mm.bing.net/th?id=OIP.YhUlntbH98C7Vi-uKF0xlwHaFj&pid=Api'),
-        InfoImage(
-            thumbnailUrl:
-                'https://tse1.mm.bing.net/th?id=OIP.w25ZoCwIb9HMq9xZSNUWmgHaH4&pid=Api')
-      ];
     });
 
     test('Obter todos os personagens', () async {
@@ -68,7 +44,10 @@ void main() {
           value: any(named: 'value'))).thenAnswer((_) async => personage);
 
       await personagesController.searchPersonages(value: 'Leia');
-      expect(personagesController.personage!.isNotEmpty, equals(true));
+      expect(
+          personagesController.personage!
+              .any((element) => element.name!.contains('Leia')),
+          equals(true));
     });
 
     test('Personagem não encontrado', () async {

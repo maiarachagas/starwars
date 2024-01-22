@@ -44,8 +44,11 @@ void main() {
               mockRepository.searchStarship(any(), value: any(named: 'value')))
           .thenAnswer((_) async => starship);
 
-      await controller.searchStarship(value: 'Sentinel');
-      expect(controller.starship!.isNotEmpty, equals(true));
+      await controller.searchStarship(value: 'Millennium Falcon');
+      expect(
+          controller.starship!
+              .any((element) => element.name!.contains('Millennium')),
+          equals(true));
     });
 
     test('Nave não encontrado', () async {

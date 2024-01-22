@@ -1,12 +1,10 @@
 import 'package:app_teste_unitario/app/controllers/films_controller.dart';
-import 'package:app_teste_unitario/app/models/bing_model.dart';
 import 'package:app_teste_unitario/app/services/bing_rest/bing_service.dart';
 import 'package:app_teste_unitario/app/services/swapi_rest/films_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
 import 'package:mocktail/mocktail.dart';
 
-import '../services/swapi_rest/mock_data.dart';
 import 'mock_data.dart';
 
 class MockSwapiRepository extends Mock implements FilmsService {}
@@ -44,8 +42,11 @@ void main() {
       when(() => mockRepository.searchFilms(any(), value: any(named: 'value')))
           .thenAnswer((_) async => film);
 
-      await filmsController.searchFilms(value: 'Leia');
-      expect(filmsController.film!.isNotEmpty, equals(true));
+      await filmsController.searchFilms(value: 'Return of the Jedi');
+      expect(
+          filmsController.film!
+              .any((element) => element.title!.contains('Return')),
+          equals(true));
     });
 
     test('Filme não encontrado', () async {

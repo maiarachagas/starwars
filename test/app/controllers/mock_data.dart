@@ -1,5 +1,6 @@
 import 'package:app_teste_unitario/app/models/bing_model.dart';
 import 'package:app_teste_unitario/app/models/films_model.dart';
+import 'package:app_teste_unitario/app/models/personages_model.dart';
 import 'package:app_teste_unitario/app/models/planets_model.dart';
 import 'package:app_teste_unitario/app/models/species_model.dart';
 import 'package:app_teste_unitario/app/models/starships_model.dart';
@@ -16,6 +17,16 @@ List<InfoImage> get infoImage => [
           thumbnailUrl:
               'https://tse1.mm.bing.net/th?id=OIP.w25ZoCwIb9HMq9xZSNUWmgHaH4&pid=Api')
     ];
+
+List<Personage> get personage => [
+      Personage(name: 'Luke Skywalker'),
+      Personage(name: 'Darth Vader'),
+      Personage(name: 'Leia Organa'),
+    ];
+
+Personages get personages =>
+    Personages(count: 80, next: '2', previous: '0', personage: personage);
+
 List<Film> get film => [
       Film(title: 'A New Hope'),
       Film(title: 'Return of the Jedi'),

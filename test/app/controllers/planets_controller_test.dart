@@ -44,7 +44,11 @@ void main() {
           .thenAnswer((_) async => planet);
 
       await planetsController.searchPlanet(value: 'Tatooine');
-      expect(planetsController.planet!.isNotEmpty, equals(true));
+
+      expect(
+          planetsController.planet!
+              .any((element) => element.name!.contains('Tatooine')),
+          equals(true));
     });
 
     test('Planeta não encontrado', () async {

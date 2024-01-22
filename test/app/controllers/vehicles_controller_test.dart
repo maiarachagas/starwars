@@ -45,7 +45,9 @@ void main() {
           .thenAnswer((_) async => vehicle);
 
       await controller.searchVehicle(value: 'Sand Crawler');
-      expect(controller.vehicle!.isNotEmpty, equals(true));
+      expect(
+          controller.vehicle!.any((element) => element.name!.contains('Sand')),
+          equals(true));
     });
 
     test('Veiculo não encontrado', () async {

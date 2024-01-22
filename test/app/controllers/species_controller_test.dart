@@ -43,15 +43,17 @@ void main() {
       when(() => mockRepository.searchSpecie(any(), value: any(named: 'value')))
           .thenAnswer((_) async => specie);
 
-      await controller.searchSpecie(value: 'Tatooine');
-      expect(controller.specie!.isNotEmpty, equals(true));
+      await controller.searchSpecie(value: 'Human');
+      expect(
+          controller.specie!.any((element) => element.name!.contains('Human')),
+          equals(true));
     });
 
     test('Planeta não encontrado', () async {
       when(() => mockRepository.searchSpecie(any(), value: any(named: 'value')))
           .thenAnswer((_) async => []);
 
-      await controller.searchSpecie(value: 'Tattoine');
+      await controller.searchSpecie(value: 'Drone');
       expect(controller.specie!.isNotEmpty, equals(false));
     });
 

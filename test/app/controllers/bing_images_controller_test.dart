@@ -1,10 +1,10 @@
 import 'package:app_teste_unitario/app/controllers/bing_images_controller.dart';
-import 'package:app_teste_unitario/app/models/bing_model.dart';
-import 'package:app_teste_unitario/app/models/personages_model.dart';
 import 'package:app_teste_unitario/app/services/bing_rest/bing_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
 import 'package:mocktail/mocktail.dart';
+
+import 'mock_data.dart';
 
 class MockBingRepository extends Mock implements BingRepository {}
 
@@ -13,8 +13,6 @@ class FakeClient extends Fake implements Client {}
 void main() {
   late BingImagesController bingImagesController;
   late MockBingRepository mockRepository;
-  List<InfoImage> infoImage = [];
-  List<Personage> allPersonages = [];
 
   setUpAll(() {
     registerFallbackValue(FakeClient());
@@ -23,22 +21,6 @@ void main() {
   setUp(() {
     mockRepository = MockBingRepository();
     bingImagesController = BingImagesController(repository: mockRepository);
-    infoImage = [
-      InfoImage(
-          thumbnailUrl:
-              'https://tse4.mm.bing.net/th?id=OIP.FKsBijrcaeAWzHQbO81nGQHaLI&pid=Api'),
-      InfoImage(
-          thumbnailUrl:
-              'https://tse4.mm.bing.net/th?id=OIP.YhUlntbH98C7Vi-uKF0xlwHaFj&pid=Api'),
-      InfoImage(
-          thumbnailUrl:
-              'https://tse1.mm.bing.net/th?id=OIP.w25ZoCwIb9HMq9xZSNUWmgHaH4&pid=Api')
-    ];
-    allPersonages = [
-      Personage(name: 'Luke Skywalker'),
-      Personage(name: 'Darth Vader'),
-      Personage(name: 'R2D2'),
-    ];
   });
 
   test('Buscar imagens', () async {
@@ -61,7 +43,7 @@ void main() {
     when(() => mockRepository.getImageByBing(any(), param: any(named: 'param')))
         .thenAnswer((_) async => infoImage);
 
-    await bingImagesController.attributeImageToPerson(allPersonages);
+    await bingImagesController.attributeImageToPerson(personage);
 
     expect(
         bingImagesController.imagePerson
