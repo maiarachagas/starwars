@@ -2,6 +2,7 @@ import 'package:app_teste_unitario/app/models/bing_model.dart';
 import 'package:app_teste_unitario/app/models/films_model.dart';
 import 'package:app_teste_unitario/app/models/planets_model.dart';
 import 'package:app_teste_unitario/app/models/species_model.dart';
+import 'package:app_teste_unitario/app/models/starships_model.dart';
 import 'package:app_teste_unitario/app/models/vehicles_model.dart';
 
 List<InfoImage> get infoImage => [
@@ -47,3 +48,12 @@ List<Vehicle> get vehicle => [
 
 Vehicles get vehicles =>
     Vehicles(count: 80, next: '2', previous: '0', vehicle: vehicle);
+
+List<Starship> get starship => [
+      Starship(name: 'Death Star'),
+      Starship(name: 'Millennium Falcon'),
+      Starship(name: 'Star Destroyer'),
+    ];
+
+Starships get starships =>
+    Starships(count: 80, next: '2', previous: '0', starship: starship);
