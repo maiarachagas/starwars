@@ -1,3 +1,4 @@
+import 'package:app_teste_unitario/app/services/swapi_rest/category_service.dart';
 import 'package:app_teste_unitario/app/services/swapi_rest/films_service.dart';
 import 'package:app_teste_unitario/app/services/swapi_rest/personages_service.dart';
 import 'package:app_teste_unitario/app/services/swapi_rest/planets_service.dart';
@@ -25,5 +26,7 @@ class DependencyInjection {
     injector.registerSingleton<VehiclesService>(VehiclesService());
 
     injector.registerSingleton<BingRepository>(BingRepository());
+
+    injector.registerSingleton<CategoryService>(CategoryService());
   }
 }
