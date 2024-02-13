@@ -1,4 +1,5 @@
 import 'package:app_teste_unitario/app/models/bing_model.dart';
+import 'package:app_teste_unitario/app/models/category_model.dart';
 import 'package:app_teste_unitario/app/models/films_model.dart';
 import 'package:app_teste_unitario/app/models/personages_model.dart';
 import 'package:app_teste_unitario/app/models/planets_model.dart';
@@ -68,3 +69,12 @@ List<Starship> get starship => [
 
 Starships get starships =>
     Starships(count: 80, next: '2', previous: '0', starship: starship);
+
+List<Detail> get details => [
+      Detail(name: 'Luke Skywalker'),
+      Detail(name: 'Darth Vader'),
+      Detail(name: 'Leia Organa'),
+    ];
+
+Category get category =>
+    Category(count: 80, next: '2', previous: '0', detail: details);
