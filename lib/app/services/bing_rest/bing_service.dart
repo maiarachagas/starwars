@@ -14,7 +14,7 @@ class BingRepository {
 
   Future<List<InfoImage>> getImageByBing(Client client, {String? param}) async {
     const endpoint = 'images/search';
-    var parameters = 'mkt=pt-BR&q=${param!.replaceAll(' ', '%20')}';
+    var parameters = 'mkt=pt-BR&q=starwars${param!.replaceAll(' ', '%20')}';
 
     final url = Uri.parse('$_baseUrl/$endpoint?$parameters');
     try {
