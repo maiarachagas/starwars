@@ -10,12 +10,32 @@ class MenuWidget extends StatefulWidget {
 
 class _MenuWidgetState extends State<MenuWidget> {
   final List category = [
-    {"icon": "assets/icons/popcorn.png", "name": "Filmes"},
-    {"icon": "assets/icons/finn.png", "name": "Personagens"},
-    {"icon": "assets/icons/c3po.png", "name": "Espécies"},
-    {"icon": "assets/icons/tie_fighter.png", "name": "Naves"},
-    {"icon": "assets/icons/speeder.png", "name": "Veículos"},
-    {"icon": "assets/icons/geonosis.png", "name": "Planetas"},
+    {"icon": "assets/icons/popcorn.png", "name": "Filmes", "endpoint": "films"},
+    {
+      "icon": "assets/icons/finn.png",
+      "name": "Personagens",
+      "endpoint": "people"
+    },
+    {
+      "icon": "assets/icons/c3po.png",
+      "name": "Espécies",
+      "endpoint": "species"
+    },
+    {
+      "icon": "assets/icons/tie_fighter.png",
+      "name": "Naves",
+      "endpoint": "starships"
+    },
+    {
+      "icon": "assets/icons/speeder.png",
+      "name": "Veículos",
+      "endpoint": "vehicles"
+    },
+    {
+      "icon": "assets/icons/geonosis.png",
+      "name": "Planetas",
+      "endpoint": "planets"
+    },
   ];
 
   @override
@@ -29,22 +49,25 @@ class _MenuWidgetState extends State<MenuWidget> {
           itemBuilder: (context, index) {
             return Padding(
               padding: const EdgeInsets.fromLTRB(8.0, 10.0, 22.0, 10.0),
-              child: GestureDetector(
-                onTap: () {
-                  setState(() {
-                    widget.onTap(category[index]['name']);
-                  });
-                },
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Image.asset(category[index]['icon'], height: 32),
-                    const SizedBox(width: 5),
-                    Text(category[index]['name'].toString().toUpperCase(),
-                        style: const TextStyle(
-                          fontSize: 24,
-                        )),
-                  ],
+              child: MouseRegion(
+                cursor: SystemMouseCursors.click,
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      widget.onTap(category[index]['endpoint']);
+                    });
+                  },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Image.asset(category[index]['icon'], height: 32),
+                      const SizedBox(width: 5),
+                      Text(category[index]['name'].toString().toUpperCase(),
+                          style: const TextStyle(
+                            fontSize: 24,
+                          )),
+                    ],
+                  ),
                 ),
               ),
             );

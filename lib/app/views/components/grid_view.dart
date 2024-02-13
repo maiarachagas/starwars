@@ -1,4 +1,4 @@
-import 'package:app_teste_unitario/app/controllers/personages_controller.dart';
+import 'package:app_teste_unitario/app/controllers/category_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -18,13 +18,12 @@ class _GridViewWidgetState extends State<GridViewWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<PersonagesController>(
+    return Consumer<CategoryController>(
       builder: (context, value, child) {
-        // _fetchData(value);
-        if (value.personages == null) {
+        if (value.category == null || value.category!.detail == null) {
           return const Center(child: CircularProgressIndicator());
         } else {
-          if (value.personage!.isEmpty) {
+          if (value.category!.detail!.isEmpty) {
             return Center(
               child: Text('Nenhum ${widget.category} encontrado'),
             );
@@ -34,32 +33,43 @@ class _GridViewWidgetState extends State<GridViewWidget> {
               crossAxisSpacing: 20.0,
               mainAxisSpacing: 20.0,
               childAspectRatio: 200 / 300,
-              children: value.personage!
-                  .map((person) => Card(
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 250,
-                              width: 190,
-                              child: person.thumbnailUrl == null ||
-                                      person.thumbnailUrl!.isEmpty
-                                  ? Image.asset(
-                                      'assets/images/logo_starwars.png',
-                                      color: Colors.grey.shade300,
-                                    )
-                                  : Image.network(
-                                      person.thumbnailUrl!,
-                                      fit: BoxFit.contain,
+              children: value.category!.detail!
+                  .map((detail) => MouseRegion(
+                        cursor: SystemMouseCursors.click,
+                        child: GestureDetector(
+                          onTap: () {},
+                          child: Card(
+                            child: Column(
+                              children: [
+                                Expanded(
+                                  child: detail.image == null ||
+                                          detail.image!.isEmpty
+                                      ? Image.asset(
+                                          'assets/images/logo_starwars.png',
+                                          color: Colors.grey.shade300,
+                                        )
+                                      : Image.network(
+                                          detail.image!,
+                                          fit: BoxFit.cover,
+                                        ),
+                                ),
+                                SizedBox(
+                                  height: 50,
+                                  child: Center(
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Text(
+                                        detail.name!,
+                                        style: const TextStyle(
+                                            color: Colors.grey,
+                                            overflow: TextOverflow.clip),
+                                      ),
                                     ),
+                                  ),
+                                ),
+                              ],
                             ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                person.name!,
-                                style: const TextStyle(color: Colors.grey),
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
                       ))
                   .toList(),

@@ -1,4 +1,4 @@
-import 'package:app_teste_unitario/app/controllers/personages_controller.dart';
+import 'package:app_teste_unitario/app/controllers/category_controller.dart';
 import 'package:app_teste_unitario/app/views/components/grid_view.dart';
 import 'package:app_teste_unitario/app/views/components/menu.dart';
 import 'package:app_teste_unitario/app/views/components/pagination.dart';
@@ -19,14 +19,20 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
+    var controller = Provider.of<CategoryController>(context, listen: false);
     categoryNotifier = ValueNotifier<String>('Filmes');
+
+    Future.delayed(Duration.zero, () async {
+      await controller.getDataByPage(category: 'films', page: '1');
+      setState(() {
+        controller;
+      });
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    var personagesController =
-        Provider.of<PersonagesController>(context, listen: false);
-
+    var category = Provider.of<CategoryController>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -42,24 +48,27 @@ class _HomePageState extends State<HomePage> {
           children: [
             MenuWidget(onTap: (value) async {
               categoryNotifier.value = value;
-              _fetchData(personagesController, '1');
+
+              await category.getDataByPage(category: value, page: '1');
+              setState(() {
+                category;
+              });
             }),
-            personagesController.personages == null
-                ? Container()
-                : Padding(
-                    padding: const EdgeInsets.fromLTRB(5, 0, 5, 15),
-                    child: Row(children: [
-                      const SearchWidget(),
-                      Padding(
-                          padding: const EdgeInsets.fromLTRB(50, 0, 0, 0),
-                          child: PaginationWidget(
-                              onTap: (value) {
-                                _fetchData(
-                                    personagesController, value.toString());
-                              },
-                              allPersonages: personagesController.personages))
-                    ]),
-                  ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(5, 0, 5, 15),
+              child: Row(children: [
+                const SearchWidget(),
+                Padding(
+                    padding: const EdgeInsets.fromLTRB(50, 0, 0, 0),
+                    child: PaginationWidget(
+                      onTap: (value) async {
+                        await category.getDataByPage(
+                            category: categoryNotifier.value,
+                            page: value.toString());
+                      },
+                    ))
+              ]),
+            ),
             Expanded(
               child: ValueListenableBuilder<String>(
                 valueListenable: categoryNotifier,
@@ -72,47 +81,5 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
-  }
-
-  Future<void> _fetchData(
-      PersonagesController personagesController, String numPage) async {
-    switch (categoryNotifier.value) {
-      /* case 'Filmes':
-        {}
-        break;*/
-      case 'Personagens':
-        {
-          await _fetchPersonages(personagesController, numPage);
-          await personagesController
-              .attributeImageToPerson(personagesController.personage!);
-        }
-        break;
-      /* case 'Espécies':
-        {}
-        break;
-      case 'Naves':
-        {}
-        break;
-      case 'Veículos':
-        {}
-        break;
-      case 'Planetas':
-        {}
-        break;*/
-      default:
-        {
-          personagesController.clearList();
-        }
-    }
-  }
-
-  Future<void> _fetchPersonages(
-      PersonagesController personagesController, String numPage) async {
-    await personagesController.getPersonagesByPage(page: 'page=$numPage');
-
-    await personagesController.fetchPersonages();
-    setState(() {
-      personagesController;
-    });
   }
 }
