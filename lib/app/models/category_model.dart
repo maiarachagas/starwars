@@ -5,6 +5,7 @@ class Category {
   String? next;
   String? current;
   String? previous;
+  String? name;
   List<Detail>? detail;
 
   Category({
@@ -12,6 +13,7 @@ class Category {
     this.next,
     this.current,
     this.previous,
+    this.name,
     this.detail,
   });
 
@@ -21,16 +23,19 @@ class Category {
       'next': next,
       'current': current,
       'previous': previous,
+      'name': name,
       'detail': detail?.map((x) => x.toMap()).toList(),
     };
   }
 
-  factory Category.fromMap(Map<String, dynamic> map, String url) {
+  factory Category.fromMap(
+      Map<String, dynamic> map, String url, String category) {
     return Category(
       count: map['count']?.toInt(),
       next: map['next'],
       current: url,
       previous: map['previous'] ?? 'page=0',
+      name: map['name'] ?? '',
       detail: map['results'] != null
           ? List<Detail>.from(map['results']?.map((x) => Detail.fromMap(x)))
           : null,
@@ -39,8 +44,8 @@ class Category {
 
   String toJson() => json.encode(toMap());
 
-  factory Category.fromJson(String source, String url) =>
-      Category.fromMap(json.decode(source), url);
+  factory Category.fromJson(String source, String url, String category) =>
+      Category.fromMap(json.decode(source), url, category);
 }
 
 class Detail {

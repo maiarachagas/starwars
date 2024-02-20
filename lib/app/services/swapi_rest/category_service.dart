@@ -16,7 +16,7 @@ class CategoryService extends SwapiApi {
       var response = await callGet(client, category + params);
       if (response.statusCode == 200) {
         var body = jsonDecode(response.body);
-        var result = Category.fromMap(body, url);
+        var result = Category.fromMap(body, url, category);
         return result;
       } else {
         throw ApiException(
