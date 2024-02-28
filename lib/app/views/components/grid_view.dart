@@ -1,6 +1,10 @@
-import 'package:app_teste_unitario/app/controllers/category_controller.dart';
+// ignore_for_file: use_build_context_synchronously
+
+import 'package:app_teste_unitario/app/controllers/index.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'show_dialog.dart';
 
 class GridViewWidget extends StatefulWidget {
   final String? category;
@@ -37,7 +41,9 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                   .map((detail) => MouseRegion(
                         cursor: SystemMouseCursors.click,
                         child: GestureDetector(
-                          onTap: () {},
+                          onTap: () async {
+                            getDetails(detail.url!, detail.image!);
+                          },
                           child: Card(
                             child: Column(
                               children: [
@@ -78,5 +84,57 @@ class _GridViewWidgetState extends State<GridViewWidget> {
         }
       },
     );
+  }
+
+  Future getDetails(String url, String image) async {
+    switch (widget.category) {
+      case 'films':
+        {
+          var model = Provider.of<FilmsController>(context, listen: false);
+          await model.getFilmsById(endpoint: url, image: image);
+          await detailsFilm(context, model.filmDetail!);
+        }
+        break;
+      case 'people':
+        {
+          var model = Provider.of<PersonagesController>(context, listen: false);
+          await model.getPersonageById(endpoint: url, image: image);
+          await detailsPersonage(context, model.personageDetail!);
+        }
+        break;
+      case 'species':
+        {
+          var model = Provider.of<SpeciesController>(context, listen: false);
+          await model.getSpecieById(endpoint: url, image: image);
+          await detailsSpecie(context, model.specieDetail!);
+        }
+        break;
+
+      case 'starships':
+        {
+          var model = Provider.of<StarshipsController>(context, listen: false);
+          await model.getStarshipById(endpoint: url, image: image);
+          await detailsStarship(context, model.starshipDetail!);
+        }
+        break;
+
+      case 'vehicles':
+        {
+          var model = Provider.of<VehiclesController>(context, listen: false);
+          await model.getVehicleById(endpoint: url, image: image);
+          await detailsVehicle(context, model.vehicleDetail!);
+        }
+        break;
+
+      case 'planets':
+        {
+          var model = Provider.of<PlanetsController>(context, listen: false);
+          await model.getPlanetById(endpoint: url, image: image);
+          await detailsPlanet(context, model.planetDetail!);
+        }
+        break;
+      default:
+        return Container();
+    }
   }
 }

@@ -1,4 +1,4 @@
-import 'package:app_teste_unitario/app/controllers/category_controller.dart';
+import 'package:app_teste_unitario/app/controllers/index.dart';
 import 'package:app_teste_unitario/app/views/components/grid_view.dart';
 import 'package:app_teste_unitario/app/views/components/menu.dart';
 import 'package:app_teste_unitario/app/views/components/pagination.dart';
@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     var controller = Provider.of<CategoryController>(context, listen: false);
-    categoryNotifier = ValueNotifier<String>('Filmes');
+    categoryNotifier = ValueNotifier<String>('films');
 
     Future.delayed(Duration.zero, () async {
       await controller.getDataByPage(category: 'films', page: '1');

@@ -1,5 +1,11 @@
 import 'dart:convert';
 
+import 'package:app_teste_unitario/app/models/films_model.dart';
+import 'package:app_teste_unitario/app/models/planets_model.dart';
+import 'package:app_teste_unitario/app/models/species_model.dart';
+import 'package:app_teste_unitario/app/models/starships_model.dart';
+import 'package:app_teste_unitario/app/models/vehicles_model.dart';
+
 class Personages {
   int? count;
   String? next;
@@ -62,6 +68,12 @@ class Personage {
   String? edited;
   String? thumbnailUrl;
 
+  List<Film> filmsList = [];
+  List<Specie> speciesList = [];
+  List<Starship> starshipsList = [];
+  List<Vehicle> vehiclesList = [];
+  Planet planet = Planet();
+
   Personage({
     this.name,
     this.birthYear,
@@ -107,13 +119,13 @@ class Personage {
   factory Personage.fromMap(Map<String, dynamic> map) {
     return Personage(
       name: map['name'],
-      birthYear: map['birthYear'],
-      eyeColor: map['eyeColor'],
+      birthYear: map['birth_year'],
+      eyeColor: map['eye_color'],
       gender: map['gender'],
-      hairColor: map['hairColor'],
+      hairColor: map['hair_color'],
       height: map['height'],
       mass: map['mass'],
-      skinColor: map['skinColor'],
+      skinColor: map['skin_color'],
       homeworld: map['homeworld'],
       films: List<String>.from(map['films']),
       species: List<String>.from(map['species']),
@@ -130,6 +142,26 @@ class Personage {
 
   factory Personage.fromJson(String source) =>
       Personage.fromMap(json.decode(source));
+
+  void addFilm(Film film) {
+    filmsList.add(film);
+  }
+
+  void addSpecie(Specie specie) {
+    speciesList.add(specie);
+  }
+
+  void addStarship(Starship starship) {
+    starshipsList.add(starship);
+  }
+
+  void addVehicle(Vehicle vehicle) {
+    vehiclesList.add(vehicle);
+  }
+
+  void addPlanet(Planet home) {
+    planet = home;
+  }
 
   @override
   String toString() {

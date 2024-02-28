@@ -1,5 +1,5 @@
 import 'package:app_teste_unitario/app/models/planets_model.dart';
-import 'package:app_teste_unitario/app/services/swapi_rest/planets_service.dart';
+import 'package:app_teste_unitario/app/services/swapi_rest/index.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
@@ -16,9 +16,12 @@ class PlanetsController with ChangeNotifier {
 
   List<Planet>? _planet;
   Planets? _planets;
+  Planet? _planetDetail;
 
   List<Planet>? get planet => _planet;
   Planets? get planets => _planets;
+  Planet? get planetDetail => _planetDetail;
+
   int totalPage = 0;
   int nextPage = 0;
   int previousPage = 0;
@@ -89,6 +92,18 @@ class PlanetsController with ChangeNotifier {
     }
     _planet = updatedPlanets;
     notifyListeners();
+  }
+
+  Future<void> getPlanetById(
+      {required String endpoint, required String image}) async {
+    try {
+      _planetDetail = await service.getPlanetById(_client, url: endpoint);
+      _planetDetail!.thumbnailUrl = image;
+      notifyListeners();
+    } catch (e) {
+      throw ApiException(
+          message: '$e', code: '1000', details: DateTime.now().toString());
+    }
   }
 
   void clearList() {

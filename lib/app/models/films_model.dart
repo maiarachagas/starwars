@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'index.dart';
+
 class Films {
   int? count;
   String? next;
@@ -65,6 +67,12 @@ class Film {
   String? url;
   String? thumbnailUrl;
 
+  List<Personage> personageList = [];
+  List<Specie> speciesList = [];
+  List<Starship> starshipsList = [];
+  List<Vehicle> vehiclesList = [];
+  List<Planet> planetList = [];
+
   Film({
     this.title,
     this.episodeId,
@@ -106,11 +114,11 @@ class Film {
   factory Film.fromMap(Map<String, dynamic> map) {
     return Film(
       title: map['title'],
-      episodeId: map['episodeId']?.toInt(),
-      openingCrawl: map['openingCrawl'],
+      episodeId: map['episode_id']?.toInt(),
+      openingCrawl: map['opening_crawl'].toString().replaceAll('\r\n', ' '),
       director: map['director'],
       producer: map['producer'],
-      releaseDate: map['releaseDate'],
+      releaseDate: map['release_date'],
       characters: List<String>.from(map['characters']),
       planets: List<String>.from(map['planets']),
       starships: List<String>.from(map['starships']),
@@ -126,6 +134,26 @@ class Film {
   String toJson() => json.encode(toMap());
 
   factory Film.fromJson(String source) => Film.fromMap(json.decode(source));
+
+  void addPeople(Personage personage) {
+    personageList.add(personage);
+  }
+
+  void addSpecie(Specie specie) {
+    speciesList.add(specie);
+  }
+
+  void addStarship(Starship starship) {
+    starshipsList.add(starship);
+  }
+
+  void addVehicle(Vehicle vehicle) {
+    vehiclesList.add(vehicle);
+  }
+
+  void addPlanet(Planet planet) {
+    planetList.add(planet);
+  }
 
   @override
   String toString() {

@@ -1,5 +1,5 @@
 import 'package:app_teste_unitario/app/models/species_model.dart';
-import 'package:app_teste_unitario/app/services/swapi_rest/species_service.dart';
+import 'package:app_teste_unitario/app/services/swapi_rest/index.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
@@ -16,9 +16,12 @@ class SpeciesController with ChangeNotifier {
 
   List<Specie>? _specie;
   Species? _species;
+  Specie? _specieDetail;
 
   List<Specie>? get specie => _specie;
   Species? get species => _species;
+  Specie? get specieDetail => _specieDetail;
+
   int totalPage = 0;
   int nextPage = 0;
   int previousPage = 0;
@@ -89,6 +92,18 @@ class SpeciesController with ChangeNotifier {
     }
     _specie = updatedSpecies;
     notifyListeners();
+  }
+
+  Future<void> getSpecieById(
+      {required String endpoint, required String image}) async {
+    try {
+      _specieDetail = await service.getSpecieById(_client, url: endpoint);
+      _specieDetail!.thumbnailUrl = image;
+      notifyListeners();
+    } catch (e) {
+      throw ApiException(
+          message: '$e', code: '1000', details: DateTime.now().toString());
+    }
   }
 
   void clearList() {

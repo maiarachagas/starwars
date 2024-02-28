@@ -1,5 +1,5 @@
 import 'package:app_teste_unitario/app/models/category_model.dart';
-import 'package:app_teste_unitario/app/services/swapi_rest/category_service.dart';
+import 'package:app_teste_unitario/app/services/swapi_rest/index.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:http/http.dart';

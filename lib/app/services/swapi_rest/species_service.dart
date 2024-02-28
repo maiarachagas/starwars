@@ -1,10 +1,10 @@
-import 'package:app_teste_unitario/app/models/species_model.dart';
 import 'package:app_teste_unitario/app/services/swapi_rest/swapi_api.dart';
 import 'dart:convert';
 
 import 'package:http/http.dart';
 
 import '../../exceptions/api_exceptions.dart';
+import '../../models/index.dart';
 import 'swapi_api.dart';
 
 class SpeciesService extends SwapiApi {
@@ -68,6 +68,57 @@ class SpeciesService extends SwapiApi {
         var list = Species.fromMap(body, url);
 
         return list;
+      } else {
+        throw ApiException(
+            message: 'Erro na requisição',
+            code: response.statusCode.toString(),
+            details: '${DateTime.now()} - ${response.body}');
+      }
+    } catch (e) {
+      throw ApiException(
+          message: '$e', code: '1000', details: DateTime.now().toString());
+    }
+  }
+
+  Future<Specie> getSpecieById(Client client, {required String url}) async {
+    try {
+      var response = await callGet(client, url);
+
+      if (response.statusCode == 200) {
+        var body = jsonDecode(response.body);
+        var specie = Specie.fromMap(body);
+
+        // Buscar informações adicionais sobre os filmes
+        var films = specie.films;
+        for (var filmUrl in films!) {
+          var response = await callGet(client, filmUrl);
+          if (response.statusCode == 200) {
+            var filmData = jsonDecode(response.body);
+            var film = Film.fromMap(filmData);
+            specie.addFilm(film);
+          }
+        }
+
+        // Buscar informações adicionais sobre as personagens
+        var peoples = specie.people;
+        for (var url in peoples!) {
+          var response = await callGet(client, url);
+          if (response.statusCode == 200) {
+            var peoplesData = jsonDecode(response.body);
+            var people = Personage.fromMap(peoplesData);
+            specie.addPeople(people);
+          }
+        }
+
+        // Buscar informações adicionais sobre as planet
+        var responsePlanet = await callGet(client, specie.homeworld!);
+        if (responsePlanet.statusCode == 200) {
+          var planetData = jsonDecode(responsePlanet.body);
+          var planet = Planet.fromMap(planetData);
+          specie.addPlanet(planet);
+        }
+
+        return specie;
       } else {
         throw ApiException(
             message: 'Erro na requisição',

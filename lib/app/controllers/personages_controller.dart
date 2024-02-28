@@ -4,7 +4,7 @@ import 'package:http/http.dart';
 import '../exceptions/api_exceptions.dart';
 import '../models/personages_model.dart';
 import '../services/bing_rest/bing_service.dart';
-import '../services/swapi_rest/personages_service.dart';
+import '../services/swapi_rest/index.dart';
 
 class PersonagesController with ChangeNotifier {
   final PersonagesService repository;
@@ -17,9 +17,12 @@ class PersonagesController with ChangeNotifier {
 
   List<Personage>? _personage;
   Personages? _personages;
+  Personage? _personageDetail;
 
   List<Personage>? get personage => _personage;
   Personages? get personages => _personages;
+  Personage? get personageDetail => _personageDetail;
+
   int totalPage = 0;
   int nextPage = 0;
   int previousPage = 0;
@@ -90,6 +93,19 @@ class PersonagesController with ChangeNotifier {
     }
     _personage = updatedPersonages;
     notifyListeners();
+  }
+
+  Future<void> getPersonageById(
+      {required String endpoint, required String image}) async {
+    try {
+      _personageDetail =
+          await repository.getPersonageById(_client, url: endpoint);
+      _personageDetail!.thumbnailUrl = image;
+      notifyListeners();
+    } catch (e) {
+      throw ApiException(
+          message: '$e', code: '1000', details: DateTime.now().toString());
+    }
   }
 
   void clearList() {

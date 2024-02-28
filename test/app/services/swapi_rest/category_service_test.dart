@@ -1,4 +1,4 @@
-import 'package:app_teste_unitario/app/services/swapi_rest/category_service.dart';
+import 'package:app_teste_unitario/app/services/swapi_rest/index.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:http/http.dart' as http;

@@ -1,4 +1,4 @@
-import 'package:app_teste_unitario/app/controllers/bing_images_controller.dart';
+import 'package:app_teste_unitario/app/controllers/index.dart';
 import 'package:app_teste_unitario/app/services/bing_rest/bing_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';

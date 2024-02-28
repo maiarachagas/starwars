@@ -1,6 +1,6 @@
-import 'package:app_teste_unitario/app/controllers/species_controller.dart';
+import 'package:app_teste_unitario/app/controllers/index.dart';
 import 'package:app_teste_unitario/app/services/bing_rest/bing_service.dart';
-import 'package:app_teste_unitario/app/services/swapi_rest/species_service.dart';
+import 'package:app_teste_unitario/app/services/swapi_rest/index.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
 import 'package:mocktail/mocktail.dart';

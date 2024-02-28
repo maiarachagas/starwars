@@ -1,5 +1,9 @@
 import 'dart:convert';
 
+import 'package:app_teste_unitario/app/models/personages_model.dart';
+
+import 'films_model.dart';
+
 class Planets {
   int? count;
   String? next;
@@ -65,6 +69,9 @@ class Planet {
   String? url;
   String? thumbnailUrl;
 
+  List<Film> filmsList = [];
+  List<Personage> personageList = [];
+
   Planet({
     this.name,
     this.rotationPeriod,
@@ -106,13 +113,13 @@ class Planet {
   factory Planet.fromMap(Map<String, dynamic> map) {
     return Planet(
       name: map['name'],
-      rotationPeriod: map['rotationPeriod'],
-      orbitalPeriod: map['orbitalPeriod'],
+      rotationPeriod: map['rotation_period'],
+      orbitalPeriod: map['orbital_period'],
       diameter: map['diameter'],
       climate: map['climate'],
       gravity: map['gravity'],
       terrain: map['terrain'],
-      surfaceWater: map['surfaceWater'],
+      surfaceWater: map['surface_water'],
       population: map['population'],
       residents: List<String>.from(map['residents']),
       films: List<String>.from(map['films']),
@@ -126,6 +133,14 @@ class Planet {
   String toJson() => json.encode(toMap());
 
   factory Planet.fromJson(String source) => Planet.fromMap(json.decode(source));
+
+  void addFilm(Film film) {
+    filmsList.add(film);
+  }
+
+  void addResident(Personage personage) {
+    personageList.add(personage);
+  }
 
   @override
   String toString() {

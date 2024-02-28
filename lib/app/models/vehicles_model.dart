@@ -1,5 +1,8 @@
 import 'dart:convert';
 
+import 'films_model.dart';
+import 'personages_model.dart';
+
 class Vehicles {
   int? count;
   String? next;
@@ -66,6 +69,10 @@ class Vehicle {
   String? edited;
   String? url;
   String? thumbnailUrl;
+
+  List<Film> filmsList = [];
+  List<Personage> personageList = [];
+
   Vehicle({
     this.name,
     this.model,
@@ -113,14 +120,14 @@ class Vehicle {
       name: map['name'],
       model: map['model'],
       manufacturer: map['manufacturer'],
-      costInCredits: map['costInCredits'],
+      costInCredits: map['cost_in_credits'],
       length: map['length'],
-      maxAtmospheringSpeed: map['maxAtmospheringSpeed'],
+      maxAtmospheringSpeed: map['max_atmosphering_speed'],
       crew: map['crew'],
       passengers: map['passengers'],
-      cargoCapacity: map['cargoCapacity'],
+      cargoCapacity: map['cargo_capacity'],
       consumables: map['consumables'],
-      vehicleClass: map['vehicleClass'],
+      vehicleClass: map['vehicle_class'],
       pilots: List<String>.from(map['pilots']),
       films: List<String>.from(map['films']),
       created: map['created'],
@@ -134,6 +141,14 @@ class Vehicle {
 
   factory Vehicle.fromJson(String source) =>
       Vehicle.fromMap(json.decode(source));
+
+  void addFilm(Film film) {
+    filmsList.add(film);
+  }
+
+  void addPeople(Personage personage) {
+    personageList.add(personage);
+  }
 
   @override
   String toString() {

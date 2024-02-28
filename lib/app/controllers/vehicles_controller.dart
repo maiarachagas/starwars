@@ -1,5 +1,5 @@
 import 'package:app_teste_unitario/app/models/vehicles_model.dart';
-import 'package:app_teste_unitario/app/services/swapi_rest/vehicles_service.dart';
+import 'package:app_teste_unitario/app/services/swapi_rest/index.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
@@ -16,9 +16,12 @@ class VehiclesController with ChangeNotifier {
 
   List<Vehicle>? _vehicle;
   Vehicles? _vehicles;
+  Vehicle? _vehicleDetail;
 
   List<Vehicle>? get vehicle => _vehicle;
   Vehicles? get vehicles => _vehicles;
+  Vehicle? get vehicleDetail => _vehicleDetail;
+
   int totalPage = 0;
   int nextPage = 0;
   int previousPage = 0;
@@ -89,6 +92,18 @@ class VehiclesController with ChangeNotifier {
     }
     _vehicle = updatedVehicles;
     notifyListeners();
+  }
+
+  Future<void> getVehicleById(
+      {required String endpoint, required String image}) async {
+    try {
+      _vehicleDetail = await service.getVehicleById(_client, url: endpoint);
+      _vehicleDetail!.thumbnailUrl = image;
+      notifyListeners();
+    } catch (e) {
+      throw ApiException(
+          message: '$e', code: '1000', details: DateTime.now().toString());
+    }
   }
 
   void clearList() {

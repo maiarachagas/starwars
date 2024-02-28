@@ -51,16 +51,19 @@ class Category {
 class Detail {
   String? name;
   String? image;
+  String? url;
 
   Detail({
     this.name,
     this.image,
+    this.url,
   });
 
   Map<String, dynamic> toMap() {
     return {
       'name': name,
       'image': image,
+      'url': url,
     };
   }
 
@@ -68,6 +71,7 @@ class Detail {
     return Detail(
       name: map['name'] ?? map['title'],
       image: map['image'] ?? '',
+      url: map['url'] ?? '',
     );
   }
 
@@ -76,5 +80,5 @@ class Detail {
   factory Detail.fromJson(String source) => Detail.fromMap(json.decode(source));
 
   @override
-  String toString() => 'Detail(name: $name, image: $image)';
+  String toString() => 'Detail(name: $name, image: $image, url: $url)';
 }

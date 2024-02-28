@@ -1,5 +1,5 @@
 import 'package:app_teste_unitario/app/models/films_model.dart';
-import 'package:app_teste_unitario/app/services/swapi_rest/films_service.dart';
+import 'package:app_teste_unitario/app/services/swapi_rest/index.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
@@ -16,9 +16,11 @@ class FilmsController with ChangeNotifier {
 
   List<Film>? _film;
   Films? _films;
+  Film? _filmDetail;
 
   List<Film>? get film => _film;
   Films? get films => _films;
+  Film? get filmDetail => _filmDetail;
   int totalPage = 0;
   int nextPage = 0;
   int previousPage = 0;
@@ -67,6 +69,18 @@ class FilmsController with ChangeNotifier {
     }
     _film = updatedFilms;
     notifyListeners();
+  }
+
+  Future<void> getFilmsById(
+      {required String endpoint, required String image}) async {
+    try {
+      _filmDetail = await service.getFilmsById(_client, url: endpoint);
+      _filmDetail!.thumbnailUrl = image;
+      notifyListeners();
+    } catch (e) {
+      throw ApiException(
+          message: '$e', code: '1000', details: DateTime.now().toString());
+    }
   }
 
   void clearList() {

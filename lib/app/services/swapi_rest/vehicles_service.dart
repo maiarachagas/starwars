@@ -1,10 +1,10 @@
-import 'package:app_teste_unitario/app/models/vehicles_model.dart';
 import 'package:app_teste_unitario/app/services/swapi_rest/swapi_api.dart';
 import 'dart:convert';
 
 import 'package:http/http.dart';
 
 import '../../exceptions/api_exceptions.dart';
+import '../../models/index.dart';
 import 'swapi_api.dart';
 
 class VehiclesService extends SwapiApi {
@@ -68,6 +68,49 @@ class VehiclesService extends SwapiApi {
         var list = Vehicles.fromMap(body, url);
 
         return list;
+      } else {
+        throw ApiException(
+            message: 'Erro na requisição',
+            code: response.statusCode.toString(),
+            details: '${DateTime.now()} - ${response.body}');
+      }
+    } catch (e) {
+      throw ApiException(
+          message: '$e', code: '1000', details: DateTime.now().toString());
+    }
+  }
+
+  Future<Vehicle> getVehicleById(Client client, {required String url}) async {
+    try {
+      var response = await callGet(client, url);
+
+      if (response.statusCode == 200) {
+        var body = jsonDecode(response.body);
+        var vehicles = Vehicle.fromMap(body);
+
+        // Buscar informações adicionais sobre os filmes
+        var films = vehicles.films;
+        for (var filmUrl in films!) {
+          var response = await callGet(client, filmUrl);
+          if (response.statusCode == 200) {
+            var filmData = jsonDecode(response.body);
+            var film = Film.fromMap(filmData);
+            vehicles.addFilm(film);
+          }
+        }
+
+        // Buscar informações adicionais sobre as personagens
+        var peoples = vehicles.pilots;
+        for (var url in peoples!) {
+          var response = await callGet(client, url);
+          if (response.statusCode == 200) {
+            var peoplesData = jsonDecode(response.body);
+            var people = Personage.fromMap(peoplesData);
+            vehicles.addPeople(people);
+          }
+        }
+
+        return vehicles;
       } else {
         throw ApiException(
             message: 'Erro na requisição',

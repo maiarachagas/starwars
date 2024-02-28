@@ -69,24 +69,30 @@ class DetailAdapter extends HiveObject {
   @HiveField(1)
   String? image;
 
+  @HiveField(2)
+  String? url;
+
   DetailAdapter({
     this.name,
     this.image,
+    this.url,
   });
 
   factory DetailAdapter.fromDetail(Detail detail) {
     return DetailAdapter()
       ..name = detail.name
-      ..image = detail.image;
+      ..image = detail.image
+      ..url = detail.url;
   }
 
   Detail toDetail() {
     return Detail(
       name: name,
       image: image,
+      url: url,
     );
   }
 
   @override
-  String toString() => 'DetailAdapter(name: $name, image: $image)';
+  String toString() => 'DetailAdapter(name: $name, image: $image, url: $url)';
 }

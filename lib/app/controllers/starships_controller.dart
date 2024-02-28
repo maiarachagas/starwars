@@ -1,4 +1,4 @@
-import 'package:app_teste_unitario/app/services/swapi_rest/starships_service.dart';
+import 'package:app_teste_unitario/app/services/swapi_rest/index.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
@@ -16,9 +16,11 @@ class StarshipsController with ChangeNotifier {
 
   List<Starship>? _starship;
   Starships? _starships;
+  Starship? _starshipDetail;
 
   List<Starship>? get starship => _starship;
   Starships? get starships => _starships;
+  Starship? get starshipDetail => _starshipDetail;
   int totalPage = 0;
   int nextPage = 0;
   int previousPage = 0;
@@ -89,6 +91,18 @@ class StarshipsController with ChangeNotifier {
     }
     _starship = updatedStarships;
     notifyListeners();
+  }
+
+  Future<void> getStarshipById(
+      {required String endpoint, required String image}) async {
+    try {
+      _starshipDetail = await service.getStarshipById(_client, url: endpoint);
+      _starshipDetail!.thumbnailUrl = image;
+      notifyListeners();
+    } catch (e) {
+      throw ApiException(
+          message: '$e', code: '1000', details: DateTime.now().toString());
+    }
   }
 
   void clearList() {

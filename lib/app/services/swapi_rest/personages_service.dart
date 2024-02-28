@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:app_teste_unitario/app/models/personages_model.dart';
 import 'package:http/http.dart';
 
 import '../../exceptions/api_exceptions.dart';
+import '../../models/index.dart';
 import 'swapi_api.dart';
 
 class PersonagesService extends SwapiApi {
@@ -67,6 +67,80 @@ class PersonagesService extends SwapiApi {
         var list = Personages.fromMap(body, url);
 
         return list;
+      } else {
+        throw ApiException(
+            message: 'Erro na requisição',
+            code: response.statusCode.toString(),
+            details: '${DateTime.now()} - ${response.body}');
+      }
+    } catch (e) {
+      throw ApiException(
+          message: '$e', code: '1000', details: DateTime.now().toString());
+    }
+  }
+
+  Future<Personage> getPersonageById(Client client,
+      {required String url}) async {
+    try {
+      var response = await callGet(client, url);
+
+      if (response.statusCode == 200) {
+        var body = jsonDecode(response.body);
+        var personage = Personage.fromMap(body);
+
+        // Buscar informações adicionais sobre os filmes
+        var films = personage.films;
+        for (var filmUrl in films!) {
+          var response = await callGet(client, filmUrl);
+          if (response.statusCode == 200) {
+            var filmData = jsonDecode(response.body);
+            var film = Film.fromMap(filmData);
+            personage.addFilm(film);
+          }
+        }
+
+        // Buscar informações adicionais sobre as starships
+        var starships = personage.starships;
+        for (var starshipUrl in starships!) {
+          var response = await callGet(client, starshipUrl);
+          if (response.statusCode == 200) {
+            var starshipData = jsonDecode(response.body);
+            var starship = Starship.fromMap(starshipData);
+            personage.addStarship(starship);
+          }
+        }
+
+        // Buscar informações adicionais sobre as vehicles
+        var vehicles = personage.vehicles;
+        for (var vehicleUrl in vehicles!) {
+          var response = await callGet(client, vehicleUrl);
+          if (response.statusCode == 200) {
+            var vehicleData = jsonDecode(response.body);
+            var vehicle = Vehicle.fromMap(vehicleData);
+            personage.addVehicle(vehicle);
+          }
+        }
+
+        // Buscar informações adicionais sobre as species
+        var species = personage.species;
+        for (var specieUrl in species!) {
+          var response = await callGet(client, specieUrl);
+          if (response.statusCode == 200) {
+            var speciesData = jsonDecode(response.body);
+            var species = Specie.fromMap(speciesData);
+            personage.addSpecie(species);
+          }
+        }
+
+        // Buscar informações adicionais sobre as planet
+        var responsePlanet = await callGet(client, personage.homeworld!);
+        if (responsePlanet.statusCode == 200) {
+          var planetData = jsonDecode(responsePlanet.body);
+          var planet = Planet.fromMap(planetData);
+          personage.addPlanet(planet);
+        }
+
+        return personage;
       } else {
         throw ApiException(
             message: 'Erro na requisição',

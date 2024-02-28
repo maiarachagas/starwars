@@ -1,6 +1,6 @@
-import 'package:app_teste_unitario/app/controllers/films_controller.dart';
+import 'package:app_teste_unitario/app/controllers/index.dart';
 import 'package:app_teste_unitario/app/services/bing_rest/bing_service.dart';
-import 'package:app_teste_unitario/app/services/swapi_rest/films_service.dart';
+import 'package:app_teste_unitario/app/services/swapi_rest/index.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
 import 'package:mocktail/mocktail.dart';
@@ -72,6 +72,18 @@ void main() {
           filmsController.film!
               .any((element) => element.thumbnailUrl.toString().isNotEmpty),
           isTrue);
+    });
+
+    test('Buscar detalhes do filme', () async {
+      when(() => mockRepository.getFilmsById(any(), url: any(named: 'url')))
+          .thenAnswer((_) async => detailsFilm);
+
+      await filmsController.getFilmsById(
+          endpoint: 'https://swapi.dev/api/films/3/',
+          image:
+              'https://tse4.mm.bing.net/th?id=OIP.FKsBijrcaeAWzHQbO81nGQHaLI&pid=Api');
+      expect(
+          filmsController.filmDetail!.title!.contains('Return'), equals(true));
     });
   });
 }

@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'index.dart';
+
 class Species {
   int? count;
   String? next;
@@ -66,6 +68,10 @@ class Specie {
   String? url;
   String? thumbnailUrl;
 
+  List<Film> filmsList = [];
+  List<Personage> personageList = [];
+  Planet planet = Planet();
+
   Specie({
     this.name,
     this.classification,
@@ -111,11 +117,11 @@ class Specie {
       name: map['name'],
       classification: map['classification'],
       designation: map['designation'],
-      averageHeight: map['averageHeight'],
-      skinColors: map['skinColors'],
-      hairColors: map['hairColors'],
-      eyeColors: map['eyeColors'],
-      averageLifespan: map['averageLifespan'],
+      averageHeight: map['average_height'],
+      skinColors: map['skin_colors'],
+      hairColors: map['hair_colors'],
+      eyeColors: map['eye_colors'],
+      averageLifespan: map['average_lifespan'],
       homeworld: map['homeworld'],
       language: map['language'],
       people: List<String>.from(map['people']),
@@ -130,6 +136,18 @@ class Specie {
   String toJson() => json.encode(toMap());
 
   factory Specie.fromJson(String source) => Specie.fromMap(json.decode(source));
+
+  void addFilm(Film film) {
+    filmsList.add(film);
+  }
+
+  void addPeople(Personage personage) {
+    personageList.add(personage);
+  }
+
+  void addPlanet(Planet home) {
+    planet = home;
+  }
 
   @override
   String toString() {

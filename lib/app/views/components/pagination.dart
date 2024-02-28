@@ -1,4 +1,4 @@
-import 'package:app_teste_unitario/app/controllers/category_controller.dart';
+import 'package:app_teste_unitario/app/controllers/index.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

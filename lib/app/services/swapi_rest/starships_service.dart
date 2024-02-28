@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:http/http.dart';
 
 import '../../exceptions/api_exceptions.dart';
-import '../../models/starships_model.dart';
+import '../../models/index.dart';
 import 'swapi_api.dart';
 
 class StarshipsService extends SwapiApi {
@@ -68,6 +68,49 @@ class StarshipsService extends SwapiApi {
         var list = Starships.fromMap(body, url);
 
         return list;
+      } else {
+        throw ApiException(
+            message: 'Erro na requisição',
+            code: response.statusCode.toString(),
+            details: '${DateTime.now()} - ${response.body}');
+      }
+    } catch (e) {
+      throw ApiException(
+          message: '$e', code: '1000', details: DateTime.now().toString());
+    }
+  }
+
+  Future<Starship> getStarshipById(Client client, {required String url}) async {
+    try {
+      var response = await callGet(client, url);
+
+      if (response.statusCode == 200) {
+        var body = jsonDecode(response.body);
+        var starships = Starship.fromMap(body);
+
+        // Buscar informações adicionais sobre os filmes
+        var films = starships.films;
+        for (var filmUrl in films!) {
+          var response = await callGet(client, filmUrl);
+          if (response.statusCode == 200) {
+            var filmData = jsonDecode(response.body);
+            var film = Film.fromMap(filmData);
+            starships.addFilm(film);
+          }
+        }
+
+        // Buscar informações adicionais sobre as personagens
+        var peoples = starships.pilots;
+        for (var url in peoples!) {
+          var response = await callGet(client, url);
+          if (response.statusCode == 200) {
+            var peoplesData = jsonDecode(response.body);
+            var people = Personage.fromMap(peoplesData);
+            starships.addPeople(people);
+          }
+        }
+
+        return starships;
       } else {
         throw ApiException(
             message: 'Erro na requisição',

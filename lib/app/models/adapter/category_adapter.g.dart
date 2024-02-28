@@ -68,17 +68,20 @@ class DetailAdapterAdapter extends TypeAdapter<DetailAdapter> {
     return DetailAdapter(
       name: fields[0] as String?,
       image: fields[1] as String?,
+      url: fields[2] as String?,
     );
   }
 
   @override
   void write(BinaryWriter writer, DetailAdapter obj) {
     writer
-      ..writeByte(2)
+      ..writeByte(3)
       ..writeByte(0)
       ..write(obj.name)
       ..writeByte(1)
-      ..write(obj.image);
+      ..write(obj.image)
+      ..writeByte(2)
+      ..write(obj.url);
   }
 
   @override

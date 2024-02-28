@@ -1,5 +1,8 @@
 import 'dart:convert';
 
+import 'films_model.dart';
+import 'personages_model.dart';
+
 class Starships {
   int? count;
   String? next;
@@ -70,6 +73,9 @@ class Starship {
   String? url;
   String? thumbnailUrl;
 
+  List<Film> filmsList = [];
+  List<Personage> personageList = [];
+
   Starship({
     this.name,
     this.model,
@@ -121,16 +127,16 @@ class Starship {
       name: map['name'],
       model: map['model'],
       manufacturer: map['manufacturer'],
-      costInCredits: map['costInCredits'],
+      costInCredits: map['cost_in_credits'],
       length: map['length'],
-      maxAtmospheringSpeed: map['maxAtmospheringSpeed'],
+      maxAtmospheringSpeed: map['max_atmosphering_speed'],
       crew: map['crew'],
       passengers: map['passengers'],
-      cargoCapacity: map['cargoCapacity'],
+      cargoCapacity: map['cargo_capacity'],
       consumables: map['consumables'],
-      hyperdriveRating: map['hyperdriveRating'],
+      hyperdriveRating: map['hyperdrive_rating'],
       mGLT: map['mGLT'],
-      starshipClass: map['starshipClass'],
+      starshipClass: map['starship_class'],
       pilots: List<String>.from(map['pilots']),
       films: List<String>.from(map['films']),
       created: map['created'],
@@ -144,6 +150,14 @@ class Starship {
 
   factory Starship.fromJson(String source) =>
       Starship.fromMap(json.decode(source));
+
+  void addFilm(Film film) {
+    filmsList.add(film);
+  }
+
+  void addPeople(Personage personage) {
+    personageList.add(personage);
+  }
 
   @override
   String toString() {
