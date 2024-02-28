@@ -25,7 +25,7 @@ class _GridViewWidgetState extends State<GridViewWidget> {
     return Consumer<CategoryController>(
       builder: (context, value, child) {
         if (value.category == null || value.category!.detail == null) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(child: Text('Carregando ...'));
         } else {
           if (value.category!.detail!.isEmpty) {
             return Center(
