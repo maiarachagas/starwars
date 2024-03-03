@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class PaginationWidget extends StatefulWidget {
-  final Function(int value) onTap;
+  final Function(String value) onTap;
   final Object? allPersonages;
 
   const PaginationWidget({Key? key, required this.onTap, this.allPersonages})
@@ -17,32 +17,51 @@ class _PaginationWidgetState extends State<PaginationWidget> {
   @override
   Widget build(BuildContext context) {
     return Consumer<CategoryController>(builder: (context, value, child) {
-      if (value.nextPage == null || value.nextPage == 0) {
+      if (value.category == null ||
+          value.category!.next == null ||
+          value.category!.next == '0') {
         return Container();
       } else {
+        var lastPage = (value.category!.count! + 10 - 1) ~/ 10;
         return Row(
           children: [
+            if (value.category!.current != '1')
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                child: MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: GestureDetector(
+                    child: Container(
+                        width: 20,
+                        height: 20,
+                        color: Colors.white10,
+                        child: const Center(
+                            child: Icon(
+                          Icons.arrow_back_ios,
+                          size: 12,
+                          color: Colors.white,
+                        ))),
+                    onTap: () => widget.onTap(value.category!.previous!),
+                  ),
+                ),
+              ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 2.0),
               child: MouseRegion(
                 cursor: SystemMouseCursors.click,
-                child: GestureDetector(
-                  child: Container(
-                      width: 20,
-                      height: 20,
-                      color: Colors.white10,
-                      child: const Center(
-                          child: Icon(
-                        Icons.arrow_back_ios,
-                        size: 12,
-                        color: Colors.white,
-                      ))),
-                  onTap: () => widget.onTap(value.previousPage),
+                child: Container(
+                  width: 20,
+                  height: 20,
+                  color: Colors.white10,
+                  child: Center(
+                      child: Text(
+                    value.category!.current!,
+                    style: TextStyle(color: Theme.of(context).primaryColor),
+                  )),
                 ),
               ),
             ),
-            buildPageButton(value.current),
-            buildPageButton(value.nextPage),
+            buildPageButton(value.category!.next!),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 2.0),
               child: Container(
@@ -51,7 +70,7 @@ class _PaginationWidgetState extends State<PaginationWidget> {
                   color: Colors.white10,
                   child: const Center(child: Text('...'))),
             ),
-            buildPageButton(value.totalPage),
+            buildPageButton(lastPage.toString()),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 2.0),
               child: MouseRegion(
@@ -67,7 +86,7 @@ class _PaginationWidgetState extends State<PaginationWidget> {
                         size: 12,
                         color: Colors.white,
                       ))),
-                  onTap: () => widget.onTap(value.nextPage),
+                  onTap: () => widget.onTap(value.category!.next!),
                 ),
               ),
             ),
@@ -77,7 +96,7 @@ class _PaginationWidgetState extends State<PaginationWidget> {
     });
   }
 
-  Widget buildPageButton(int pageNumber) {
+  Widget buildPageButton(String pageNumber) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 2.0),
       child: MouseRegion(

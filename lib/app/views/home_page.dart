@@ -59,12 +59,15 @@ class _HomePageState extends State<HomePage> {
                     loading = true;
                   });
                   categoryNotifier.value = value;
-                  Future.delayed(const Duration(seconds: 1), () async {
-                    await category.getDataByPage(category: value, page: '1');
-                  });
-                  setState(() {
-                    loading = false;
-                    category;
+                  Future.delayed(const Duration(seconds: 1), () {
+                    category
+                        .getDataByPage(category: value, page: '1')
+                        .then((_) {
+                      setState(() {
+                        loading = false;
+                        category;
+                      });
+                    });
                   });
                 }),
                 Padding(
@@ -78,12 +81,15 @@ class _HomePageState extends State<HomePage> {
                             setState(() {
                               loading = true;
                             });
-                            await category.getDataByPage(
-                                category: categoryNotifier.value,
-                                page: value.toString());
-                            setState(() {
-                              loading = false;
-                              category;
+                            await category
+                                .getDataByPage(
+                                    category: categoryNotifier.value,
+                                    page: value.toString())
+                                .then((_) {
+                              setState(() {
+                                loading = false;
+                                category;
+                              });
                             });
                           },
                         ))
@@ -101,28 +107,27 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ),
-        loading
-            ? Container(
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
-                color: Colors.black.withOpacity(0.8),
-                child: Center(
-                  child: SizedBox(
-                    height: 80,
-                    width: 80,
-                    child: LoadingIndicator(
-                      indicatorType: Indicator.orbit,
-                      colors: [
-                        Colors.blue,
-                        Colors.blue,
-                        Colors.blue,
-                        Colors.grey.shade600,
-                      ],
-                    ),
-                  ),
+        if (loading)
+          Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            color: Colors.black.withOpacity(0.8),
+            child: Center(
+              child: SizedBox(
+                height: 80,
+                width: 80,
+                child: LoadingIndicator(
+                  indicatorType: Indicator.orbit,
+                  colors: [
+                    Colors.blue,
+                    Colors.blue,
+                    Colors.blue,
+                    Colors.grey.shade600,
+                  ],
                 ),
-              )
-            : Container(),
+              ),
+            ),
+          ),
       ],
     );
   }
