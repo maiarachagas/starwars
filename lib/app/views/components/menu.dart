@@ -38,6 +38,8 @@ class _MenuWidgetState extends State<MenuWidget> {
     },
   ];
 
+  int selectedCategoryIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -54,6 +56,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                 child: GestureDetector(
                   onTap: () {
                     setState(() {
+                      selectedCategoryIndex = index;
                       widget.onTap(category[index]['endpoint']);
                     });
                   },
@@ -63,8 +66,11 @@ class _MenuWidgetState extends State<MenuWidget> {
                       Image.asset(category[index]['icon'], height: 32),
                       const SizedBox(width: 5),
                       Text(category[index]['name'].toString().toUpperCase(),
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 24,
+                            color: selectedCategoryIndex == index
+                                ? Theme.of(context).colorScheme.primary
+                                : null,
                           )),
                     ],
                   ),
