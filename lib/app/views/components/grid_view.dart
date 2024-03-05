@@ -8,7 +8,10 @@ import 'show_dialog.dart';
 
 class GridViewWidget extends StatefulWidget {
   final String? category;
-  const GridViewWidget({Key? key, required this.category}) : super(key: key);
+  final Function(bool)? callback;
+
+  const GridViewWidget({Key? key, required this.category, this.callback})
+      : super(key: key);
 
   @override
   State<GridViewWidget> createState() => _GridViewWidgetState();
@@ -33,16 +36,16 @@ class _GridViewWidgetState extends State<GridViewWidget> {
             );
           } else {
             return GridView.extent(
-              maxCrossAxisExtent: 250.0,
-              crossAxisSpacing: 20.0,
-              mainAxisSpacing: 20.0,
+              maxCrossAxisExtent: 300.0,
+              crossAxisSpacing: 40.0,
+              mainAxisSpacing: 40.0,
               childAspectRatio: 200 / 300,
               children: value.category!.detail!
                   .map((detail) => MouseRegion(
                         cursor: SystemMouseCursors.click,
                         child: GestureDetector(
                           onTap: () async {
-                            getDetails(detail.url!, detail.image!);
+                            await getDetails(detail.url!, detail.image!);
                           },
                           child: Card(
                             child: Column(
@@ -90,46 +93,58 @@ class _GridViewWidgetState extends State<GridViewWidget> {
     switch (widget.category) {
       case 'films':
         {
+          widget.callback!(true);
           var model = Provider.of<FilmsController>(context, listen: false);
           await model.getFilmsById(endpoint: url, image: image);
+          widget.callback!(false);
           await detailsFilm(context, model.filmDetail!);
         }
         break;
       case 'people':
         {
+          widget.callback!(true);
           var model = Provider.of<PersonagesController>(context, listen: false);
           await model.getPersonageById(endpoint: url, image: image);
+          widget.callback!(false);
           await detailsPersonage(context, model.personageDetail!);
         }
         break;
       case 'species':
         {
+          widget.callback!(true);
           var model = Provider.of<SpeciesController>(context, listen: false);
           await model.getSpecieById(endpoint: url, image: image);
+          widget.callback!(false);
           await detailsSpecie(context, model.specieDetail!);
         }
         break;
 
       case 'starships':
         {
+          widget.callback!(true);
           var model = Provider.of<StarshipsController>(context, listen: false);
           await model.getStarshipById(endpoint: url, image: image);
+          widget.callback!(false);
           await detailsStarship(context, model.starshipDetail!);
         }
         break;
 
       case 'vehicles':
         {
+          widget.callback!(true);
           var model = Provider.of<VehiclesController>(context, listen: false);
           await model.getVehicleById(endpoint: url, image: image);
+          widget.callback!(false);
           await detailsVehicle(context, model.vehicleDetail!);
         }
         break;
 
       case 'planets':
         {
+          widget.callback!(true);
           var model = Provider.of<PlanetsController>(context, listen: false);
           await model.getPlanetById(endpoint: url, image: image);
+          widget.callback!(false);
           await detailsPlanet(context, model.planetDetail!);
         }
         break;

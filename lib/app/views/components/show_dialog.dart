@@ -16,12 +16,14 @@ Future<Widget> detailsFilm(BuildContext context, Film detail) async {
 
         setState(() => size);
         return Dialog(
+          backgroundColor: Colors.transparent,
           elevation: 0,
           child: LayoutBuilder(
             builder: (context, constraints) {
               return Container(
+                color: Theme.of(context).backgroundColor.withOpacity(0.95),
                 constraints: BoxConstraints(
-                  maxWidth: constraints.maxWidth / 1.1,
+                  maxWidth: 1000,
                   maxHeight: constraints.maxHeight,
                 ),
                 child: SingleChildScrollView(
@@ -53,17 +55,25 @@ Future<Widget> detailsFilm(BuildContext context, Film detail) async {
                             children: [
                               Padding(
                                 padding: const EdgeInsets.only(top: 8.0),
-                                child: Image.network(
-                                  detail.thumbnailUrl!,
-                                  fit: BoxFit.cover,
-                                  width: size.width / 3,
-                                  height: size.height / 1.2,
-                                ),
+                                child: detail.thumbnailUrl == null ||
+                                        detail.thumbnailUrl!.isEmpty
+                                    ? Image.asset(
+                                        'assets/images/logo_starwars.png',
+                                        color: Colors.grey.shade300,
+                                        width: size.width / 3.4,
+                                        height: size.height / 1.4,
+                                      )
+                                    : Image.network(
+                                        detail.thumbnailUrl!,
+                                        fit: BoxFit.cover,
+                                        width: size.width / 3.4,
+                                        height: size.height / 1.4,
+                                      ),
                               ),
                               Expanded(
                                 child: Padding(
                                   padding: const EdgeInsets.symmetric(
-                                      horizontal: 30.0),
+                                      horizontal: 20.0),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
@@ -87,17 +97,17 @@ Future<Widget> detailsFilm(BuildContext context, Film detail) async {
                                           Text(
                                             'Episódio:',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Flexible(
                                             child: Text(
                                               '${detail.episodeId}',
                                               style: TextStyle(
-                                                color: Colors.grey.shade900,
-                                                fontSize: 18,
+                                                color: Colors.grey.shade200,
+                                                fontSize: 22,
                                               ),
                                             ),
                                           ),
@@ -113,17 +123,17 @@ Future<Widget> detailsFilm(BuildContext context, Film detail) async {
                                           Text(
                                             'Lançamento:',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Flexible(
                                             child: Text(
                                               '${detail.releaseDate}',
                                               style: TextStyle(
-                                                color: Colors.grey.shade900,
-                                                fontSize: 18,
+                                                color: Colors.grey.shade200,
+                                                fontSize: 22,
                                               ),
                                             ),
                                           ),
@@ -139,17 +149,17 @@ Future<Widget> detailsFilm(BuildContext context, Film detail) async {
                                           Text(
                                             'Diretor(a):',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Flexible(
                                             child: Text(
                                               '${detail.director}',
                                               style: TextStyle(
-                                                color: Colors.grey.shade900,
-                                                fontSize: 18,
+                                                color: Colors.grey.shade200,
+                                                fontSize: 22,
                                               ),
                                             ),
                                           ),
@@ -165,17 +175,17 @@ Future<Widget> detailsFilm(BuildContext context, Film detail) async {
                                           Text(
                                             'Produtor(a):',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Flexible(
                                             child: Text(
                                               '${detail.producer}',
                                               style: TextStyle(
-                                                color: Colors.grey.shade900,
-                                                fontSize: 18,
+                                                color: Colors.grey.shade200,
+                                                fontSize: 22,
                                               ),
                                             ),
                                           ),
@@ -185,17 +195,17 @@ Future<Widget> detailsFilm(BuildContext context, Film detail) async {
                                       Text(
                                         'Descrição:',
                                         style: TextStyle(
-                                          color: Colors.grey.shade900,
+                                          color: Colors.grey.shade200,
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 18,
+                                          fontSize: 22,
                                         ),
                                       ),
                                       Text(
                                         '${detail.openingCrawl}',
                                         textAlign: TextAlign.justify,
                                         style: TextStyle(
-                                          color: Colors.grey.shade900,
-                                          fontSize: 18,
+                                          color: Colors.grey.shade200,
+                                          fontSize: 22,
                                         ),
                                       ),
                                     ],
@@ -227,12 +237,14 @@ Future<Widget> detailsPersonage(BuildContext context, Personage detail) async {
 
         setState(() => size);
         return Dialog(
+          backgroundColor: Colors.transparent,
           elevation: 0,
           child: LayoutBuilder(
             builder: (context, constraints) {
               return Container(
+                color: Theme.of(context).backgroundColor.withOpacity(0.95),
                 constraints: BoxConstraints(
-                  maxWidth: constraints.maxWidth,
+                  maxWidth: 1000,
                   maxHeight: constraints.maxHeight,
                 ),
                 child: SingleChildScrollView(
@@ -264,17 +276,25 @@ Future<Widget> detailsPersonage(BuildContext context, Personage detail) async {
                             children: [
                               Padding(
                                 padding: const EdgeInsets.only(top: 8.0),
-                                child: Image.network(
-                                  detail.thumbnailUrl!,
-                                  fit: BoxFit.cover,
-                                  width: size.width / 3,
-                                  height: size.height / 1.2,
-                                ),
+                                child: detail.thumbnailUrl == null ||
+                                        detail.thumbnailUrl!.isEmpty
+                                    ? Image.asset(
+                                        'assets/images/logo_starwars.png',
+                                        color: Colors.grey.shade300,
+                                        width: size.width / 3.4,
+                                        height: size.height / 1.4,
+                                      )
+                                    : Image.network(
+                                        detail.thumbnailUrl!,
+                                        fit: BoxFit.cover,
+                                        width: size.width / 3.2,
+                                        height: size.height / 1.4,
+                                      ),
                               ),
                               Expanded(
                                 child: Padding(
                                   padding: const EdgeInsets.symmetric(
-                                      horizontal: 30.0),
+                                      horizontal: 20.0),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
@@ -298,17 +318,17 @@ Future<Widget> detailsPersonage(BuildContext context, Personage detail) async {
                                           Text(
                                             'Nascimento: ',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Flexible(
                                             child: Text(
                                               '${detail.birthYear}',
                                               style: TextStyle(
-                                                color: Colors.grey.shade900,
-                                                fontSize: 18,
+                                                color: Colors.grey.shade200,
+                                                fontSize: 22,
                                               ),
                                             ),
                                           ),
@@ -324,17 +344,17 @@ Future<Widget> detailsPersonage(BuildContext context, Personage detail) async {
                                           Text(
                                             'Gênero: ',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Flexible(
                                             child: Text(
                                               '${detail.gender}',
                                               style: TextStyle(
-                                                color: Colors.grey.shade900,
-                                                fontSize: 18,
+                                                color: Colors.grey.shade200,
+                                                fontSize: 22,
                                               ),
                                             ),
                                           ),
@@ -350,17 +370,17 @@ Future<Widget> detailsPersonage(BuildContext context, Personage detail) async {
                                           Text(
                                             'Altura: ',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Flexible(
                                             child: Text(
                                               '${detail.height}',
                                               style: TextStyle(
-                                                color: Colors.grey.shade900,
-                                                fontSize: 18,
+                                                color: Colors.grey.shade200,
+                                                fontSize: 22,
                                               ),
                                             ),
                                           ),
@@ -376,17 +396,17 @@ Future<Widget> detailsPersonage(BuildContext context, Personage detail) async {
                                           Text(
                                             'Planeta: ',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Flexible(
                                             child: Text(
                                               '${detail.planet.name}',
                                               style: TextStyle(
-                                                color: Colors.grey.shade900,
-                                                fontSize: 18,
+                                                color: Colors.grey.shade200,
+                                                fontSize: 22,
                                               ),
                                             ),
                                           ),
@@ -402,9 +422,9 @@ Future<Widget> detailsPersonage(BuildContext context, Personage detail) async {
                                           Text(
                                             'Espécie: ',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Expanded(
@@ -416,8 +436,8 @@ Future<Widget> detailsPersonage(BuildContext context, Personage detail) async {
                                                 return Text(
                                                   specie.name!,
                                                   style: TextStyle(
-                                                    color: Colors.grey.shade900,
-                                                    fontSize: 18,
+                                                    color: Colors.grey.shade200,
+                                                    fontSize: 22,
                                                   ),
                                                 );
                                               }).toList(),
@@ -435,9 +455,9 @@ Future<Widget> detailsPersonage(BuildContext context, Personage detail) async {
                                           Text(
                                             'Filmes: ',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Expanded(
@@ -449,8 +469,8 @@ Future<Widget> detailsPersonage(BuildContext context, Personage detail) async {
                                                 return Text(
                                                   film.title!,
                                                   style: TextStyle(
-                                                    color: Colors.grey.shade900,
-                                                    fontSize: 18,
+                                                    color: Colors.grey.shade200,
+                                                    fontSize: 22,
                                                   ),
                                                 );
                                               }).toList(),
@@ -468,9 +488,9 @@ Future<Widget> detailsPersonage(BuildContext context, Personage detail) async {
                                           Text(
                                             'Veículos: ',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Expanded(
@@ -482,8 +502,8 @@ Future<Widget> detailsPersonage(BuildContext context, Personage detail) async {
                                                 return Text(
                                                   vehicle.name!,
                                                   style: TextStyle(
-                                                    color: Colors.grey.shade900,
-                                                    fontSize: 18,
+                                                    color: Colors.grey.shade200,
+                                                    fontSize: 22,
                                                   ),
                                                 );
                                               }).toList(),
@@ -501,9 +521,9 @@ Future<Widget> detailsPersonage(BuildContext context, Personage detail) async {
                                           Text(
                                             'Naves: ',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Expanded(
@@ -515,8 +535,8 @@ Future<Widget> detailsPersonage(BuildContext context, Personage detail) async {
                                                 return Text(
                                                   starship.name!,
                                                   style: TextStyle(
-                                                    color: Colors.grey.shade900,
-                                                    fontSize: 18,
+                                                    color: Colors.grey.shade200,
+                                                    fontSize: 22,
                                                   ),
                                                 );
                                               }).toList(),
@@ -553,12 +573,14 @@ Future<Widget> detailsVehicle(BuildContext context, Vehicle detail) async {
 
         setState(() => size);
         return Dialog(
+          backgroundColor: Colors.transparent,
           elevation: 0,
           child: LayoutBuilder(
             builder: (context, constraints) {
               return Container(
+                color: Theme.of(context).backgroundColor.withOpacity(0.95),
                 constraints: BoxConstraints(
-                  maxWidth: constraints.maxWidth,
+                  maxWidth: 1000,
                   maxHeight: constraints.maxHeight,
                 ),
                 child: SingleChildScrollView(
@@ -590,17 +612,25 @@ Future<Widget> detailsVehicle(BuildContext context, Vehicle detail) async {
                             children: [
                               Padding(
                                 padding: const EdgeInsets.only(top: 8.0),
-                                child: Image.network(
-                                  detail.thumbnailUrl!,
-                                  fit: BoxFit.cover,
-                                  width: size.width / 3,
-                                  height: size.height / 1.2,
-                                ),
+                                child: detail.thumbnailUrl == null ||
+                                        detail.thumbnailUrl!.isEmpty
+                                    ? Image.asset(
+                                        'assets/images/logo_starwars.png',
+                                        color: Colors.grey.shade300,
+                                        width: size.width / 3.4,
+                                        height: size.height / 1.4,
+                                      )
+                                    : Image.network(
+                                        detail.thumbnailUrl!,
+                                        fit: BoxFit.cover,
+                                        width: size.width / 3.4,
+                                        height: size.height / 1.4,
+                                      ),
                               ),
                               Expanded(
                                 child: Padding(
                                   padding: const EdgeInsets.symmetric(
-                                      horizontal: 30.0),
+                                      horizontal: 20.0),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
@@ -624,17 +654,17 @@ Future<Widget> detailsVehicle(BuildContext context, Vehicle detail) async {
                                           Text(
                                             'Modelo: ',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Flexible(
                                             child: Text(
                                               '${detail.model}',
                                               style: TextStyle(
-                                                color: Colors.grey.shade900,
-                                                fontSize: 18,
+                                                color: Colors.grey.shade200,
+                                                fontSize: 22,
                                               ),
                                             ),
                                           ),
@@ -650,17 +680,17 @@ Future<Widget> detailsVehicle(BuildContext context, Vehicle detail) async {
                                           Text(
                                             'Fabricante: ',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Flexible(
                                             child: Text(
                                               '${detail.manufacturer}',
                                               style: TextStyle(
-                                                color: Colors.grey.shade900,
-                                                fontSize: 18,
+                                                color: Colors.grey.shade200,
+                                                fontSize: 22,
                                               ),
                                             ),
                                           ),
@@ -676,17 +706,17 @@ Future<Widget> detailsVehicle(BuildContext context, Vehicle detail) async {
                                           Text(
                                             'Velocidade máxima: ',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Flexible(
                                             child: Text(
                                               '${detail.maxAtmospheringSpeed}',
                                               style: TextStyle(
-                                                color: Colors.grey.shade900,
-                                                fontSize: 18,
+                                                color: Colors.grey.shade200,
+                                                fontSize: 22,
                                               ),
                                             ),
                                           ),
@@ -702,17 +732,17 @@ Future<Widget> detailsVehicle(BuildContext context, Vehicle detail) async {
                                           Text(
                                             'Capacidade de passageiro: ',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Flexible(
                                             child: Text(
                                               '${detail.passengers}',
                                               style: TextStyle(
-                                                color: Colors.grey.shade900,
-                                                fontSize: 18,
+                                                color: Colors.grey.shade200,
+                                                fontSize: 22,
                                               ),
                                             ),
                                           ),
@@ -728,17 +758,17 @@ Future<Widget> detailsVehicle(BuildContext context, Vehicle detail) async {
                                           Text(
                                             'Classe de Veículo: ',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Flexible(
                                             child: Text(
                                               '${detail.vehicleClass}',
                                               style: TextStyle(
-                                                color: Colors.grey.shade900,
-                                                fontSize: 18,
+                                                color: Colors.grey.shade200,
+                                                fontSize: 22,
                                               ),
                                             ),
                                           ),
@@ -754,9 +784,9 @@ Future<Widget> detailsVehicle(BuildContext context, Vehicle detail) async {
                                           Text(
                                             'Pilotos: ',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Expanded(
@@ -768,8 +798,8 @@ Future<Widget> detailsVehicle(BuildContext context, Vehicle detail) async {
                                                 return Text(
                                                   x.name!,
                                                   style: TextStyle(
-                                                    color: Colors.grey.shade900,
-                                                    fontSize: 18,
+                                                    color: Colors.grey.shade200,
+                                                    fontSize: 22,
                                                   ),
                                                 );
                                               }).toList(),
@@ -787,9 +817,9 @@ Future<Widget> detailsVehicle(BuildContext context, Vehicle detail) async {
                                           Text(
                                             'Filmes: ',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Expanded(
@@ -801,8 +831,8 @@ Future<Widget> detailsVehicle(BuildContext context, Vehicle detail) async {
                                                 return Text(
                                                   film.title!,
                                                   style: TextStyle(
-                                                    color: Colors.grey.shade900,
-                                                    fontSize: 18,
+                                                    color: Colors.grey.shade200,
+                                                    fontSize: 22,
                                                   ),
                                                 );
                                               }).toList(),
@@ -839,12 +869,14 @@ Future<Widget> detailsPlanet(BuildContext context, Planet detail) async {
 
         setState(() => size);
         return Dialog(
+          backgroundColor: Colors.transparent,
           elevation: 0,
           child: LayoutBuilder(
             builder: (context, constraints) {
               return Container(
+                color: Theme.of(context).backgroundColor.withOpacity(0.95),
                 constraints: BoxConstraints(
-                  maxWidth: constraints.maxWidth,
+                  maxWidth: 1000,
                   maxHeight: constraints.maxHeight,
                 ),
                 child: SingleChildScrollView(
@@ -876,17 +908,25 @@ Future<Widget> detailsPlanet(BuildContext context, Planet detail) async {
                             children: [
                               Padding(
                                 padding: const EdgeInsets.only(top: 8.0),
-                                child: Image.network(
-                                  detail.thumbnailUrl!,
-                                  fit: BoxFit.cover,
-                                  width: size.width / 3,
-                                  height: size.height / 1.2,
-                                ),
+                                child: detail.thumbnailUrl == null ||
+                                        detail.thumbnailUrl!.isEmpty
+                                    ? Image.asset(
+                                        'assets/images/logo_starwars.png',
+                                        color: Colors.grey.shade300,
+                                        width: size.width / 3.4,
+                                        height: size.height / 1.4,
+                                      )
+                                    : Image.network(
+                                        detail.thumbnailUrl!,
+                                        fit: BoxFit.cover,
+                                        width: size.width / 3.4,
+                                        height: size.height / 1.4,
+                                      ),
                               ),
                               Expanded(
                                 child: Padding(
                                   padding: const EdgeInsets.symmetric(
-                                      horizontal: 30.0),
+                                      horizontal: 20.0),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
@@ -910,17 +950,17 @@ Future<Widget> detailsPlanet(BuildContext context, Planet detail) async {
                                           Text(
                                             'Em órbita há: ',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Flexible(
                                             child: Text(
                                               '${detail.orbitalPeriod}',
                                               style: TextStyle(
-                                                color: Colors.grey.shade900,
-                                                fontSize: 18,
+                                                color: Colors.grey.shade200,
+                                                fontSize: 22,
                                               ),
                                             ),
                                           ),
@@ -936,17 +976,17 @@ Future<Widget> detailsPlanet(BuildContext context, Planet detail) async {
                                           Text(
                                             'Diameto: ',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Flexible(
                                             child: Text(
                                               '${detail.diameter}',
                                               style: TextStyle(
-                                                color: Colors.grey.shade900,
-                                                fontSize: 18,
+                                                color: Colors.grey.shade200,
+                                                fontSize: 22,
                                               ),
                                             ),
                                           ),
@@ -962,17 +1002,17 @@ Future<Widget> detailsPlanet(BuildContext context, Planet detail) async {
                                           Text(
                                             'Clima: ',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Flexible(
                                             child: Text(
                                               '${detail.climate}',
                                               style: TextStyle(
-                                                color: Colors.grey.shade900,
-                                                fontSize: 18,
+                                                color: Colors.grey.shade200,
+                                                fontSize: 22,
                                               ),
                                             ),
                                           ),
@@ -988,17 +1028,17 @@ Future<Widget> detailsPlanet(BuildContext context, Planet detail) async {
                                           Text(
                                             'Gravidade: ',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Flexible(
                                             child: Text(
                                               '${detail.gravity}',
                                               style: TextStyle(
-                                                color: Colors.grey.shade900,
-                                                fontSize: 18,
+                                                color: Colors.grey.shade200,
+                                                fontSize: 22,
                                               ),
                                             ),
                                           ),
@@ -1014,17 +1054,17 @@ Future<Widget> detailsPlanet(BuildContext context, Planet detail) async {
                                           Text(
                                             'Terreno: ',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Flexible(
                                             child: Text(
                                               '${detail.terrain}',
                                               style: TextStyle(
-                                                color: Colors.grey.shade900,
-                                                fontSize: 18,
+                                                color: Colors.grey.shade200,
+                                                fontSize: 22,
                                               ),
                                             ),
                                           ),
@@ -1040,17 +1080,17 @@ Future<Widget> detailsPlanet(BuildContext context, Planet detail) async {
                                           Text(
                                             'População: ',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Flexible(
                                             child: Text(
                                               '${detail.population}',
                                               style: TextStyle(
-                                                color: Colors.grey.shade900,
-                                                fontSize: 18,
+                                                color: Colors.grey.shade200,
+                                                fontSize: 22,
                                               ),
                                             ),
                                           ),
@@ -1066,9 +1106,9 @@ Future<Widget> detailsPlanet(BuildContext context, Planet detail) async {
                                           Text(
                                             'Moradores: ',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Expanded(
@@ -1080,8 +1120,8 @@ Future<Widget> detailsPlanet(BuildContext context, Planet detail) async {
                                                 return Text(
                                                   people.name!,
                                                   style: TextStyle(
-                                                    color: Colors.grey.shade900,
-                                                    fontSize: 18,
+                                                    color: Colors.grey.shade200,
+                                                    fontSize: 22,
                                                   ),
                                                 );
                                               }).toList(),
@@ -1099,9 +1139,9 @@ Future<Widget> detailsPlanet(BuildContext context, Planet detail) async {
                                           Text(
                                             'Filmes: ',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Expanded(
@@ -1113,8 +1153,8 @@ Future<Widget> detailsPlanet(BuildContext context, Planet detail) async {
                                                 return Text(
                                                   film.title!,
                                                   style: TextStyle(
-                                                    color: Colors.grey.shade900,
-                                                    fontSize: 18,
+                                                    color: Colors.grey.shade200,
+                                                    fontSize: 22,
                                                   ),
                                                 );
                                               }).toList(),
@@ -1151,12 +1191,14 @@ Future<Widget> detailsSpecie(BuildContext context, Specie detail) async {
 
         setState(() => size);
         return Dialog(
+          backgroundColor: Colors.transparent,
           elevation: 0,
           child: LayoutBuilder(
             builder: (context, constraints) {
               return Container(
+                color: Theme.of(context).backgroundColor.withOpacity(0.95),
                 constraints: BoxConstraints(
-                  maxWidth: constraints.maxWidth,
+                  maxWidth: 1000,
                   maxHeight: constraints.maxHeight,
                 ),
                 child: SingleChildScrollView(
@@ -1188,17 +1230,25 @@ Future<Widget> detailsSpecie(BuildContext context, Specie detail) async {
                             children: [
                               Padding(
                                 padding: const EdgeInsets.only(top: 8.0),
-                                child: Image.network(
-                                  detail.thumbnailUrl!,
-                                  fit: BoxFit.cover,
-                                  width: size.width / 3,
-                                  height: size.height / 1.2,
-                                ),
+                                child: detail.thumbnailUrl == null ||
+                                        detail.thumbnailUrl!.isEmpty
+                                    ? Image.asset(
+                                        'assets/images/logo_starwars.png',
+                                        color: Colors.grey.shade300,
+                                        width: size.width / 3.4,
+                                        height: size.height / 1.4,
+                                      )
+                                    : Image.network(
+                                        detail.thumbnailUrl!,
+                                        fit: BoxFit.cover,
+                                        width: size.width / 3.4,
+                                        height: size.height / 1.4,
+                                      ),
                               ),
                               Expanded(
                                 child: Padding(
                                   padding: const EdgeInsets.symmetric(
-                                      horizontal: 30.0),
+                                      horizontal: 20.0),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
@@ -1222,17 +1272,17 @@ Future<Widget> detailsSpecie(BuildContext context, Specie detail) async {
                                           Text(
                                             'Classificação: ',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Flexible(
                                             child: Text(
                                               '${detail.classification}',
                                               style: TextStyle(
-                                                color: Colors.grey.shade900,
-                                                fontSize: 18,
+                                                color: Colors.grey.shade200,
+                                                fontSize: 22,
                                               ),
                                             ),
                                           ),
@@ -1248,17 +1298,17 @@ Future<Widget> detailsSpecie(BuildContext context, Specie detail) async {
                                           Text(
                                             'Designação: ',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Flexible(
                                             child: Text(
                                               '${detail.designation}',
                                               style: TextStyle(
-                                                color: Colors.grey.shade900,
-                                                fontSize: 18,
+                                                color: Colors.grey.shade200,
+                                                fontSize: 22,
                                               ),
                                             ),
                                           ),
@@ -1274,17 +1324,17 @@ Future<Widget> detailsSpecie(BuildContext context, Specie detail) async {
                                           Text(
                                             'Altura média: ',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Flexible(
                                             child: Text(
                                               '${detail.averageHeight}',
                                               style: TextStyle(
-                                                color: Colors.grey.shade900,
-                                                fontSize: 18,
+                                                color: Colors.grey.shade200,
+                                                fontSize: 22,
                                               ),
                                             ),
                                           ),
@@ -1300,17 +1350,17 @@ Future<Widget> detailsSpecie(BuildContext context, Specie detail) async {
                                           Text(
                                             'Vida média: ',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Flexible(
                                             child: Text(
                                               '${detail.averageLifespan}',
                                               style: TextStyle(
-                                                color: Colors.grey.shade900,
-                                                fontSize: 18,
+                                                color: Colors.grey.shade200,
+                                                fontSize: 22,
                                               ),
                                             ),
                                           ),
@@ -1326,17 +1376,17 @@ Future<Widget> detailsSpecie(BuildContext context, Specie detail) async {
                                           Text(
                                             'Língua/Idioma: ',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Flexible(
                                             child: Text(
                                               '${detail.language}',
                                               style: TextStyle(
-                                                color: Colors.grey.shade900,
-                                                fontSize: 18,
+                                                color: Colors.grey.shade200,
+                                                fontSize: 22,
                                               ),
                                             ),
                                           ),
@@ -1352,17 +1402,17 @@ Future<Widget> detailsSpecie(BuildContext context, Specie detail) async {
                                           Text(
                                             'Planeta: ',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Flexible(
                                             child: Text(
                                               '${detail.planet.name}',
                                               style: TextStyle(
-                                                color: Colors.grey.shade900,
-                                                fontSize: 18,
+                                                color: Colors.grey.shade200,
+                                                fontSize: 22,
                                               ),
                                             ),
                                           ),
@@ -1378,9 +1428,9 @@ Future<Widget> detailsSpecie(BuildContext context, Specie detail) async {
                                           Text(
                                             'Moradores: ',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Expanded(
@@ -1392,8 +1442,8 @@ Future<Widget> detailsSpecie(BuildContext context, Specie detail) async {
                                                 return Text(
                                                   people.name!,
                                                   style: TextStyle(
-                                                    color: Colors.grey.shade900,
-                                                    fontSize: 18,
+                                                    color: Colors.grey.shade200,
+                                                    fontSize: 22,
                                                   ),
                                                 );
                                               }).toList(),
@@ -1411,9 +1461,9 @@ Future<Widget> detailsSpecie(BuildContext context, Specie detail) async {
                                           Text(
                                             'Filmes: ',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Expanded(
@@ -1425,8 +1475,8 @@ Future<Widget> detailsSpecie(BuildContext context, Specie detail) async {
                                                 return Text(
                                                   film.title!,
                                                   style: TextStyle(
-                                                    color: Colors.grey.shade900,
-                                                    fontSize: 18,
+                                                    color: Colors.grey.shade200,
+                                                    fontSize: 22,
                                                   ),
                                                 );
                                               }).toList(),
@@ -1463,12 +1513,14 @@ Future<Widget> detailsStarship(BuildContext context, Starship detail) async {
 
         setState(() => size);
         return Dialog(
+          backgroundColor: Colors.transparent,
           elevation: 0,
           child: LayoutBuilder(
             builder: (context, constraints) {
               return Container(
+                color: Theme.of(context).backgroundColor.withOpacity(0.95),
                 constraints: BoxConstraints(
-                  maxWidth: constraints.maxWidth,
+                  maxWidth: 1000,
                   maxHeight: constraints.maxHeight,
                 ),
                 child: SingleChildScrollView(
@@ -1498,19 +1550,29 @@ Future<Widget> detailsStarship(BuildContext context, Starship detail) async {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.only(top: 8.0),
-                                child: Image.network(
-                                  detail.thumbnailUrl!,
-                                  fit: BoxFit.cover,
-                                  width: size.width / 3,
-                                  height: size.height / 1.2,
+                              Flexible(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(top: 8.0),
+                                  child: detail.thumbnailUrl == null ||
+                                          detail.thumbnailUrl!.isEmpty
+                                      ? Image.asset(
+                                          'assets/images/logo_starwars.png',
+                                          color: Colors.grey.shade300,
+                                          width: size.width / 3.4,
+                                          height: size.height / 1.4,
+                                        )
+                                      : Image.network(
+                                          detail.thumbnailUrl!,
+                                          fit: BoxFit.cover,
+                                          width: size.width / 3.4,
+                                          height: size.height / 1.4,
+                                        ),
                                 ),
                               ),
                               Expanded(
                                 child: Padding(
                                   padding: const EdgeInsets.symmetric(
-                                      horizontal: 30.0),
+                                      horizontal: 20.0),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
@@ -1534,17 +1596,17 @@ Future<Widget> detailsStarship(BuildContext context, Starship detail) async {
                                           Text(
                                             'Modelo: ',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Flexible(
                                             child: Text(
                                               '${detail.model}',
                                               style: TextStyle(
-                                                color: Colors.grey.shade900,
-                                                fontSize: 18,
+                                                color: Colors.grey.shade200,
+                                                fontSize: 22,
                                               ),
                                             ),
                                           ),
@@ -1560,17 +1622,17 @@ Future<Widget> detailsStarship(BuildContext context, Starship detail) async {
                                           Text(
                                             'Fabricante: ',
                                             style: TextStyle(
-                                              color: Colors.grey.shade900,
+                                              color: Colors.grey.shade200,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 22,
                                             ),
                                           ),
                                           Flexible(
                                             child: Text(
                                               '${detail.manufacturer}',
                                               style: TextStyle(
-                                                color: Colors.grey.shade900,
-                                                fontSize: 18,
+                                                color: Colors.grey.shade200,
+                                                fontSize: 22,
                                               ),
                                             ),
                                           ),
@@ -1583,20 +1645,22 @@ Future<Widget> detailsStarship(BuildContext context, Starship detail) async {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
-                                          Text(
-                                            'Velocidade máxima: ',
-                                            style: TextStyle(
-                                              color: Colors.grey.shade900,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                          Flexible(
+                                            child: Text(
+                                              'Velocidade máxima: ',
+                                              style: TextStyle(
+                                                color: Colors.grey.shade200,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 22,
+                                              ),
                                             ),
                                           ),
                                           Flexible(
                                             child: Text(
                                               '${detail.maxAtmospheringSpeed}',
                                               style: TextStyle(
-                                                color: Colors.grey.shade900,
-                                                fontSize: 18,
+                                                color: Colors.grey.shade200,
+                                                fontSize: 22,
                                               ),
                                             ),
                                           ),
@@ -1609,20 +1673,22 @@ Future<Widget> detailsStarship(BuildContext context, Starship detail) async {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
-                                          Text(
-                                            'Classificação da nave: ',
-                                            style: TextStyle(
-                                              color: Colors.grey.shade900,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                          Flexible(
+                                            child: Text(
+                                              'Classificação da nave: ',
+                                              style: TextStyle(
+                                                color: Colors.grey.shade200,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 22,
+                                              ),
                                             ),
                                           ),
                                           Flexible(
                                             child: Text(
                                               '${detail.starshipClass}',
                                               style: TextStyle(
-                                                color: Colors.grey.shade900,
-                                                fontSize: 18,
+                                                color: Colors.grey.shade200,
+                                                fontSize: 22,
                                               ),
                                             ),
                                           ),
@@ -1635,12 +1701,14 @@ Future<Widget> detailsStarship(BuildContext context, Starship detail) async {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
-                                          Text(
-                                            'Piloto: ',
-                                            style: TextStyle(
-                                              color: Colors.grey.shade900,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                          Flexible(
+                                            child: Text(
+                                              'Piloto: ',
+                                              style: TextStyle(
+                                                color: Colors.grey.shade200,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 22,
+                                              ),
                                             ),
                                           ),
                                           Expanded(
@@ -1652,8 +1720,8 @@ Future<Widget> detailsStarship(BuildContext context, Starship detail) async {
                                                 return Text(
                                                   people.name!,
                                                   style: TextStyle(
-                                                    color: Colors.grey.shade900,
-                                                    fontSize: 18,
+                                                    color: Colors.grey.shade200,
+                                                    fontSize: 22,
                                                   ),
                                                 );
                                               }).toList(),
@@ -1668,12 +1736,14 @@ Future<Widget> detailsStarship(BuildContext context, Starship detail) async {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
-                                          Text(
-                                            'Filmes: ',
-                                            style: TextStyle(
-                                              color: Colors.grey.shade900,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                          Flexible(
+                                            child: Text(
+                                              'Filmes: ',
+                                              style: TextStyle(
+                                                color: Colors.grey.shade200,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 22,
+                                              ),
                                             ),
                                           ),
                                           Expanded(
@@ -1685,8 +1755,8 @@ Future<Widget> detailsStarship(BuildContext context, Starship detail) async {
                                                 return Text(
                                                   film.title!,
                                                   style: TextStyle(
-                                                    color: Colors.grey.shade900,
-                                                    fontSize: 18,
+                                                    color: Colors.grey.shade200,
+                                                    fontSize: 22,
                                                   ),
                                                 );
                                               }).toList(),
