@@ -73,7 +73,14 @@ class _HomePageState extends State<HomePage> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(5, 0, 5, 15),
                   child: Row(children: [
-                    const SearchWidget(),
+                    SearchWidget(
+                      categoryId: categoryNotifier.value,
+                      callback: (value) {
+                        setState(() {
+                          loading = value;
+                        });
+                      },
+                    ),
                     Padding(
                         padding: const EdgeInsets.fromLTRB(50, 0, 0, 0),
                         child: PaginationWidget(

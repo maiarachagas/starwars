@@ -88,4 +88,19 @@ class CategoryController with ChangeNotifier {
     _category!.detail = updatedList;
     notifyListeners();
   }
+
+  Future<void> searchData(
+      {required String? category, required String value}) async {
+    try {
+      _category =
+          await service.searchData(_client, category: category, value: value);
+
+      await _attributeImageToCategory(_category!.detail!);
+
+      notifyListeners();
+    } catch (e) {
+      throw ApiException(
+          message: '$e', code: '1000', details: DateTime.now().toString());
+    }
+  }
 }
