@@ -1,15 +1,16 @@
 import 'dart:convert';
 
 import 'package:app_teste_unitario/app/models/bing_model.dart';
+import 'package:app_teste_unitario/env.dart';
 import 'package:http/http.dart';
 
 import '../../exceptions/api_exceptions.dart';
 
 class BingRepository {
-  final String _baseUrl = 'https://api.bing.microsoft.com/v7.0';
+  final String _baseUrl = AppConfig.apiUrl;
   final Map<String, String> _headers = {
     'Content-type': 'application/json',
-    'Ocp-Apim-Subscription-Key': '619ee56b78e8449d934c274565c4e306'
+    'Ocp-Apim-Subscription-Key': AppConfig.apiKey
   };
 
   Future<List<InfoImage>> getImageByBing(Client client, {String? param}) async {
