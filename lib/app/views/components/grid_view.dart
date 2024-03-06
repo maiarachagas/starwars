@@ -47,7 +47,13 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                           onTap: () async {
                             await getDetails(detail.url!, detail.image!);
                           },
-                          child: Card(
+                          child: Container(
+                            decoration: const BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(8),
+                              ),
+                            ),
                             child: Column(
                               children: [
                                 Expanded(
@@ -69,8 +75,9 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                                       padding: const EdgeInsets.all(8.0),
                                       child: Text(
                                         detail.name!,
-                                        style: const TextStyle(
-                                            color: Colors.grey,
+                                        style: TextStyle(
+                                            color: Colors.grey.shade900,
+                                            fontWeight: FontWeight.bold,
                                             overflow: TextOverflow.clip),
                                       ),
                                     ),
