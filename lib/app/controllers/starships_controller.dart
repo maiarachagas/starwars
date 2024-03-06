@@ -1,4 +1,4 @@
-import 'package:app_teste_unitario/app/services/swapi_rest/index.dart';
+import 'package:project_starwars/app/services/swapi_rest/index.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 

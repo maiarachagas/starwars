@@ -1,4 +1,4 @@
-import 'package:app_teste_unitario/app/services/swapi_rest/swapi_api.dart';
+import 'package:project_starwars/app/services/swapi_rest/swapi_api.dart';
 import 'dart:convert';
 
 import 'package:http/http.dart';

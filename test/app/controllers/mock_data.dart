@@ -1,11 +1,11 @@
-import 'package:app_teste_unitario/app/models/bing_model.dart';
-import 'package:app_teste_unitario/app/models/category_model.dart';
-import 'package:app_teste_unitario/app/models/films_model.dart';
-import 'package:app_teste_unitario/app/models/personages_model.dart';
-import 'package:app_teste_unitario/app/models/planets_model.dart';
-import 'package:app_teste_unitario/app/models/species_model.dart';
-import 'package:app_teste_unitario/app/models/starships_model.dart';
-import 'package:app_teste_unitario/app/models/vehicles_model.dart';
+import 'package:project_starwars/app/models/bing_model.dart';
+import 'package:project_starwars/app/models/category_model.dart';
+import 'package:project_starwars/app/models/films_model.dart';
+import 'package:project_starwars/app/models/personages_model.dart';
+import 'package:project_starwars/app/models/planets_model.dart';
+import 'package:project_starwars/app/models/species_model.dart';
+import 'package:project_starwars/app/models/starships_model.dart';
+import 'package:project_starwars/app/models/vehicles_model.dart';
 
 List<InfoImage> get infoImage => [
       InfoImage(

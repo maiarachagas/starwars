@@ -1,4 +1,4 @@
-import 'package:app_teste_unitario/app/services/swapi_rest/index.dart';
+import 'package:project_starwars/app/services/swapi_rest/index.dart';
 import 'package:get_it/get_it.dart';
 
 import 'bing_rest/bing_service.dart';

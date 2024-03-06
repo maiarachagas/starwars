@@ -1,8 +1,8 @@
-import 'package:app_teste_unitario/app/controllers/index.dart';
-import 'package:app_teste_unitario/app/views/components/grid_view.dart';
-import 'package:app_teste_unitario/app/views/components/menu.dart';
-import 'package:app_teste_unitario/app/views/components/pagination.dart';
-import 'package:app_teste_unitario/app/views/components/search.dart';
+import 'package:project_starwars/app/controllers/index.dart';
+import 'package:project_starwars/app/views/components/grid_view.dart';
+import 'package:project_starwars/app/views/components/menu.dart';
+import 'package:project_starwars/app/views/components/pagination.dart';
+import 'package:project_starwars/app/views/components/search.dart';
 import 'package:flutter/material.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:provider/provider.dart';

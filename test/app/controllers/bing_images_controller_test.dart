@@ -1,5 +1,5 @@
-import 'package:app_teste_unitario/app/controllers/index.dart';
-import 'package:app_teste_unitario/app/services/bing_rest/bing_service.dart';
+import 'package:project_starwars/app/controllers/index.dart';
+import 'package:project_starwars/app/services/bing_rest/bing_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
 import 'package:mocktail/mocktail.dart';

@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:app_teste_unitario/app/models/bing_model.dart';
-import 'package:app_teste_unitario/env.dart';
+import 'package:project_starwars/app/models/bing_model.dart';
+import 'package:project_starwars/env.dart';
 import 'package:http/http.dart';
 
 import '../../exceptions/api_exceptions.dart';

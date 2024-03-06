@@ -1,4 +1,4 @@
-package com.example.app_teste_unitario
+package com.example.project_starwars
 
 import io.flutter.embedding.android.FlutterActivity
 

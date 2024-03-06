@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "project-starwars",
+    "site": "project_starwars",
     "public": "build/web",
     "ignore": [
       "firebase.json",

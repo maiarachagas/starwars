@@ -1,8 +1,8 @@
-import 'package:app_teste_unitario/app/models/personages_model.dart';
-import 'package:app_teste_unitario/app/models/planets_model.dart';
-import 'package:app_teste_unitario/app/models/species_model.dart';
-import 'package:app_teste_unitario/app/models/starships_model.dart';
-import 'package:app_teste_unitario/app/models/vehicles_model.dart';
+import 'package:project_starwars/app/models/personages_model.dart';
+import 'package:project_starwars/app/models/planets_model.dart';
+import 'package:project_starwars/app/models/species_model.dart';
+import 'package:project_starwars/app/models/starships_model.dart';
+import 'package:project_starwars/app/models/vehicles_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../models/films_model.dart';

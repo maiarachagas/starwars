@@ -1,5 +1,5 @@
-import 'package:app_teste_unitario/app/controllers/index.dart';
-import 'package:app_teste_unitario/app/services/dependency_injection.dart';
+import 'package:project_starwars/app/controllers/index.dart';
+import 'package:project_starwars/app/services/dependency_injection.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

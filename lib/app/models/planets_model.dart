@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:app_teste_unitario/app/models/personages_model.dart';
+import 'package:project_starwars/app/models/personages_model.dart';
 
 import 'films_model.dart';
 
