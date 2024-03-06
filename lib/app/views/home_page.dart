@@ -106,13 +106,16 @@ class _HomePageState extends State<HomePage> {
                   child: ValueListenableBuilder<String>(
                     valueListenable: categoryNotifier,
                     builder: (context, value, child) {
-                      return GridViewWidget(
-                        category: value,
-                        callback: (value) {
-                          setState(() {
-                            loading = value;
-                          });
-                        },
+                      return Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: GridViewWidget(
+                          category: value,
+                          callback: (value) {
+                            setState(() {
+                              loading = value;
+                            });
+                          },
+                        ),
                       );
                     },
                   ),
