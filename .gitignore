@@ -33,6 +33,8 @@ migrate_working_dir/
 /build/
 .metadata
 lib/env.dart
+.firebase
+.firebaserc
 
 # Web related
 lib/generated_plugin_registrant.dart

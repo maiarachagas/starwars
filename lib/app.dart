@@ -64,7 +64,7 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Project StarWars',
         themeMode: ThemeMode.dark,
         darkTheme: customDarkTheme(),
         theme: customLightTheme(),
