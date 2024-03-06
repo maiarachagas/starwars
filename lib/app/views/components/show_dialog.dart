@@ -21,10 +21,15 @@ Future<Widget> detailsFilm(BuildContext context, Film detail) async {
           child: LayoutBuilder(
             builder: (context, constraints) {
               return Container(
-                color: Theme.of(context).backgroundColor.withOpacity(0.95),
                 constraints: BoxConstraints(
                   maxWidth: 1000,
                   maxHeight: constraints.maxHeight,
+                ),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).backgroundColor.withOpacity(0.95),
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(8),
+                  ),
                 ),
                 child: SingleChildScrollView(
                   child: Padding(
@@ -63,11 +68,14 @@ Future<Widget> detailsFilm(BuildContext context, Film detail) async {
                                         width: size.width / 3.4,
                                         height: size.height / 1.4,
                                       )
-                                    : Image.network(
-                                        detail.thumbnailUrl!,
-                                        fit: BoxFit.cover,
-                                        width: size.width / 3.4,
-                                        height: size.height / 1.4,
+                                    : ClipRRect(
+                                        borderRadius: BorderRadius.circular(8),
+                                        child: Image.network(
+                                          detail.thumbnailUrl!,
+                                          fit: BoxFit.cover,
+                                          width: size.width / 3.4,
+                                          height: size.height / 1.4,
+                                        ),
                                       ),
                               ),
                               Expanded(
@@ -242,10 +250,15 @@ Future<Widget> detailsPersonage(BuildContext context, Personage detail) async {
           child: LayoutBuilder(
             builder: (context, constraints) {
               return Container(
-                color: Theme.of(context).backgroundColor.withOpacity(0.95),
                 constraints: BoxConstraints(
                   maxWidth: 1000,
                   maxHeight: constraints.maxHeight,
+                ),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).backgroundColor.withOpacity(0.95),
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(8),
+                  ),
                 ),
                 child: SingleChildScrollView(
                   child: Padding(
@@ -284,11 +297,14 @@ Future<Widget> detailsPersonage(BuildContext context, Personage detail) async {
                                         width: size.width / 3.4,
                                         height: size.height / 1.4,
                                       )
-                                    : Image.network(
-                                        detail.thumbnailUrl!,
-                                        fit: BoxFit.cover,
-                                        width: size.width / 3.2,
-                                        height: size.height / 1.4,
+                                    : ClipRRect(
+                                        borderRadius: BorderRadius.circular(8),
+                                        child: Image.network(
+                                          detail.thumbnailUrl!,
+                                          fit: BoxFit.cover,
+                                          width: size.width / 3.2,
+                                          height: size.height / 1.4,
+                                        ),
                                       ),
                               ),
                               Expanded(
@@ -578,10 +594,15 @@ Future<Widget> detailsVehicle(BuildContext context, Vehicle detail) async {
           child: LayoutBuilder(
             builder: (context, constraints) {
               return Container(
-                color: Theme.of(context).backgroundColor.withOpacity(0.95),
                 constraints: BoxConstraints(
                   maxWidth: 1000,
                   maxHeight: constraints.maxHeight,
+                ),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).backgroundColor.withOpacity(0.95),
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(8),
+                  ),
                 ),
                 child: SingleChildScrollView(
                   child: Padding(
@@ -620,11 +641,14 @@ Future<Widget> detailsVehicle(BuildContext context, Vehicle detail) async {
                                         width: size.width / 3.4,
                                         height: size.height / 1.4,
                                       )
-                                    : Image.network(
-                                        detail.thumbnailUrl!,
-                                        fit: BoxFit.cover,
-                                        width: size.width / 3.4,
-                                        height: size.height / 1.4,
+                                    : ClipRRect(
+                                        borderRadius: BorderRadius.circular(8),
+                                        child: Image.network(
+                                          detail.thumbnailUrl!,
+                                          fit: BoxFit.cover,
+                                          width: size.width / 3.4,
+                                          height: size.height / 1.4,
+                                        ),
                                       ),
                               ),
                               Expanded(
@@ -874,10 +898,15 @@ Future<Widget> detailsPlanet(BuildContext context, Planet detail) async {
           child: LayoutBuilder(
             builder: (context, constraints) {
               return Container(
-                color: Theme.of(context).backgroundColor.withOpacity(0.95),
                 constraints: BoxConstraints(
                   maxWidth: 1000,
                   maxHeight: constraints.maxHeight,
+                ),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).backgroundColor.withOpacity(0.95),
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(8),
+                  ),
                 ),
                 child: SingleChildScrollView(
                   child: Padding(
@@ -916,11 +945,14 @@ Future<Widget> detailsPlanet(BuildContext context, Planet detail) async {
                                         width: size.width / 3.4,
                                         height: size.height / 1.4,
                                       )
-                                    : Image.network(
-                                        detail.thumbnailUrl!,
-                                        fit: BoxFit.cover,
-                                        width: size.width / 3.4,
-                                        height: size.height / 1.4,
+                                    : ClipRRect(
+                                        borderRadius: BorderRadius.circular(8),
+                                        child: Image.network(
+                                          detail.thumbnailUrl!,
+                                          fit: BoxFit.cover,
+                                          width: size.width / 3.4,
+                                          height: size.height / 1.4,
+                                        ),
                                       ),
                               ),
                               Expanded(
@@ -1196,10 +1228,15 @@ Future<Widget> detailsSpecie(BuildContext context, Specie detail) async {
           child: LayoutBuilder(
             builder: (context, constraints) {
               return Container(
-                color: Theme.of(context).backgroundColor.withOpacity(0.95),
                 constraints: BoxConstraints(
                   maxWidth: 1000,
                   maxHeight: constraints.maxHeight,
+                ),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).backgroundColor.withOpacity(0.95),
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(8),
+                  ),
                 ),
                 child: SingleChildScrollView(
                   child: Padding(
@@ -1238,11 +1275,14 @@ Future<Widget> detailsSpecie(BuildContext context, Specie detail) async {
                                         width: size.width / 3.4,
                                         height: size.height / 1.4,
                                       )
-                                    : Image.network(
-                                        detail.thumbnailUrl!,
-                                        fit: BoxFit.cover,
-                                        width: size.width / 3.4,
-                                        height: size.height / 1.4,
+                                    : ClipRRect(
+                                        borderRadius: BorderRadius.circular(8),
+                                        child: Image.network(
+                                          detail.thumbnailUrl!,
+                                          fit: BoxFit.cover,
+                                          width: size.width / 3.4,
+                                          height: size.height / 1.4,
+                                        ),
                                       ),
                               ),
                               Expanded(
@@ -1518,10 +1558,15 @@ Future<Widget> detailsStarship(BuildContext context, Starship detail) async {
           child: LayoutBuilder(
             builder: (context, constraints) {
               return Container(
-                color: Theme.of(context).backgroundColor.withOpacity(0.95),
                 constraints: BoxConstraints(
                   maxWidth: 1000,
                   maxHeight: constraints.maxHeight,
+                ),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).backgroundColor.withOpacity(0.95),
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(8),
+                  ),
                 ),
                 child: SingleChildScrollView(
                   child: Padding(
@@ -1561,11 +1606,15 @@ Future<Widget> detailsStarship(BuildContext context, Starship detail) async {
                                           width: size.width / 3.4,
                                           height: size.height / 1.4,
                                         )
-                                      : Image.network(
-                                          detail.thumbnailUrl!,
-                                          fit: BoxFit.cover,
-                                          width: size.width / 3.4,
-                                          height: size.height / 1.4,
+                                      : ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(8),
+                                          child: Image.network(
+                                            detail.thumbnailUrl!,
+                                            fit: BoxFit.cover,
+                                            width: size.width / 3.4,
+                                            height: size.height / 1.4,
+                                          ),
                                         ),
                                 ),
                               ),
