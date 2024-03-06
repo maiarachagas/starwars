@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.app_teste_unitario">
+    package="com.example.project_starwars">
    <application
-        android:label="app_teste_unitario"
+        android:label="project_starwars"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

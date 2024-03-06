@@ -1,19 +1,22 @@
-import 'package:app_teste_unitario/app/controllers/personages_controller.dart';
-import 'package:app_teste_unitario/app/models/personages_model.dart';
-import 'package:app_teste_unitario/app/repositories/swapi_repository.dart';
+import 'package:project_starwars/app/controllers/index.dart';
+import 'package:project_starwars/app/services/bing_rest/bing_service.dart';
+import 'package:project_starwars/app/services/swapi_rest/index.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
 import 'package:mocktail/mocktail.dart';
 
-class MockSwapiRepository extends Mock implements SwapiRepository {}
+import 'mock_data.dart';
+
+class MockSwapiRepository extends Mock implements PersonagesService {}
+
+class MockBingRepository extends Mock implements BingRepository {}
 
 class FakeClient extends Fake implements Client {}
 
 void main() {
   late PersonagesController personagesController;
   late MockSwapiRepository mockRepository;
-  List<Personages> allPersonages = [];
-  List<Personages> personages = [];
+  late MockBingRepository mockBingRepository;
 
   group('Personagens Controller', () {
     setUpAll(() {
@@ -22,50 +25,73 @@ void main() {
 
     setUp(() {
       mockRepository = MockSwapiRepository();
-      personagesController = PersonagesController();
-      allPersonages = [
-        Personages(name: 'Luke Skywalker'),
-        Personages(name: 'Darth Vader'),
-      ];
-      personages = [
-        Personages(name: 'Leia Organa'),
-      ];
+      mockBingRepository = MockBingRepository();
+      personagesController = PersonagesController(
+          repository: mockRepository, bingRepository: mockBingRepository);
     });
 
     test('Obter todos os personagens', () async {
-      when(() => mockRepository.getAllPersonages(any()))
-          .thenAnswer((_) async => allPersonages);
+      when(() => mockRepository.getPersonages(any()))
+          .thenAnswer((_) async => personage);
 
-      await personagesController.getAllPersonages();
+      await personagesController.getPersonages();
 
-      expect(personagesController.list!.isNotEmpty, equals(true));
+      expect(personagesController.personage!.isNotEmpty, equals(true));
     });
 
     test('Trazer um personagem específico', () async {
       when(() => mockRepository.searchPersonages(any(),
-          value: any(named: 'value'))).thenAnswer((_) async => personages);
+          value: any(named: 'value'))).thenAnswer((_) async => personage);
 
       await personagesController.searchPersonages(value: 'Leia');
-      expect(personagesController.resultSearch!.isNotEmpty, equals(true));
+      expect(
+          personagesController.personage!
+              .any((element) => element.name!.contains('Leia')),
+          equals(true));
     });
 
     test('Personagem não encontrado', () async {
       when(() => mockRepository.searchPersonages(any(),
-          value: any(named: 'value'))).thenAnswer((_) async => personages);
+          value: any(named: 'value'))).thenAnswer((_) async => []);
 
       await personagesController.searchPersonages(value: 'Lucas');
-      expect(personagesController.resultSearch!.isNotEmpty, equals(false));
+      expect(personagesController.personage!.isNotEmpty, equals(false));
+    });
+
+    test('Listar Personagens por página', () async {
+      when(() => mockRepository.getPersonagesByPage(any(),
+          param: any(named: 'param'))).thenAnswer((_) async => personages);
+
+      await personagesController.getPersonagesByPage(page: 'page=1');
+      expect(
+          personagesController.personages!.personage!.isNotEmpty, equals(true));
+    });
+
+    test('Exibir personagens trazidos por página', () async {
+      when(() => mockRepository.getPersonagesByPage(any(),
+          param: any(named: 'param'))).thenAnswer((_) async => personages);
+
+      await personagesController.getPersonagesByPage(page: 'page=1');
+
+      await personagesController.fetchPersonages();
+      expect(personagesController.personage!.isNotEmpty, equals(true));
     });
 
     test('Limpar lista de todos personagens', () {
       personagesController.clearList();
 
-      expect(personagesController.list!.isEmpty, equals(true));
+      expect(personagesController.personage!.isEmpty, equals(true));
     });
 
-    test('Limpar resultado de buscar personagens', () {
-      personagesController.clearSearch();
-      expect(personagesController.resultSearch!.isEmpty, equals(true));
+    test('Atribuindo imagem ao personagem', () async {
+      when(() => mockBingRepository.getImageByBing(any(),
+          param: any(named: 'param'))).thenAnswer((_) async => infoImage);
+      await personagesController.attributeImageToPerson(personage);
+
+      expect(
+          personagesController.personage!
+              .any((element) => element.thumbnailUrl.toString().isNotEmpty),
+          isTrue);
     });
   });
 }

@@ -1,4 +1,4 @@
-# app_teste_unitario
+# project_starwars
 
 A new Flutter project.
 

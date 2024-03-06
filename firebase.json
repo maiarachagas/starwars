@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site": "project_starwars",
+    "public": "build/web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

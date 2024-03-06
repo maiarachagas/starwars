@@ -1,6 +1,6 @@
 {
-    "name": "app_teste_unitario",
-    "short_name": "app_teste_unitario",
+    "name": "project_starwars",
+    "short_name": "project_starwars",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
