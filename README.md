@@ -1,16 +1,25 @@
-# project_starwars
+# Projeto Star Wars
 
-A new Flutter project.
+## Uso
+- Abra o link [Project StarWars]https://project-starwars.web.app.
+- Você poderá percorrer as categorias para visualizar caracteristicas dos filmes da saga Star Wars.
+- Poderá realizar buscas de personagens especificos e rolar a paginação.
 
-## Getting Started
+## Instalação/Execução Local
+Para executar este projeto localmente, siga estas etapas:
+1. Clone este repositório.
+2. Navegue até o diretório do projeto.
+3. Execute `flutter run` no terminal.
 
-This project is a starting point for a Flutter application.
+## Contato
+Para me contatar, enviar e-mail para: chagass.maiara@gmail.com
 
-A few resources to get you started if this is your first Flutter project:
+## Status do Projeto
+Este projeto está atualmente em desenvolvimento ativo.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Informações Adicionais:
+- Utilizado [SWAPI]https://swapi.dev/ para listagem de filmes, personagens e outras categorias;
+- Imagens trazidas através da API do [Bing]https://www.microsoft.com/en-us/bing/apis/bing-image-search-api;
+- Publicação da url através do Firebase Hosting;
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+  
