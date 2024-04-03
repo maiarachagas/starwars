@@ -82,7 +82,10 @@ class CategoryController with ChangeNotifier {
       var resultBing =
           await bingRepository.getImageByBing(_client, param: detail.name);
       var updateDetail = detail;
-      updateDetail.image = resultBing.first.thumbnailUrl;
+
+      if (resultBing.isNotEmpty) {
+        updateDetail.image = resultBing.first.thumbnailUrl;
+      }
       updatedList.add(updateDetail);
     }
     _category!.detail = updatedList;

@@ -87,7 +87,10 @@ class VehiclesController with ChangeNotifier {
           await bingRepository.getImageByBing(_client, param: vehicle.name);
       var updatedVehicle = vehicle;
 
-      updatedVehicle.thumbnailUrl = resultBing.first.thumbnailUrl;
+      if (resultBing.isNotEmpty) {
+        updatedVehicle.thumbnailUrl = resultBing.first.thumbnailUrl;
+      }
+
       updatedVehicles.add(updatedVehicle);
     }
     _vehicle = updatedVehicles;

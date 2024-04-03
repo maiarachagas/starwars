@@ -88,7 +88,9 @@ class PersonagesController with ChangeNotifier {
           await bingRepository.getImageByBing(_client, param: person.name);
       var updatedPersonage = person;
 
-      updatedPersonage.thumbnailUrl = resultBing.first.thumbnailUrl;
+      if (resultBing.isNotEmpty) {
+        updatedPersonage.thumbnailUrl = resultBing.first.thumbnailUrl;
+      }
       updatedPersonages.add(updatedPersonage);
     }
     _personage = updatedPersonages;
