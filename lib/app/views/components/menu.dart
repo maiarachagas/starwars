@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class MenuWidget extends StatefulWidget {
   final Function(String value) onTap;
@@ -10,29 +11,29 @@ class MenuWidget extends StatefulWidget {
 
 class _MenuWidgetState extends State<MenuWidget> {
   final List category = [
-    {"icon": "assets/icons/popcorn.png", "name": "Filmes", "endpoint": "films"},
+    {"icon": "assets/icons/popcorn.svg", "name": "Filmes", "endpoint": "films"},
     {
-      "icon": "assets/icons/finn.png",
+      "icon": "assets/icons/finn.svg",
       "name": "Personagens",
       "endpoint": "people"
     },
     {
-      "icon": "assets/icons/c3po.png",
+      "icon": "assets/icons/c3po.svg",
       "name": "Espécies",
       "endpoint": "species"
     },
     {
-      "icon": "assets/icons/tie_fighter.png",
+      "icon": "assets/icons/tie_fighter.svg",
       "name": "Naves",
       "endpoint": "starships"
     },
     {
-      "icon": "assets/icons/speeder.png",
+      "icon": "assets/icons/speeder.svg",
       "name": "Veículos",
       "endpoint": "vehicles"
     },
     {
-      "icon": "assets/icons/geonosis.png",
+      "icon": "assets/icons/geonosis.svg",
       "name": "Planetas",
       "endpoint": "planets"
     },
@@ -63,7 +64,8 @@ class _MenuWidgetState extends State<MenuWidget> {
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Image.asset(category[index]['icon'], height: 32),
+                      SvgPicture.asset(category[index]['icon'],
+                          width: 32, height: 32),
                       const SizedBox(width: 5),
                       Text(category[index]['name'].toString().toUpperCase(),
                           style: TextStyle(
