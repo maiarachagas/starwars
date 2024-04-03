@@ -87,7 +87,10 @@ class SpeciesController with ChangeNotifier {
           await bingRepository.getImageByBing(_client, param: specie.name);
       var updatedSpecie = specie;
 
-      updatedSpecie.thumbnailUrl = resultBing.first.thumbnailUrl;
+      if (resultBing.isNotEmpty) {
+        updatedSpecie.thumbnailUrl = resultBing.first.thumbnailUrl;
+      }
+
       updatedSpecies.add(updatedSpecie);
     }
     _specie = updatedSpecies;

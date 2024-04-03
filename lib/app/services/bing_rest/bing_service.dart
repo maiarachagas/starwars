@@ -26,12 +26,7 @@ class BingRepository {
         var list = body['value'] as List<dynamic>;
         return list.map((value) => InfoImage.fromMap(value)).toList();
       } else {
-        throw [
-          ApiException(
-              message: 'Erro na requisição',
-              code: response.statusCode.toString(),
-              details: '${DateTime.now()} - ${response.body}')
-        ];
+        return [];
       }
     } catch (e) {
       throw ApiException(

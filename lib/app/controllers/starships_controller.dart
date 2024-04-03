@@ -86,7 +86,10 @@ class StarshipsController with ChangeNotifier {
           await bingRepository.getImageByBing(_client, param: starship.name);
       var updatedStarship = starship;
 
-      updatedStarship.thumbnailUrl = resultBing.first.thumbnailUrl;
+      if (resultBing.isNotEmpty) {
+        updatedStarship.thumbnailUrl = resultBing.first.thumbnailUrl;
+      }
+
       updatedStarships.add(updatedStarship);
     }
     _starship = updatedStarships;

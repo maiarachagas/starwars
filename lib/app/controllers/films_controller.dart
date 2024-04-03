@@ -64,7 +64,10 @@ class FilmsController with ChangeNotifier {
           await bingRepository.getImageByBing(_client, param: film.title);
       var updatedFilm = film;
 
-      updatedFilm.thumbnailUrl = resultBing.first.thumbnailUrl;
+      if (resultBing.isNotEmpty) {
+        updatedFilm.thumbnailUrl = resultBing.first.thumbnailUrl;
+      }
+
       updatedFilms.add(updatedFilm);
     }
     _film = updatedFilms;

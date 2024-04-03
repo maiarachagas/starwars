@@ -87,7 +87,10 @@ class PlanetsController with ChangeNotifier {
           await bingRepository.getImageByBing(_client, param: planet.name);
       var updatedPlanet = planet;
 
-      updatedPlanet.thumbnailUrl = resultBing.first.thumbnailUrl;
+      if (resultBing.isNotEmpty) {
+        updatedPlanet.thumbnailUrl = resultBing.first.thumbnailUrl;
+      }
+
       updatedPlanets.add(updatedPlanet);
     }
     _planet = updatedPlanets;
