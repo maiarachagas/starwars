@@ -6,6 +6,7 @@ import 'package:project_starwars/app/models/vehicles_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../models/films_model.dart';
+import 'logo_widget.dart';
 
 Future<Widget> detailsFilm(BuildContext context, Film detail) async {
   return await showDialog(
@@ -62,12 +63,10 @@ Future<Widget> detailsFilm(BuildContext context, Film detail) async {
                                 padding: const EdgeInsets.only(top: 8.0),
                                 child: detail.thumbnailUrl == null ||
                                         detail.thumbnailUrl!.isEmpty
-                                    ? Image.asset(
-                                        'assets/images/logo_starwars.png',
-                                        color: Colors.grey.shade300,
-                                        width: size.width / 3.4,
-                                        height: size.height / 1.4,
-                                      )
+                                    ? Logo(
+                                        width: 200,
+                                        height: 200,
+                                        color: Colors.grey.shade300)
                                     : ClipRRect(
                                         borderRadius: BorderRadius.circular(8),
                                         child: Image.network(
@@ -291,12 +290,10 @@ Future<Widget> detailsPersonage(BuildContext context, Personage detail) async {
                                 padding: const EdgeInsets.only(top: 8.0),
                                 child: detail.thumbnailUrl == null ||
                                         detail.thumbnailUrl!.isEmpty
-                                    ? Image.asset(
-                                        'assets/images/logo_starwars.png',
-                                        color: Colors.grey.shade300,
-                                        width: size.width / 3.4,
-                                        height: size.height / 1.4,
-                                      )
+                                    ? Logo(
+                                        width: 200,
+                                        height: 200,
+                                        color: Colors.grey.shade300)
                                     : ClipRRect(
                                         borderRadius: BorderRadius.circular(8),
                                         child: Image.network(
@@ -635,12 +632,10 @@ Future<Widget> detailsVehicle(BuildContext context, Vehicle detail) async {
                                 padding: const EdgeInsets.only(top: 8.0),
                                 child: detail.thumbnailUrl == null ||
                                         detail.thumbnailUrl!.isEmpty
-                                    ? Image.asset(
-                                        'assets/images/logo_starwars.png',
-                                        color: Colors.grey.shade300,
-                                        width: size.width / 3.4,
-                                        height: size.height / 1.4,
-                                      )
+                                    ? Logo(
+                                        width: 200,
+                                        height: 200,
+                                        color: Colors.grey.shade300)
                                     : ClipRRect(
                                         borderRadius: BorderRadius.circular(8),
                                         child: Image.network(
@@ -939,12 +934,10 @@ Future<Widget> detailsPlanet(BuildContext context, Planet detail) async {
                                 padding: const EdgeInsets.only(top: 8.0),
                                 child: detail.thumbnailUrl == null ||
                                         detail.thumbnailUrl!.isEmpty
-                                    ? Image.asset(
-                                        'assets/images/logo_starwars.png',
-                                        color: Colors.grey.shade300,
-                                        width: size.width / 3.4,
-                                        height: size.height / 1.4,
-                                      )
+                                    ? Logo(
+                                        width: 200,
+                                        height: 200,
+                                        color: Colors.grey.shade300)
                                     : ClipRRect(
                                         borderRadius: BorderRadius.circular(8),
                                         child: Image.network(
@@ -1269,12 +1262,10 @@ Future<Widget> detailsSpecie(BuildContext context, Specie detail) async {
                                 padding: const EdgeInsets.only(top: 8.0),
                                 child: detail.thumbnailUrl == null ||
                                         detail.thumbnailUrl!.isEmpty
-                                    ? Image.asset(
-                                        'assets/images/logo_starwars.png',
-                                        color: Colors.grey.shade300,
-                                        width: size.width / 3.4,
-                                        height: size.height / 1.4,
-                                      )
+                                    ? Logo(
+                                        width: 200,
+                                        height: 200,
+                                        color: Colors.grey.shade300)
                                     : ClipRRect(
                                         borderRadius: BorderRadius.circular(8),
                                         child: Image.network(
@@ -1600,12 +1591,10 @@ Future<Widget> detailsStarship(BuildContext context, Starship detail) async {
                                   padding: const EdgeInsets.only(top: 8.0),
                                   child: detail.thumbnailUrl == null ||
                                           detail.thumbnailUrl!.isEmpty
-                                      ? Image.asset(
-                                          'assets/images/logo_starwars.png',
-                                          color: Colors.grey.shade300,
-                                          width: size.width / 3.4,
-                                          height: size.height / 1.4,
-                                        )
+                                      ? Logo(
+                                          width: 200,
+                                          height: 200,
+                                          color: Colors.grey.shade300)
                                       : ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(8),

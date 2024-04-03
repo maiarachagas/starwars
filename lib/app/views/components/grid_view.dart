@@ -4,6 +4,7 @@ import 'package:project_starwars/app/controllers/index.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'logo_widget.dart';
 import 'show_dialog.dart';
 
 class GridViewWidget extends StatefulWidget {
@@ -59,8 +60,9 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                                 Expanded(
                                   child: detail.image == null ||
                                           detail.image!.isEmpty
-                                      ? Image.asset(
-                                          'assets/images/logo_starwars.png',
+                                      ? Logo(
+                                          width: 150,
+                                          height: 150,
                                           color: Colors.grey.shade300,
                                         )
                                       : Image.network(

@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:provider/provider.dart';
 
+import 'components/logo_widget.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -45,7 +47,7 @@ class _HomePageState extends State<HomePage> {
           appBar: AppBar(
             elevation: 0,
             backgroundColor: Theme.of(context).backgroundColor,
-            title: Image.asset('assets/images/logo_starwars.png', height: 50),
+            title: const Logo(width: 70, height: 70),
           ),
           body: Padding(
             padding: const EdgeInsets.fromLTRB(20.0, 5.0, 20.0, 5.0),
