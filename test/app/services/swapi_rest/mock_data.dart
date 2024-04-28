@@ -12,56 +12,56 @@ String get jsonBodyFilms => '''
             "producer": "Gary Kurtz, Rick McCallum",
             "release_date": "1977-05-25",
             "characters": [
-                "https://swapi.dev/api/people/1/",
-                "https://swapi.dev/api/people/2/",
-                "https://swapi.dev/api/people/3/",
-                "https://swapi.dev/api/people/4/",
-                "https://swapi.dev/api/people/5/",
-                "https://swapi.dev/api/people/6/",
-                "https://swapi.dev/api/people/7/",
-                "https://swapi.dev/api/people/8/",
-                "https://swapi.dev/api/people/9/",
-                "https://swapi.dev/api/people/10/",
-                "https://swapi.dev/api/people/12/",
-                "https://swapi.dev/api/people/13/",
-                "https://swapi.dev/api/people/14/",
-                "https://swapi.dev/api/people/15/",
-                "https://swapi.dev/api/people/16/",
-                "https://swapi.dev/api/people/18/",
-                "https://swapi.dev/api/people/19/",
-                "https://swapi.dev/api/people/81/"
+                "https://swapi.py4e.com/api/people/1/",
+                "https://swapi.py4e.com/api/people/2/",
+                "https://swapi.py4e.com/api/people/3/",
+                "https://swapi.py4e.com/api/people/4/",
+                "https://swapi.py4e.com/api/people/5/",
+                "https://swapi.py4e.com/api/people/6/",
+                "https://swapi.py4e.com/api/people/7/",
+                "https://swapi.py4e.com/api/people/8/",
+                "https://swapi.py4e.com/api/people/9/",
+                "https://swapi.py4e.com/api/people/10/",
+                "https://swapi.py4e.com/api/people/12/",
+                "https://swapi.py4e.com/api/people/13/",
+                "https://swapi.py4e.com/api/people/14/",
+                "https://swapi.py4e.com/api/people/15/",
+                "https://swapi.py4e.com/api/people/16/",
+                "https://swapi.py4e.com/api/people/18/",
+                "https://swapi.py4e.com/api/people/19/",
+                "https://swapi.py4e.com/api/people/81/"
             ],
             "planets": [
-                "https://swapi.dev/api/planets/1/",
-                "https://swapi.dev/api/planets/2/",
-                "https://swapi.dev/api/planets/3/"
+                "https://swapi.py4e.com/api/planets/1/",
+                "https://swapi.py4e.com/api/planets/2/",
+                "https://swapi.py4e.com/api/planets/3/"
             ],
             "starships": [
-                "https://swapi.dev/api/starships/2/",
-                "https://swapi.dev/api/starships/3/",
-                "https://swapi.dev/api/starships/5/",
-                "https://swapi.dev/api/starships/9/",
-                "https://swapi.dev/api/starships/10/",
-                "https://swapi.dev/api/starships/11/",
-                "https://swapi.dev/api/starships/12/",
-                "https://swapi.dev/api/starships/13/"
+                "https://swapi.py4e.com/api/starships/2/",
+                "https://swapi.py4e.com/api/starships/3/",
+                "https://swapi.py4e.com/api/starships/5/",
+                "https://swapi.py4e.com/api/starships/9/",
+                "https://swapi.py4e.com/api/starships/10/",
+                "https://swapi.py4e.com/api/starships/11/",
+                "https://swapi.py4e.com/api/starships/12/",
+                "https://swapi.py4e.com/api/starships/13/"
             ],
             "vehicles": [
-                "https://swapi.dev/api/vehicles/4/",
-                "https://swapi.dev/api/vehicles/6/",
-                "https://swapi.dev/api/vehicles/7/",
-                "https://swapi.dev/api/vehicles/8/"
+                "https://swapi.py4e.com/api/vehicles/4/",
+                "https://swapi.py4e.com/api/vehicles/6/",
+                "https://swapi.py4e.com/api/vehicles/7/",
+                "https://swapi.py4e.com/api/vehicles/8/"
             ],
             "species": [
-                "https://swapi.dev/api/species/1/",
-                "https://swapi.dev/api/species/2/",
-                "https://swapi.dev/api/species/3/",
-                "https://swapi.dev/api/species/4/",
-                "https://swapi.dev/api/species/5/"
+                "https://swapi.py4e.com/api/species/1/",
+                "https://swapi.py4e.com/api/species/2/",
+                "https://swapi.py4e.com/api/species/3/",
+                "https://swapi.py4e.com/api/species/4/",
+                "https://swapi.py4e.com/api/species/5/"
             ],
             "created": "2014-12-10T14:23:31.880000Z",
             "edited": "2014-12-20T19:49:45.256000Z",
-            "url": "https://swapi.dev/api/films/1/"
+            "url": "https://swapi.py4e.com/api/films/1/"
         },
         {
             "title": "The Empire Strikes Back",
@@ -71,58 +71,58 @@ String get jsonBodyFilms => '''
             "producer": "Gary Kurtz, Rick McCallum",
             "release_date": "1980-05-17",
             "characters": [
-                "https://swapi.dev/api/people/1/",
-                "https://swapi.dev/api/people/2/",
-                "https://swapi.dev/api/people/3/",
-                "https://swapi.dev/api/people/4/",
-                "https://swapi.dev/api/people/5/",
-                "https://swapi.dev/api/people/10/",
-                "https://swapi.dev/api/people/13/",
-                "https://swapi.dev/api/people/14/",
-                "https://swapi.dev/api/people/18/",
-                "https://swapi.dev/api/people/20/",
-                "https://swapi.dev/api/people/21/",
-                "https://swapi.dev/api/people/22/",
-                "https://swapi.dev/api/people/23/",
-                "https://swapi.dev/api/people/24/",
-                "https://swapi.dev/api/people/25/",
-                "https://swapi.dev/api/people/26/"
+                "https://swapi.py4e.com/api/people/1/",
+                "https://swapi.py4e.com/api/people/2/",
+                "https://swapi.py4e.com/api/people/3/",
+                "https://swapi.py4e.com/api/people/4/",
+                "https://swapi.py4e.com/api/people/5/",
+                "https://swapi.py4e.com/api/people/10/",
+                "https://swapi.py4e.com/api/people/13/",
+                "https://swapi.py4e.com/api/people/14/",
+                "https://swapi.py4e.com/api/people/18/",
+                "https://swapi.py4e.com/api/people/20/",
+                "https://swapi.py4e.com/api/people/21/",
+                "https://swapi.py4e.com/api/people/22/",
+                "https://swapi.py4e.com/api/people/23/",
+                "https://swapi.py4e.com/api/people/24/",
+                "https://swapi.py4e.com/api/people/25/",
+                "https://swapi.py4e.com/api/people/26/"
             ],
             "planets": [
-                "https://swapi.dev/api/planets/4/",
-                "https://swapi.dev/api/planets/5/",
-                "https://swapi.dev/api/planets/6/",
-                "https://swapi.dev/api/planets/27/"
+                "https://swapi.py4e.com/api/planets/4/",
+                "https://swapi.py4e.com/api/planets/5/",
+                "https://swapi.py4e.com/api/planets/6/",
+                "https://swapi.py4e.com/api/planets/27/"
             ],
             "starships": [
-                "https://swapi.dev/api/starships/3/",
-                "https://swapi.dev/api/starships/10/",
-                "https://swapi.dev/api/starships/11/",
-                "https://swapi.dev/api/starships/12/",
-                "https://swapi.dev/api/starships/15/",
-                "https://swapi.dev/api/starships/17/",
-                "https://swapi.dev/api/starships/21/",
-                "https://swapi.dev/api/starships/22/",
-                "https://swapi.dev/api/starships/23/"
+                "https://swapi.py4e.com/api/starships/3/",
+                "https://swapi.py4e.com/api/starships/10/",
+                "https://swapi.py4e.com/api/starships/11/",
+                "https://swapi.py4e.com/api/starships/12/",
+                "https://swapi.py4e.com/api/starships/15/",
+                "https://swapi.py4e.com/api/starships/17/",
+                "https://swapi.py4e.com/api/starships/21/",
+                "https://swapi.py4e.com/api/starships/22/",
+                "https://swapi.py4e.com/api/starships/23/"
             ],
             "vehicles": [
-                "https://swapi.dev/api/vehicles/8/",
-                "https://swapi.dev/api/vehicles/14/",
-                "https://swapi.dev/api/vehicles/16/",
-                "https://swapi.dev/api/vehicles/18/",
-                "https://swapi.dev/api/vehicles/19/",
-                "https://swapi.dev/api/vehicles/20/"
+                "https://swapi.py4e.com/api/vehicles/8/",
+                "https://swapi.py4e.com/api/vehicles/14/",
+                "https://swapi.py4e.com/api/vehicles/16/",
+                "https://swapi.py4e.com/api/vehicles/18/",
+                "https://swapi.py4e.com/api/vehicles/19/",
+                "https://swapi.py4e.com/api/vehicles/20/"
             ],
             "species": [
-                "https://swapi.dev/api/species/1/",
-                "https://swapi.dev/api/species/2/",
-                "https://swapi.dev/api/species/3/",
-                "https://swapi.dev/api/species/6/",
-                "https://swapi.dev/api/species/7/"
+                "https://swapi.py4e.com/api/species/1/",
+                "https://swapi.py4e.com/api/species/2/",
+                "https://swapi.py4e.com/api/species/3/",
+                "https://swapi.py4e.com/api/species/6/",
+                "https://swapi.py4e.com/api/species/7/"
             ],
             "created": "2014-12-12T11:26:24.656000Z",
             "edited": "2014-12-15T13:07:53.386000Z",
-            "url": "https://swapi.dev/api/films/2/"
+            "url": "https://swapi.py4e.com/api/films/2/"
         }
       ]
     }''';
@@ -141,58 +141,58 @@ String get jsonBodyFilmsByTitle => '''
             "producer": "Gary Kurtz, Rick McCallum",
             "release_date": "1980-05-17",
             "characters": [
-                "https://swapi.dev/api/people/1/",
-                "https://swapi.dev/api/people/2/",
-                "https://swapi.dev/api/people/3/",
-                "https://swapi.dev/api/people/4/",
-                "https://swapi.dev/api/people/5/",
-                "https://swapi.dev/api/people/10/",
-                "https://swapi.dev/api/people/13/",
-                "https://swapi.dev/api/people/14/",
-                "https://swapi.dev/api/people/18/",
-                "https://swapi.dev/api/people/20/",
-                "https://swapi.dev/api/people/21/",
-                "https://swapi.dev/api/people/22/",
-                "https://swapi.dev/api/people/23/",
-                "https://swapi.dev/api/people/24/",
-                "https://swapi.dev/api/people/25/",
-                "https://swapi.dev/api/people/26/"
+                "https://swapi.py4e.com/api/people/1/",
+                "https://swapi.py4e.com/api/people/2/",
+                "https://swapi.py4e.com/api/people/3/",
+                "https://swapi.py4e.com/api/people/4/",
+                "https://swapi.py4e.com/api/people/5/",
+                "https://swapi.py4e.com/api/people/10/",
+                "https://swapi.py4e.com/api/people/13/",
+                "https://swapi.py4e.com/api/people/14/",
+                "https://swapi.py4e.com/api/people/18/",
+                "https://swapi.py4e.com/api/people/20/",
+                "https://swapi.py4e.com/api/people/21/",
+                "https://swapi.py4e.com/api/people/22/",
+                "https://swapi.py4e.com/api/people/23/",
+                "https://swapi.py4e.com/api/people/24/",
+                "https://swapi.py4e.com/api/people/25/",
+                "https://swapi.py4e.com/api/people/26/"
             ],
             "planets": [
-                "https://swapi.dev/api/planets/4/",
-                "https://swapi.dev/api/planets/5/",
-                "https://swapi.dev/api/planets/6/",
-                "https://swapi.dev/api/planets/27/"
+                "https://swapi.py4e.com/api/planets/4/",
+                "https://swapi.py4e.com/api/planets/5/",
+                "https://swapi.py4e.com/api/planets/6/",
+                "https://swapi.py4e.com/api/planets/27/"
             ],
             "starships": [
-                "https://swapi.dev/api/starships/3/",
-                "https://swapi.dev/api/starships/10/",
-                "https://swapi.dev/api/starships/11/",
-                "https://swapi.dev/api/starships/12/",
-                "https://swapi.dev/api/starships/15/",
-                "https://swapi.dev/api/starships/17/",
-                "https://swapi.dev/api/starships/21/",
-                "https://swapi.dev/api/starships/22/",
-                "https://swapi.dev/api/starships/23/"
+                "https://swapi.py4e.com/api/starships/3/",
+                "https://swapi.py4e.com/api/starships/10/",
+                "https://swapi.py4e.com/api/starships/11/",
+                "https://swapi.py4e.com/api/starships/12/",
+                "https://swapi.py4e.com/api/starships/15/",
+                "https://swapi.py4e.com/api/starships/17/",
+                "https://swapi.py4e.com/api/starships/21/",
+                "https://swapi.py4e.com/api/starships/22/",
+                "https://swapi.py4e.com/api/starships/23/"
             ],
             "vehicles": [
-                "https://swapi.dev/api/vehicles/8/",
-                "https://swapi.dev/api/vehicles/14/",
-                "https://swapi.dev/api/vehicles/16/",
-                "https://swapi.dev/api/vehicles/18/",
-                "https://swapi.dev/api/vehicles/19/",
-                "https://swapi.dev/api/vehicles/20/"
+                "https://swapi.py4e.com/api/vehicles/8/",
+                "https://swapi.py4e.com/api/vehicles/14/",
+                "https://swapi.py4e.com/api/vehicles/16/",
+                "https://swapi.py4e.com/api/vehicles/18/",
+                "https://swapi.py4e.com/api/vehicles/19/",
+                "https://swapi.py4e.com/api/vehicles/20/"
             ],
             "species": [
-                "https://swapi.dev/api/species/1/",
-                "https://swapi.dev/api/species/2/",
-                "https://swapi.dev/api/species/3/",
-                "https://swapi.dev/api/species/6/",
-                "https://swapi.dev/api/species/7/"
+                "https://swapi.py4e.com/api/species/1/",
+                "https://swapi.py4e.com/api/species/2/",
+                "https://swapi.py4e.com/api/species/3/",
+                "https://swapi.py4e.com/api/species/6/",
+                "https://swapi.py4e.com/api/species/7/"
             ],
             "created": "2014-12-12T11:26:24.656000Z",
             "edited": "2014-12-15T13:07:53.386000Z",
-            "url": "https://swapi.dev/api/films/2/"
+            "url": "https://swapi.py4e.com/api/films/2/"
         }
     ]
 }''';
@@ -200,7 +200,7 @@ String get jsonBodyFilmsByTitle => '''
 String get jsonBodyPlanets => '''
 {
     "count": 60,
-    "next": "https://swapi.dev/api/planets/?page=2",
+    "next": "https://swapi.py4e.com/api/planets/?page=2",
     "previous": null,
     "results": [
         {
@@ -214,27 +214,27 @@ String get jsonBodyPlanets => '''
             "surface_water": "1",
             "population": "200000",
             "residents": [
-                "https://swapi.dev/api/people/1/",
-                "https://swapi.dev/api/people/2/",
-                "https://swapi.dev/api/people/4/",
-                "https://swapi.dev/api/people/6/",
-                "https://swapi.dev/api/people/7/",
-                "https://swapi.dev/api/people/8/",
-                "https://swapi.dev/api/people/9/",
-                "https://swapi.dev/api/people/11/",
-                "https://swapi.dev/api/people/43/",
-                "https://swapi.dev/api/people/62/"
+                "https://swapi.py4e.com/api/people/1/",
+                "https://swapi.py4e.com/api/people/2/",
+                "https://swapi.py4e.com/api/people/4/",
+                "https://swapi.py4e.com/api/people/6/",
+                "https://swapi.py4e.com/api/people/7/",
+                "https://swapi.py4e.com/api/people/8/",
+                "https://swapi.py4e.com/api/people/9/",
+                "https://swapi.py4e.com/api/people/11/",
+                "https://swapi.py4e.com/api/people/43/",
+                "https://swapi.py4e.com/api/people/62/"
             ],
             "films": [
-                "https://swapi.dev/api/films/1/",
-                "https://swapi.dev/api/films/3/",
-                "https://swapi.dev/api/films/4/",
-                "https://swapi.dev/api/films/5/",
-                "https://swapi.dev/api/films/6/"
+                "https://swapi.py4e.com/api/films/1/",
+                "https://swapi.py4e.com/api/films/3/",
+                "https://swapi.py4e.com/api/films/4/",
+                "https://swapi.py4e.com/api/films/5/",
+                "https://swapi.py4e.com/api/films/6/"
             ],
             "created": "2014-12-09T13:50:49.641000Z",
             "edited": "2014-12-20T20:58:18.411000Z",
-            "url": "https://swapi.dev/api/planets/1/"
+            "url": "https://swapi.py4e.com/api/planets/1/"
         },
         {
             "name": "Alderaan",
@@ -247,17 +247,17 @@ String get jsonBodyPlanets => '''
             "surface_water": "40",
             "population": "2000000000",
             "residents": [
-                "https://swapi.dev/api/people/5/",
-                "https://swapi.dev/api/people/68/",
-                "https://swapi.dev/api/people/81/"
+                "https://swapi.py4e.com/api/people/5/",
+                "https://swapi.py4e.com/api/people/68/",
+                "https://swapi.py4e.com/api/people/81/"
             ],
             "films": [
-                "https://swapi.dev/api/films/1/",
-                "https://swapi.dev/api/films/6/"
+                "https://swapi.py4e.com/api/films/1/",
+                "https://swapi.py4e.com/api/films/6/"
             ],
             "created": "2014-12-10T11:35:48.479000Z",
             "edited": "2014-12-20T20:58:18.420000Z",
-            "url": "https://swapi.dev/api/planets/2/"
+            "url": "https://swapi.py4e.com/api/planets/2/"
         }
       ]
     }''';
@@ -279,27 +279,27 @@ String get jsonBodyPlanetByName => '''
             "surface_water": "1",
             "population": "200000",
             "residents": [
-                "https://swapi.dev/api/people/1/",
-                "https://swapi.dev/api/people/2/",
-                "https://swapi.dev/api/people/4/",
-                "https://swapi.dev/api/people/6/",
-                "https://swapi.dev/api/people/7/",
-                "https://swapi.dev/api/people/8/",
-                "https://swapi.dev/api/people/9/",
-                "https://swapi.dev/api/people/11/",
-                "https://swapi.dev/api/people/43/",
-                "https://swapi.dev/api/people/62/"
+                "https://swapi.py4e.com/api/people/1/",
+                "https://swapi.py4e.com/api/people/2/",
+                "https://swapi.py4e.com/api/people/4/",
+                "https://swapi.py4e.com/api/people/6/",
+                "https://swapi.py4e.com/api/people/7/",
+                "https://swapi.py4e.com/api/people/8/",
+                "https://swapi.py4e.com/api/people/9/",
+                "https://swapi.py4e.com/api/people/11/",
+                "https://swapi.py4e.com/api/people/43/",
+                "https://swapi.py4e.com/api/people/62/"
             ],
             "films": [
-                "https://swapi.dev/api/films/1/",
-                "https://swapi.dev/api/films/3/",
-                "https://swapi.dev/api/films/4/",
-                "https://swapi.dev/api/films/5/",
-                "https://swapi.dev/api/films/6/"
+                "https://swapi.py4e.com/api/films/1/",
+                "https://swapi.py4e.com/api/films/3/",
+                "https://swapi.py4e.com/api/films/4/",
+                "https://swapi.py4e.com/api/films/5/",
+                "https://swapi.py4e.com/api/films/6/"
             ],
             "created": "2014-12-09T13:50:49.641000Z",
             "edited": "2014-12-20T20:58:18.411000Z",
-            "url": "https://swapi.dev/api/planets/1/"
+            "url": "https://swapi.py4e.com/api/planets/1/"
         }
     ]
 }''';
@@ -307,7 +307,7 @@ String get jsonBodyPlanetByName => '''
 String get jsonBodySpecies => '''
   {
     "count": 37,
-    "next": "https://swapi.dev/api/species/?page=2",
+    "next": "https://swapi.py4e.com/api/species/?page=2",
     "previous": null,
     "results": [
  {
@@ -319,25 +319,25 @@ String get jsonBodySpecies => '''
             "hair_colors": "blonde, brown, black, red",
             "eye_colors": "brown, blue, green, hazel, grey, amber",
             "average_lifespan": "120",
-            "homeworld": "https://swapi.dev/api/planets/9/",
+            "homeworld": "https://swapi.py4e.com/api/planets/9/",
             "language": "Galactic Basic",
             "people": [
-                "https://swapi.dev/api/people/66/",
-                "https://swapi.dev/api/people/67/",
-                "https://swapi.dev/api/people/68/",
-                "https://swapi.dev/api/people/74/"
+                "https://swapi.py4e.com/api/people/66/",
+                "https://swapi.py4e.com/api/people/67/",
+                "https://swapi.py4e.com/api/people/68/",
+                "https://swapi.py4e.com/api/people/74/"
             ],
             "films": [
-                "https://swapi.dev/api/films/1/",
-                "https://swapi.dev/api/films/2/",
-                "https://swapi.dev/api/films/3/",
-                "https://swapi.dev/api/films/4/",
-                "https://swapi.dev/api/films/5/",
-                "https://swapi.dev/api/films/6/"
+                "https://swapi.py4e.com/api/films/1/",
+                "https://swapi.py4e.com/api/films/2/",
+                "https://swapi.py4e.com/api/films/3/",
+                "https://swapi.py4e.com/api/films/4/",
+                "https://swapi.py4e.com/api/films/5/",
+                "https://swapi.py4e.com/api/films/6/"
             ],
             "created": "2014-12-10T13:52:11.567000Z",
             "edited": "2014-12-20T21:36:42.136000Z",
-            "url": "https://swapi.dev/api/species/1/"
+            "url": "https://swapi.py4e.com/api/species/1/"
         },
          {
             "name": "Droid",
@@ -351,22 +351,22 @@ String get jsonBodySpecies => '''
             "homeworld": null,
             "language": "n/a",
             "people": [
-                "https://swapi.dev/api/people/2/",
-                "https://swapi.dev/api/people/3/",
-                "https://swapi.dev/api/people/8/",
-                "https://swapi.dev/api/people/23/"
+                "https://swapi.py4e.com/api/people/2/",
+                "https://swapi.py4e.com/api/people/3/",
+                "https://swapi.py4e.com/api/people/8/",
+                "https://swapi.py4e.com/api/people/23/"
             ],
             "films": [
-                "https://swapi.dev/api/films/1/",
-                "https://swapi.dev/api/films/2/",
-                "https://swapi.dev/api/films/3/",
-                "https://swapi.dev/api/films/4/",
-                "https://swapi.dev/api/films/5/",
-                "https://swapi.dev/api/films/6/"
+                "https://swapi.py4e.com/api/films/1/",
+                "https://swapi.py4e.com/api/films/2/",
+                "https://swapi.py4e.com/api/films/3/",
+                "https://swapi.py4e.com/api/films/4/",
+                "https://swapi.py4e.com/api/films/5/",
+                "https://swapi.py4e.com/api/films/6/"
             ],
             "created": "2014-12-10T15:16:16.259000Z",
             "edited": "2014-12-20T21:36:42.139000Z",
-            "url": "https://swapi.dev/api/species/2/"
+            "url": "https://swapi.py4e.com/api/species/2/"
         }
     ]
   }
@@ -390,22 +390,22 @@ String get jsonBodySpeciesByName => '''
             "homeworld": null,
             "language": "n/a",
             "people": [
-                "https://swapi.dev/api/people/2/",
-                "https://swapi.dev/api/people/3/",
-                "https://swapi.dev/api/people/8/",
-                "https://swapi.dev/api/people/23/"
+                "https://swapi.py4e.com/api/people/2/",
+                "https://swapi.py4e.com/api/people/3/",
+                "https://swapi.py4e.com/api/people/8/",
+                "https://swapi.py4e.com/api/people/23/"
             ],
             "films": [
-                "https://swapi.dev/api/films/1/",
-                "https://swapi.dev/api/films/2/",
-                "https://swapi.dev/api/films/3/",
-                "https://swapi.dev/api/films/4/",
-                "https://swapi.dev/api/films/5/",
-                "https://swapi.dev/api/films/6/"
+                "https://swapi.py4e.com/api/films/1/",
+                "https://swapi.py4e.com/api/films/2/",
+                "https://swapi.py4e.com/api/films/3/",
+                "https://swapi.py4e.com/api/films/4/",
+                "https://swapi.py4e.com/api/films/5/",
+                "https://swapi.py4e.com/api/films/6/"
             ],
             "created": "2014-12-10T15:16:16.259000Z",
             "edited": "2014-12-20T21:36:42.139000Z",
-            "url": "https://swapi.dev/api/species/2/"
+            "url": "https://swapi.py4e.com/api/species/2/"
         }
     ]
 }
@@ -414,7 +414,7 @@ String get jsonBodySpeciesByName => '''
 String get jsonBodyVehicles => '''
   {
     "count": 39,
-    "next": "https://swapi.dev/api/vehicles/?page=2",
+    "next": "https://swapi.py4e.com/api/vehicles/?page=2",
     "previous": null,
     "results": [
  {
@@ -431,12 +431,12 @@ String get jsonBodyVehicles => '''
             "vehicle_class": "wheeled",
             "pilots": [],
             "films": [
-                "https://swapi.dev/api/films/1/",
-                "https://swapi.dev/api/films/5/"
+                "https://swapi.py4e.com/api/films/1/",
+                "https://swapi.py4e.com/api/films/5/"
             ],
             "created": "2014-12-10T15:36:25.724000Z",
             "edited": "2014-12-20T21:30:21.661000Z",
-            "url": "https://swapi.dev/api/vehicles/4/"
+            "url": "https://swapi.py4e.com/api/vehicles/4/"
         },
         {
             "name": "T-16 skyhopper",
@@ -452,11 +452,11 @@ String get jsonBodyVehicles => '''
             "vehicle_class": "repulsorcraft",
             "pilots": [],
             "films": [
-                "https://swapi.dev/api/films/1/"
+                "https://swapi.py4e.com/api/films/1/"
             ],
             "created": "2014-12-10T16:01:52.434000Z",
             "edited": "2014-12-20T21:30:21.665000Z",
-            "url": "https://swapi.dev/api/vehicles/6/"
+            "url": "https://swapi.py4e.com/api/vehicles/6/"
         }
     ]
   }
@@ -482,12 +482,12 @@ String get jsonBodyVehiclesByName => '''
             "vehicle_class": "wheeled",
             "pilots": [],
             "films": [
-                "https://swapi.dev/api/films/1/",
-                "https://swapi.dev/api/films/5/"
+                "https://swapi.py4e.com/api/films/1/",
+                "https://swapi.py4e.com/api/films/5/"
             ],
             "created": "2014-12-10T15:36:25.724000Z",
             "edited": "2014-12-20T21:30:21.661000Z",
-            "url": "https://swapi.dev/api/vehicles/4/"
+            "url": "https://swapi.py4e.com/api/vehicles/4/"
         }
     ]
 }
@@ -496,7 +496,7 @@ String get jsonBodyVehiclesByName => '''
 String get jsonBodyStarships => '''
   {
     "count": 39,
-    "next": "https://swapi.dev/api/vehicles/?page=2",
+    "next": "https://swapi.py4e.com/api/vehicles/?page=2",
     "previous": null,
     "results": [
  {
@@ -515,13 +515,13 @@ String get jsonBodyStarships => '''
             "starship_class": "corvette",
             "pilots": [],
             "films": [
-                "https://swapi.dev/api/films/1/",
-                "https://swapi.dev/api/films/3/",
-                "https://swapi.dev/api/films/6/"
+                "https://swapi.py4e.com/api/films/1/",
+                "https://swapi.py4e.com/api/films/3/",
+                "https://swapi.py4e.com/api/films/6/"
             ],
             "created": "2014-12-10T14:20:33.369000Z",
             "edited": "2014-12-20T21:23:49.867000Z",
-            "url": "https://swapi.dev/api/starships/2/"
+            "url": "https://swapi.py4e.com/api/starships/2/"
         },
         {
             "name": "Star Destroyer",
@@ -539,13 +539,13 @@ String get jsonBodyStarships => '''
             "starship_class": "Star Destroyer",
             "pilots": [],
             "films": [
-                "https://swapi.dev/api/films/1/",
-                "https://swapi.dev/api/films/2/",
-                "https://swapi.dev/api/films/3/"
+                "https://swapi.py4e.com/api/films/1/",
+                "https://swapi.py4e.com/api/films/2/",
+                "https://swapi.py4e.com/api/films/3/"
             ],
             "created": "2014-12-10T15:08:19.848000Z",
             "edited": "2014-12-20T21:23:49.870000Z",
-            "url": "https://swapi.dev/api/starships/3/"
+            "url": "https://swapi.py4e.com/api/starships/3/"
         }
     ]
   }
@@ -573,11 +573,11 @@ String get jsonBodyStarshipsByName => '''
             "starship_class": "landing craft",
             "pilots": [],
             "films": [
-                "https://swapi.dev/api/films/1/"
+                "https://swapi.py4e.com/api/films/1/"
             ],
             "created": "2014-12-10T15:48:00.586000Z",
             "edited": "2014-12-20T21:23:49.873000Z",
-            "url": "https://swapi.dev/api/starships/5/"
+            "url": "https://swapi.py4e.com/api/starships/5/"
         }
     ]
 }

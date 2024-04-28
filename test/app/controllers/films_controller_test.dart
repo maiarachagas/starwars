@@ -79,7 +79,7 @@ void main() {
           .thenAnswer((_) async => detailsFilm);
 
       await filmsController.getFilmsById(
-          endpoint: 'https://swapi.dev/api/films/3/',
+          endpoint: 'https://swapi.py4e.com/api/films/3/',
           image:
               'https://tse4.mm.bing.net/th?id=OIP.FKsBijrcaeAWzHQbO81nGQHaLI&pid=Api');
       expect(

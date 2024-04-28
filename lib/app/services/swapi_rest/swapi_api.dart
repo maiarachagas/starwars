@@ -1,7 +1,7 @@
 import 'package:http/http.dart';
 
 class SwapiApi {
-  final String _baseUrl = 'https://swapi.dev/api/';
+  final String _baseUrl = 'https://swapi.py4e.com/api/';
 
   String get baseUrl => _baseUrl;
 
