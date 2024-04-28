@@ -27,7 +27,7 @@ Future<Widget> detailsFilm(BuildContext context, Film detail) async {
                   maxHeight: constraints.maxHeight,
                 ),
                 decoration: BoxDecoration(
-                  color: Theme.of(context).backgroundColor.withOpacity(0.95),
+                  color: Theme.of(context).colorScheme.background.withOpacity(0.95),
                   borderRadius: const BorderRadius.all(
                     Radius.circular(8),
                   ),
@@ -254,7 +254,7 @@ Future<Widget> detailsPersonage(BuildContext context, Personage detail) async {
                   maxHeight: constraints.maxHeight,
                 ),
                 decoration: BoxDecoration(
-                  color: Theme.of(context).backgroundColor.withOpacity(0.95),
+                  color: Theme.of(context).colorScheme.background.withOpacity(0.95),
                   borderRadius: const BorderRadius.all(
                     Radius.circular(8),
                   ),
@@ -596,7 +596,7 @@ Future<Widget> detailsVehicle(BuildContext context, Vehicle detail) async {
                   maxHeight: constraints.maxHeight,
                 ),
                 decoration: BoxDecoration(
-                  color: Theme.of(context).backgroundColor.withOpacity(0.95),
+                  color: Theme.of(context).colorScheme.background.withOpacity(0.95),
                   borderRadius: const BorderRadius.all(
                     Radius.circular(8),
                   ),
@@ -898,7 +898,7 @@ Future<Widget> detailsPlanet(BuildContext context, Planet detail) async {
                   maxHeight: constraints.maxHeight,
                 ),
                 decoration: BoxDecoration(
-                  color: Theme.of(context).backgroundColor.withOpacity(0.95),
+                  color: Theme.of(context).colorScheme.background.withOpacity(0.95),
                   borderRadius: const BorderRadius.all(
                     Radius.circular(8),
                   ),
@@ -1226,7 +1226,7 @@ Future<Widget> detailsSpecie(BuildContext context, Specie detail) async {
                   maxHeight: constraints.maxHeight,
                 ),
                 decoration: BoxDecoration(
-                  color: Theme.of(context).backgroundColor.withOpacity(0.95),
+                  color: Theme.of(context).colorScheme.background.withOpacity(0.95),
                   borderRadius: const BorderRadius.all(
                     Radius.circular(8),
                   ),
@@ -1554,7 +1554,7 @@ Future<Widget> detailsStarship(BuildContext context, Starship detail) async {
                   maxHeight: constraints.maxHeight,
                 ),
                 decoration: BoxDecoration(
-                  color: Theme.of(context).backgroundColor.withOpacity(0.95),
+                  color: Theme.of(context).colorScheme.background.withOpacity(0.95),
                   borderRadius: const BorderRadius.all(
                     Radius.circular(8),
                   ),

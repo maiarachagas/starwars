@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
         Scaffold(
           appBar: AppBar(
             elevation: 0,
-            backgroundColor: Theme.of(context).backgroundColor,
+            backgroundColor: Theme.of(context).colorScheme.background,
             title: const Logo(width: 70, height: 70),
           ),
           body: Padding(

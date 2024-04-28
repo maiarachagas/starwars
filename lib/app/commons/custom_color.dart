@@ -6,45 +6,45 @@ import 'package:google_fonts/google_fonts.dart';
 ///
 TextTheme _customLightThemesTextTheme(TextTheme base) {
   return base.copyWith(
-    headline1: GoogleFonts.lato(
+    displayLarge: GoogleFonts.lato(
       fontWeight: FontWeight.w400,
       color: const Color(0xFF1C1F25),
     ),
-    headline3: GoogleFonts.lato(
+    displaySmall: GoogleFonts.lato(
       color: const Color(0xFF1C1F25),
     ),
-    headline4: GoogleFonts.lato(
+    headlineMedium: GoogleFonts.lato(
       color: const Color(0xFF1C1F25),
     ),
-    headline6: GoogleFonts.lato(
+    titleLarge: GoogleFonts.lato(
       fontWeight: FontWeight.w500,
       color: const Color(0xFF3D4046),
     ),
-    caption: GoogleFonts.lato(
+    bodySmall: GoogleFonts.lato(
       color: const Color(0xFF1C1F25),
     ),
-    bodyText1: GoogleFonts.lato(
+    bodyLarge: GoogleFonts.lato(
       color: const Color(0xFF1C1F25),
     ),
-    bodyText2: GoogleFonts.lato(
+    bodyMedium: GoogleFonts.lato(
       color: const Color(0xFF3D4046),
     ),
-    headline2: GoogleFonts.lato(
+    displayMedium: GoogleFonts.lato(
       color: const Color(0xFF1C1F25),
     ),
-    headline5: GoogleFonts.lato(
+    headlineSmall: GoogleFonts.lato(
       color: const Color(0xFF1C1F25),
     ),
-    subtitle1: GoogleFonts.lato(
+    titleMedium: GoogleFonts.lato(
       color: const Color(0xFF1C1F25),
     ),
-    subtitle2: GoogleFonts.lato(
+    titleSmall: GoogleFonts.lato(
       color: const Color(0xFF1C1F25),
     ),
-    button: GoogleFonts.lato(
+    labelLarge: GoogleFonts.lato(
       color: const Color(0xFF1C1F25),
     ),
-    overline: GoogleFonts.lato(
+    labelSmall: GoogleFonts.lato(
       color: const Color(0xFF1C1F25),
     ),
   );
@@ -72,7 +72,6 @@ ThemeData customLightTheme() {
     primaryColor: const Color(0xFFF4D300),
     indicatorColor: const Color(0xFF0C0C0C),
     scaffoldBackgroundColor: const Color(0xFFF2F4F4),
-    colorScheme: colorSchemeTheme,
     primaryIconTheme: lightTheme.primaryIconTheme.copyWith(
       color: const Color(0xFF1C1F25),
       size: 20,
@@ -80,7 +79,6 @@ ThemeData customLightTheme() {
     iconTheme: lightTheme.iconTheme.copyWith(
       color: const Color(0xFF1C1F25),
     ),
-    backgroundColor: const Color(0xFFF2F4F4),
     cardColor: const Color(0xFFececec),
     tabBarTheme: lightTheme.tabBarTheme.copyWith(
       labelColor: const Color(0xFFF4D300),
@@ -88,8 +86,7 @@ ThemeData customLightTheme() {
     ),
     buttonTheme: lightTheme.buttonTheme.copyWith(
       buttonColor: const Color(0xFFF4D300),
-    ),
-    errorColor: const Color(0xFFDB3030),
+    ), colorScheme: colorSchemeTheme.copyWith(background: const Color(0xFFF2F4F4)).copyWith(error: const Color(0xFFDB3030)),
   );
 }
 
@@ -97,29 +94,29 @@ ThemeData customLightTheme() {
 /// Theme Dark
 ///
 ThemeData customDarkTheme() {
-  TextTheme _customDarkThemesTextTheme(TextTheme base) {
+  TextTheme customDarkThemesTextTheme(TextTheme base) {
     return base.copyWith(
-      headline1: GoogleFonts.lato(
+      displayLarge: GoogleFonts.lato(
         fontWeight: FontWeight.w400,
         color: const Color(0xFFF6F9FF),
       ),
-      headline3: GoogleFonts.lato(
+      displaySmall: GoogleFonts.lato(
         color: const Color(0xFFF6F9FF),
       ),
-      headline4: GoogleFonts.lato(
+      headlineMedium: GoogleFonts.lato(
         color: const Color(0xFFF6F9FF),
       ),
-      headline6: GoogleFonts.lato(
+      titleLarge: GoogleFonts.lato(
         fontWeight: FontWeight.w500,
         color: const Color(0xFFF6F9FF),
       ),
-      caption: GoogleFonts.lato(
+      bodySmall: GoogleFonts.lato(
         color: const Color(0xFFF6F9FF),
       ),
-      bodyText1: GoogleFonts.lato(
+      bodyLarge: GoogleFonts.lato(
         color: const Color(0xFFF6F9FF),
       ),
-      bodyText2: GoogleFonts.lato(
+      bodyMedium: GoogleFonts.lato(
         color: const Color(0xFFF6F9FF),
       ),
     );
@@ -143,11 +140,10 @@ ThemeData customDarkTheme() {
 
   final ThemeData lightTheme = ThemeData.light();
   return lightTheme.copyWith(
-    textTheme: _customDarkThemesTextTheme(lightTheme.textTheme),
+    textTheme: customDarkThemesTextTheme(lightTheme.textTheme),
     primaryColor: const Color(0xFFF4D300),
     indicatorColor: const Color(0xFF0C0C0C),
     scaffoldBackgroundColor: const Color(0xFF17202A),
-    colorScheme: colorSchemeTheme,
     primaryIconTheme: lightTheme.primaryIconTheme.copyWith(
       color: const Color(0xFF1C1F25),
       size: 20,
@@ -155,7 +151,6 @@ ThemeData customDarkTheme() {
     iconTheme: lightTheme.iconTheme.copyWith(
       color: const Color(0xFF1C1F25),
     ),
-    backgroundColor: const Color(0xFF17202A),
     cardColor: const Color(0xFFececec),
     tabBarTheme: lightTheme.tabBarTheme.copyWith(
       labelColor: const Color(0xFFF4D300),
@@ -163,7 +158,6 @@ ThemeData customDarkTheme() {
     ),
     buttonTheme: lightTheme.buttonTheme.copyWith(
       buttonColor: const Color(0xFFF4D300),
-    ),
-    errorColor: const Color(0xFFDB3030),
+    ), colorScheme: colorSchemeTheme.copyWith(background: const Color(0xFF17202A)).copyWith(error: const Color(0xFFDB3030)),
   );
 }
